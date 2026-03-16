@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1f7fec; /* De basiskleur */
+  font-family: cursive;
+
+  background-image:
+    radial-gradient(at 0% 0%, rgb(70, 32, 68) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgb(92, 2, 72) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgb(143, 97, 113) 0, transparent 50%);
+
+  background-size: 200% 200%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.521);
+  padding: 20px 40px;
+  backdrop-filter: initial;
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.container a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 21px;
+  font-weight: 600;
+}
+.nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 179, 192);
+  border-radius: 20px;
+  padding: 0 10px;
+  transition: all 0.3s;
+  margin-left: 20px;
+}
+
+.nav a:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(0, 153, 255);
+  box-shadow:
+    0 0 25px rgba(255, 0, 0, 0.671),
+    0 0 50px rgb(0, 47, 255),
+    0 0 100px rgb(0, 162, 255);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.game-card {
+  margin-top: 200px;
+  position: relative;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 2rem;
+}
+
+.game-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: -1;
+}
+
+.game-card.math::before {
+  background-image: url("../assets/math.png");
+}
+
+.game-card.word::before {
+  background-image: url("../assets/word.png");
+}
+
+.game-card.memory::before {
+  background-image: url("../assets/memory.png");
+}
+
+/* .game-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    transform: translateY(-19px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+} */
+
+.game-card:hover::before {
+  /* transform: scale(1.1); */
+  transform: translateY(-10px) scale(1.05) translateX(-10px) rotate(5deg);
+  /* transform: ; */
+
+  opacity: 1;
+}
+
+.card-content {
+  background: linear-gradient(transparent, rgba(5, 10, 24, 0.9));
+  margin: -2rem;
+  padding: 2rem;
+}
+
+.game-card h2 {
+  font-size: 2rem;
+  color: #a0aec0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.game-card p {
+  color: #a0aec0;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.play-btn,
+.tutorial-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+}
+
+.play-btn {
+  background: white;
+  color: #050a18;
+}
+
+.tutorial-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-card:hover .play-btn {
+  background: #ffd700;
+  transform: scale(1.05);
+}
+
+.game-card:hover .tutorial-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-card {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.game-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.game-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.game-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .game-grid {
+    gap: 1.5rem;
+  }
+}
+.title {
+  text-align: center;
+  font-size: 25px;
+}
+.title span:first-child {
+  color: rgb(22, 6, 255);
+  text-shadow:
+    0 0 25px rgb(5, 0, 70),
+    0 0 100px rgb(4, 0, 61);
+}
+.title span:last-child {
+  color: rgb(255, 0, 200);
+  text-shadow:
+    0 0 25px rgba(247, 0, 247, 0.973),
+    0 0 50px black;
+}
+.title .In {
+  color: rgb(0, 143, 119);
+  text-shadow:
+    0 0 25px rgba(1, 126, 88, 0.973),
+    0 0 50px black;
+}

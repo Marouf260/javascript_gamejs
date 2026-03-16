@@ -1,13 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html">Kids adventure Game</a>
+        <nav class="nav">
+          <a href="#">Home</a>
+          <a href="#">Rekenen</a>
+          <a href="#">Woorden</a>
+          <a href="#">Memory</a>
+        </nav>
+      </div>
+      <div class="title">
+        <h1><span >WELKOM </span><span class="In"> IN </span><span>MIJN GAME</span></h1>
+      </div>
+    </header>
+
+    <main class="game-grid">
+            <!-- Rekenen Game -->
+            <div class="game-card math">
+                <div class="card-content">
+                    <h2>Rekenen</h2>
+                    <div class="card-actions">
+                        <a href="html/rekenen/index.html" class="play-btn">Speel Nu</a>
+                        <a href="tutorials/rekenen.html" class="tutorial-btn">Hoe te maken?</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card word">
+                <div class="card-content">
+                    <h2>Woorden Game</h2>
+                    <p>Ontdek nieuwe woorden en verbeter je taal!</p>
+                    <div class="card-actions">
+                        <a href="html/woorden/index.html" class="play-btn">Speel Nu</a>
+                        <a href="tutorials/woorden.html" class="tutorial-btn">Hoe te maken?</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Game -->
+            <div class="game-card memory">
+                <div class="card-content">
+                    <h2>Memory Game</h2>
+                    <p>Test je geheugen met dit uitdagende spel!</p>
+                    <div class="card-actions">
+                        <a href="html/memory/index.html" class="play-btn">Speel Nu</a>
+                        <a href="tutorials/memory.html" class="tutorial-btn">Hoe te maken?</a>
+                    </div>
+                </div>
+            </div>
+        </main>
     <script src="/js/script.js"></script>
-    
-</body>
+  </body>
 </html>
