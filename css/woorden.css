@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(4, 16, 68);
+  /* background:linear-gradient(12deg, #810101,#044672); */
+  color: white;
+  background-repeat: no-repeat;
+}
+
+/* .game-page{
+    text-align: center;
+    padding: 200px 400px;
+} */
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 20px #0040b6;
+  align-items: center;
+  padding: 20px 30px;
+}
+.back-btn {
+  text-decoration: none;
+  color: rgb(236, 225, 215);
+}.back-btn span:nth-child(1) {
+  color: rgba(255, 0, 0, 0.596);
+  font-size: 26px;
+  transition: all 0.3s ease-in;
+  /* font-weight: 600; */
+
+}
+.back-btn span:nth-child(1):hover {
+  color: rgb(255, 0, 0);
+  font-size: 26px;
+  /* font-weight: 600; */
+
+}.back-btn span:nth-child(2):hover {
+  color: rgb(255, 0, 0);
+  text-decoration: underline;
+  /* font-weight: 600; */
+
+}
+/* .stat-item{
+    display: flex;
+
+} */
+.word-final {
+  font-size: 25px;
+  color: #0044ff;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000000;
+  cursor: pointer;
+  margin-left: 50PX;
+}
+.word-final:hover { color: #ff0000; 
+
+text-decoration: underline;} /* Nu werkt je hover wel! */
+
+.hidden { display: none !important; }
