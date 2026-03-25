@@ -163,9 +163,6 @@ function updateProgress() {
   });
 
 
-
-
-
   if (submitBtn) {
     submitBtn.onclick = () => {
       const userGuess = _inputEl.value.toUpperCase().trim();

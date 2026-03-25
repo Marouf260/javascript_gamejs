@@ -13,7 +13,38 @@ body {
 
   background-size: 200% 200%;
 }
+.container .logo span:nth-child(1){
+  color: #1f7fec;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(108, 108, 216) , 0 0 15px rgb(21, 255, 0);
+}
+.container .logo  span:nth-child(2){
+  color: #ff0000;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(11, 11, 36) , 0 0 15px rgb(255, 8, 0);
+}.container .logo span:nth-child(3){
+  color: #11ce00;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+}
 
+.container span:nth-child(1){
+  color: #11ce00;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+}.container span:nth-child(2){
+  color: #0059ce;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgb(0, 174, 255) , 0 0 15px rgb(4, 0, 255);
+}.container span:nth-child(3){
+  color: #ce00ce;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+}.container span:nth-child(4){
+  color: #a6ff00;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+}
 .container {
   display: flex;
   justify-content: space-between;
