@@ -1,60 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>memory</title>
-    <link rel="stylesheet" href="/css/memory.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1>
-          <i class="fas fa-star"></i> Memory Match <i class="fas fa-star"></i>
-        </h1>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-label">Moves</div>
-            <div class="stat-value" id="moves">0</div>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+</head>
+<body>
+  <h1>Memory Game</h1>
+  <p>klik op de kaartje om te kiezen welke deel wil je spelen</p>
 
-          <div class="stat">
-            <div class="stat-label">Time</div>
-            <div class="stat-value" id="time">0:00</div>
-          </div>
+  <a href="games.html?op=space&level=1"><button>Play space memory</button></a>
+  <a href="games.html?op=auto&level=1"><button>Play auto memory</button></a>
+  <a href="games.html?op=hardware&level=1"><button>Play hardware memory</button></a>
+  <a href="games.html?op=dieren&level=1"><button>Play dieren memory</button></a>
 
-          <div class="stat">
-            <div class="stat-label">Matches</div>
-            <div class="stat-value" id="matches">0/10</div>
-          </div>
-        </div>
-      </div>
-      <div class="game-board" id="gameBoard">
-        <!-- <div class="card "></div> -->
-      </div>
-      <div class="controls">
-        <button class="btn" onclick="newGame()">
-          <i class="fas fa-redo"></i> New Game
-        </button>
-      </div>
-    </div>
-    <div class="modal" id="winModal">
-      <div class="modal-content">
-        <h2>
-          <i class="fas fa-trophy"></i> You Win! <i class="fas fa-trophy"></i>
-        </h2>
-        <p>
-          Moves: <span id="finalMoves"></span><br />
-          Time: <span id="finalTime"></span>
-        </p>
-        <button class="btn" onclick="newGame()">Play Again</button>
-      </div>
-    </div>
-
-    <script src="/js/memmory.js"></script>
-  </body>
+  
+</body>
 </html>
