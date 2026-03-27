@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:800,600,400|Lobster&display=swap" />
+    <style>
+      body {
+        background: linear-gradient(120deg, #1e3c72 0%, #2a5298 40%, #d1c1ec 100%);
+        min-height: 100vh;
+        font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+      }
+      header {
+        background: rgba(30,44,98,0.85);
+        box-shadow: 0 10px 40px -10px #8eabfc77, 0 1.5px 15px 0 #fff3 inset;
+        padding-bottom: 20px;
+        border-radius: 0 0 36px 36px;
+        border-bottom: 2px solid #5078e0;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 30px 0 30px;
+      }
+      .logo {
+        font-family: "Lobster", cursive;
+        font-size: 2.7rem;
+        color: #fff;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #f8fafc, #82e0ff 60%, #b095f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 4px 8px #43639692);
+        text-shadow: 0 2px 8px #b095f644;
+        transition: transform 0.2s;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        padding-right: 14px;
+      }
+      .logo:hover {
+        transform: scale(1.06) rotate(-1deg);
+        filter: brightness(1.21) drop-shadow(0 6px 12px #e6e6ffcc);
+      }
+      .nav {
+        display: flex;
+        gap: 30px;
+        font-size: 1.08em;
+        font-weight: 700;
+      }
+      .nav a {
+        color: #e7eaff;
+        text-shadow: 0 2px 15px #390d5e55, 0 1px #fff;
+        letter-spacing: 1px;
+        padding: 7px 18px;
+        border-radius: 15px;
+        transition: background 0.35s, color 0.3s, transform 0.18s;
+        background: rgba(54, 82, 181, 0.09);
+        border: 2px solid transparent;
+      }
+      .nav a:hover {
+        color: #6247ea;
+        background: linear-gradient(92deg, #ffe978 50%, #bae0ff 100%);
+        box-shadow: 0 2px 24px #fff7, 0 3px 6px #5f94f040;
+        border-color: #8bd2fa;
+        transform: translateY(-2px) scale(1.09);
+      }
+      .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 18px;
+        padding: 18px 0 6px 0;
+      }
+      .title h1 {
+        font-family: 'Montserrat', serif;
+        letter-spacing: 4px;
+        font-size: 2.6rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #ffd700 20%, #f8fafc 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 5px 14px #ffeab566, 0 2px #fff5;
+        margin: 0;
+      }
+      .title .In {
+        background: linear-gradient(90deg, #82e0ff 60%, #b095f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 38px 34px;
+        max-width: 1100px;
+        margin: 44px auto 0 auto;
+        padding: 22px 18px 30px 18px;
+      }
+      .game-card {
+        background: linear-gradient(130deg, #ffffff10 50%, #d1c1ec14 100%);
+        border-radius: 28px;
+        box-shadow: 0 14px 54px -10px #6145e7a3, 0 2px 30px 0 #fff5 inset;
+        border: 1.5px solid #b095f622;
+        overflow: hidden;
+        position: relative;
+        transition: box-shadow 0.5s cubic-bezier(.17,.67,.83,.67), transform 0.15s;
+        min-height: 244px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .game-card:hover {
+        box-shadow: 0 22px 70px -10px #ffd70099, 0 2px 32px #a6ffe544;
+        border-color: #ffd700;
+        transform: scale(1.025) translateY(-4px);
+      }
+      .card-content {
+        width: 100%;
+        padding: 33px 35px 30px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .game-card h2 {
+        margin-bottom: 10px;
+        font-family: 'Montserrat', 'Lobster', serif;
+        font-weight: 900;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        color: #ffe978;
+        text-shadow: 0 4px 24px #e0baff84, 0 1.5px #37275185;
+      }
+      .game-card p {
+        color: #dde2ff;
+        font-weight: 600;
+        font-size: 1.15em;
+        margin: 0 0 16px 0;
+        text-shadow: 0 1px 6px #0002, 0 1px #fff4;
+      }
+      .card-actions {
+        margin-top: 18px;
+      }
+      .play-btn {
+        background: linear-gradient(90deg,#ffd700,#c2b6fc 99%);
+        color: #1e245c;
+        border: none;
+        border-radius: 16px;
+        padding: 16px 36px;
+        font-size: 1.18em;
+        font-weight: bold;
+        letter-spacing: 2px;
+        box-shadow: 0 8px 24px #ffe97855, 0 2px 8px #b095f634;
+        cursor: pointer;
+        transition: filter 0.17s, transform 0.2s, box-shadow 0.3s;
+        outline: none;
+        text-shadow: 0 1px 0 #fff8, 0 3px 14px #f5e917a8;
+      }
+      .play-btn:hover {
+        filter: brightness(1.18) saturate(1.22);
+        background: linear-gradient(90deg, #fffde4 15%, #ffd700 60%, #ffecd2 90%);
+        transform: scale(1.07) translateY(-2px);
+        box-shadow: 0 16px 34px #ffd70070, 0 6px 15px #fff9;
+      }
+      @media (max-width: 870px){
+        .game-grid { grid-template-columns: 1fr; gap: 30px;}
+        .container{ flex-direction:column; gap:18px;align-items:flex-start;}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo"><span>Kids</span> <span>adventure</span><span> Game</span></a>
+        <nav class="nav">
+          <a href="index.html"><span>H</span><span>o</span><span>m</span><span>e</span></a>
+          <a href="/games/rekenen/index.html">Rekenen</a>
+          <a href="/games/woorden/index.html">Woorden</a>
+          <a href="/games/memory/index.html">Memory</a>
+        </nav>
+      </div>
+      <div class="title">
+        <h1><span>WELKOM </span><span class="In"> IN </span><span>MIJN GAME</span></h1>
+      </div>
+    </header>
+
+    <main class="game-grid">
+      <!-- Rekenen Game -->
+      <div class="game-card math">
+        <div class="card-content">
+          <h2>Rekenen</h2>
+          <div class="card-actions">
+            <a href="/games/rekenen/index.html" class="play-btn">Speel Nu</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-card word">
+        <div class="card-content">
+          <h2>Woorden Game</h2>
+          <p>Ontdek nieuwe woorden en verbeter je taal!</p>
+          <div class="card-actions">
+            <a href="/games/woorden/index.html" class="play-btn">Speel Nu</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Game -->
+      <div class="game-card memory">
+        <div class="card-content">
+          <h2>Memory Game</h2>
+          <p>Test je geheugen met dit uitdagende spel!</p>
+          <div class="card-actions">
+            <a href="/games/memory/index.html" class="play-btn">Speel Nu</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+/* Luxe verbeterde stijl */
+
+/* Diepe luxe achtergrond voor de hele pagina */
+body {
+  background: linear-gradient(120deg, #15173c 0%, #243b55 45%, #141e30 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 40px 0 50px 0;
+  color: #f4f6fb;
+  letter-spacing: 0.025em;
+  box-shadow: 0 0 40px #101634 inset;
+}
+
+/* Luxueuze game-header met subtiele schaduw */
+.game-header {
+  margin-bottom: 45px;
+  background: rgba(30, 42, 70, 0.45);
+  box-shadow: 0 8px 24px 0 rgba(22,34,55,0.22);
+  border-radius: 18px;
+  padding: 20px 40px 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Stijlvolle links in de header */
+.game-header a {
+  text-decoration: none;
+  color: #d2e4fc;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid transparent;
+  transition: 
+    color 0.22s cubic-bezier(0.4,0.2,0.7,1), 
+    border-bottom 0.22s cubic-bezier(0.47, 2, 0.61, 0.99);
+}
+
+.game-header a:hover {
+  color: #60e9ff;
+  border-bottom: 2.5px solid #60e9ff;
+  text-shadow: 0 0 8px #60e9ff;
+}
+
+/* Luxe individuele kaarten */
+.levels_container {
+  background: rgba(40, 62, 110, 0.29);
+  background-image: linear-gradient(146deg, rgba(255,255,255,0.059), rgba(47,164,255,0.09) 80%);
+  backdrop-filter: blur(16px) saturate(130%);
+  box-shadow: 0 8px 36px 2px rgba(0,0,0,0.25), 0 1px 4px rgba(48, 131, 243, 0.08) inset;
+  border: 2px solid rgba(49, 108, 199, 0.17);
+  padding: 32px 32px 28px 32px;
+  border-radius: 24px;
+  transition: 
+    background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.3s cubic-bezier(0.59, 1.48, 0.56, 0.95);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+.levels_container:hover {
+  background: rgba(67, 185, 255, 0.18);
+  transform: translateY(-14px) scale(1.038);
+  box-shadow: 0 22px 44px 6px rgba(77,225,255,0.22), 0 1px 12px #112a40 inset;
+  border-color: #65f8f5;
+}
+
+/* Luxe status van het niveau */
+.level-status {
+  font-weight: 900;
+  font-size: 1.42rem;
+  color: #e2eaff;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.09em;
+  text-shadow:
+    0 2px 12px #20268255,
+    0 0px 2px #44dfff69;
+  border-left: 4px solid #1f7fec;
+  padding-left: 18px;
+  background: linear-gradient(94deg, #1f7fec 4%, #48fff7 44%, #1b3a63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Iconen nog luxer */
+.level-icon {
+  width: 59px;
+  height: 59px;
+  margin-bottom: 8px;
+  border-radius: 13px;
+  background: linear-gradient(142deg, #243b55 40%, #1e81b0 100%);
+  box-shadow: 
+    0 4px 16px 0 #0095ffd9,
+    0 0px 0px 2px #ffffff16 inset;
+  filter: drop-shadow(0 6px 18px #00fff769) 
+          drop-shadow(0 2px 9px rgba(0,0,0,0.38));
+  display: block;
+  object-fit: contain;
+}
+
+.robot-3d {
+  position: absolute;
+  top: -26px;
+  right: -18%;
+  z-index: 10;
+  filter: drop-shadow(0 0 24px #72ffe7) contrast(1.12);
+  /* Eventueel animatie voor nog meer effect:
+  animation: float-robot 2.2s ease-in-out infinite alternate; */
+}
+
+/*
+@keyframes float-robot {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-18px);}
+}
+*/

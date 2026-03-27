@@ -43,7 +43,7 @@ switch (opType) {
       "/assets/memory fotos/autos/auto10.png",
     ];
     break;
-     case "dieren":
+  case "dieren":
     images = [
       "/assets/memory fotos/dieren/dier1.png",
       "/assets/memory fotos/dieren/dier2.png",
@@ -57,7 +57,7 @@ switch (opType) {
       "/assets/memory fotos/dieren/dier10.png",
     ];
     break;
-    case "hardware":
+  case "hardware":
     images = [
       "/assets/memory fotos/hardware/hardware1.png",
       "/assets/memory fotos/hardware/hardware2.png",
@@ -71,7 +71,6 @@ switch (opType) {
       "/assets/memory fotos/hardware/hardware10.png",
     ];
     break;
-    
 
   // let images = [
   //   "/assets/memory fotos/card1.png",
@@ -165,17 +164,19 @@ timerRunning = false;
 updateStats();
 clearInterval(timerInterval);
 
+
 function flipCard() {
   if (!canFlip) return;
   if (this.classList.contains("flipped")) return;
   if (this.classList.contains("matched")) return;
 
-  // Start timer on first click
   if (!timerRunning) {
     startTimer();
   }
 
+
   this.classList.add("flipped");
+
 
   if (firstCard == null) {
     firstCard = this;
@@ -249,6 +250,7 @@ function endGame() {
 function newGame() {
   document.getElementById("winModal").classList.remove("show");
   clearInterval(timerInterval);
+
   startGame();
 }
 

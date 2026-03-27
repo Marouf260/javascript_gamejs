@@ -1,19 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/memory_level.css" />
+  <!-- <link rel="stylesheet" href="../../css/style.css"> -->
   <title>Memory Game</title>
 </head>
+
 <body>
-  <h1>Memory Game</h1>
-  <p>klik op de kaartje om te kiezen welke deel wil je spelen</p>
+  <header>
+    <a href="../../index.html" class="btn-back">⬅ Terug naar Home</a>
+  </header>
+  <main>
+    <h1 class="title">Memory Game</h1>
+    <p class="description">klik op de kaartje om te kiezen welke deel wil je spelen</p>
 
-  <a href="games.html?op=space&level=1"><button>Play space memory</button></a>
-  <a href="games.html?op=auto&level=1"><button>Play auto memory</button></a>
-  <a href="games.html?op=hardware&level=1"><button>Play hardware memory</button></a>
-  <a href="games.html?op=dieren&level=1"><button>Play dieren memory</button></a>
+    <div class="levels-container">
+      <div class="space">
+        <a href="games.html?op=space&level=1">Play space memory</a>
+      </div>
+      <div class="auto">
+        <a href="games.html?op=auto&level=1">Play auto memory</a>
+      </div>
+      <div class="hardware">
+        <a href="games.html?op=hardware&level=1">Play hardware memory</a>
+      </div>
+      <div class="dieren">
+        <a href="games.html?op=dieren&level=1">Play dieren memory</a>
+      </div>
+    </div>
+  </main>
 
-  
+  <footer class="footer">
+    <p>&copy; 2026 Memory Game . Developed by Marouf Masri. All rights reserved.</p>
+  </footer>
 </body>
+
 </html>
