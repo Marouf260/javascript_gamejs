@@ -13,8 +13,8 @@ body {
 .title{
     font-size: 50px;
     text-align: center;
-    color: #0003b3;
-    text-shadow: 0 0 10px #ffffff54, 0 0 100px #ff0000;
+    color: #003cdf;
+    text-shadow: 1px 1px 2px #01010154, 0 0 100px #ff0000;
 }
 .description{
     font-size:25px;
@@ -29,6 +29,25 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   width: 100%;
+}
+.btn-back {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #060038;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 0 #285aed;
+  border: 4px solid white;
+  transition: all 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow:
+      0 0 10px #285aed,
+      0 0 100px #285aed;
+  }
 }
 
 .levels-container a {
@@ -55,6 +74,7 @@ body {
   background-repeat: no-repeat;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.575);
+  animation: spaceGlow 3s infinite alternate;
 
   &:hover {
     transform: scale(1.05);
@@ -68,6 +88,19 @@ body {
   }
 }
 
+@keyframes spaceGlow {
+  0% {
+    box-shadow: 0 0 10px #ffffff54, 0 0 10px #8c7e7e;
+  }
+  50% {
+    box-shadow: 0 0 20px #ffffff54, 0 0 20px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffffff54, 0 0 10px #ff0000;
+  }
+}
+
+
 .auto {
   padding: 100px 20px;
   background-image: url(/assets/backgrounds/auto.jpg);
@@ -77,6 +110,7 @@ body {
   transition: all 0.3s;
   border-radius: 20px;
   box-shadow: 0 0 10px #003cff93;
+  animation: autoGlow 5s infinite alternate;
 
   &:hover {
     transform: scale(1.05);
@@ -91,6 +125,17 @@ body {
 
  
 }
+@keyframes autoGlow {
+  0% {
+    box-shadow: 0 0 10px #003cff93, 0 0 20px #003cff93;
+  }
+  50%{
+    box-shadow: 0 0 20px #00eaff93, 0 0 40px #00eaff93;
+  }
+  100% {
+    box-shadow: 0 0 10px #003cff93, 0 0 20px #003cff93;
+  }
+}
 
 .hardware {
   padding: 100px 20px;
@@ -101,6 +146,7 @@ body {
   transition: all 0.3s;
   border-radius: 20px;
   box-shadow: 0 0 10px #ff260093;
+  animation: hardwareGlow 6s infinite alternate;
 
   &:hover {
     transform: scale(1.05);
@@ -113,7 +159,17 @@ body {
       0 0 100px #ff2600;
   }
 }
-
+@keyframes hardwareGlow {
+  0% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  }
+  50%{
+    box-shadow: 0 0 20px #ff9100, 0 0 40px #ffea00;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  }
+}
 .dieren {
   padding: 100px 20px;
   background-image: url(/assets/backgrounds/dieren.jpg);
@@ -123,6 +179,7 @@ body {
   transition: all 0.3s;
   border-radius: 20px;
   box-shadow: 0 0 10px #3cff0093;
+  animation: dierenGlow 7s infinite alternate;
 
   &:hover {
     transform: scale(1.05);
@@ -133,6 +190,17 @@ body {
     box-shadow:
       0 0 10px #3cff0093,
       0 0 100px #3cff0093;
+  }
+}
+@keyframes dierenGlow {
+  0% {
+    box-shadow: 0 0 10px #3cff0093, 0 0 20px #3cff0093;
+  }
+  50%{
+    box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  }
+  100% {
+    box-shadow: 0 0 10px #3cff0093, 0 0 20px #3cff0093;
   }
 }
 

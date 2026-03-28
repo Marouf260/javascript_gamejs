@@ -135,21 +135,6 @@ function startGame() {
     gameBoard.appendChild(card);
   }
 
-  // let cardImages = images.concat(images);
-  // cardImages.sort(function () {    return Math.random() - 0.5;
-  // });
-  // for (var i = 0; i < cardImages.length; i++) {
-  //   let card = document.createElement("div");
-  //   card.className = "card";
-  //   card.innerHTML =
-  //     '<div class="card-front"><i class="fas fa-heart"></i></div>' +
-  //     '<div class="card-back"><img src="' +
-  //     cardImages[i] +
-  //     '"></div>';
-  //   card.onclick = flipCard;
-  //   card.dataset.image = cardImages[i];
-  //   gameBoard.appendChild(card);
-  // }
 }
 
 // Reset variables

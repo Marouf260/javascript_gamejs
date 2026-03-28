@@ -9,24 +9,24 @@ window.onload = () => {
   const maxQuestions = 10;
 
   // Elementen
-  const num1El = this.document.querySelector("#num1");
-  const num2El = this.document.querySelector("#num2");
-  const opEl = this.document.querySelector("#operator");
-  const inputEl = this.document.querySelector("#answer-input");
-  const submitBtn = this.document.querySelector("#submit-btn");
-  const scoreEl = this.document.querySelector("#score");
-  const countEl = this.document.querySelector("#question-count");
-  const progBar = this.document.querySelector("#progress-bar");
-  const feedbackEl = this.document.querySelector("#feedback");
-  const victoryModal = this.document.querySelector("#victory-modal");
-  const finalStats = this.document.querySelector("#final-stats");
+  const num1El = document.querySelector("#num1");
+  const num2El = document.querySelector("#num2");
+  const opEl = document.querySelector("#operator");
+  const inputEl = document.querySelector("#answer-input");
+  const submitBtn = document.querySelector("#submit-btn");
+  const scoreEl = document.querySelector("#score");
+  const countEl = document.querySelector("#question-count");
+  const progBar = document.querySelector("#progress-bar");
+  const feedbackEl = document.querySelector("#feedback");
+  const victoryModal = document.querySelector("#victory-modal");
+  const finalStats = document.querySelector("#final-stats");
 
   const opSymbols = {
     plus: "+",
     plus_2: "+",
     min: "-",
     keer: "×",
-    div: "/"
+    div: "/",
   };
 
   if (opEl) opEl.innerText = opSymbols[opType];
@@ -34,62 +34,48 @@ window.onload = () => {
   function generateQuestion() {
     let n1, n2;
     const range = levelNum * 10;
+    const rangeskeer = levelNum * 50;
     const ranges = levelNum * 100;
-
-    // if (opType === "mix") {
-    //   const types = ["plus", "min", "keer", "div"];
-    //   currentOp = types[Math.floor(Math.random() * types.length)];
-
-    //   if (opEl) opEl.innerText = opSymbols[currentOp];
-    // }
-    // switch (currentOp) {
-    //   case "plus":
-    //     n1 = Math.floor(Math.random() * range) + 2;
-    //     n2 = Math.floor(Math.random() * range) + 2;
-    //     answer = n1 + n2;
-    //     break;
-    //   case "min":
-    //     n1 = Math.floor(Math.random() * range) + 5;
-    //     n2 = Math.floor(Math.random() * (n1 - 1)) + 1;
-    //     answer = n1 - n2;
-    //     break;
-    //   case "keer":
-    //     n1 = Math.floor(Math.random() * 10) + 2;
-    //     n2 = Math.floor(Math.random() * 10) + 2;
-    //     answer = n1 * n2;
-    //     break;
-    //   case "div":
-    //     n2 = Math.floor(Math.random() * 9) + 1;
-    //     answer = Math.floor(Math.random() * 10);
-    //     n1 = n2 * answer;
-    //     break;
-    // };
 
     switch (opType) {
       case "plus":
-        n1 = Math.floor(Math.random() * range) + 2;
-        n2 = Math.floor(Math.random() * range) + 2;
+        n1 = Math.floor(Math.random() * range) + 4;
+        n2 = Math.floor(Math.random() * range) + 4;
         answer = n1 + n2;
         break;
       case "plus_2":
-        n1 = Math.floor(Math.random() * ranges) + 2;
-        n2 = Math.floor(Math.random() * ranges) + 2;
+        n1 = Math.floor(Math.random() * ranges) + 4;
+        n2 = Math.floor(Math.random() * ranges) + 4;
         answer = n1 + n2;
         break;
       case "min":
-        n1 = Math.floor(Math.random() * range) + 2;
-        n2 = Math.floor(Math.random() * n1) + 2; // Geen negatieve uitkomsten
+        n1 = Math.floor(Math.random() * range) + 4;
+        n2 = Math.floor(Math.random() * n1) + 4; // Geen negatieve uitkomsten
+        if (levelNum === 2) {
+          n1 = Math.floor(Math.random() * ranges) + 4;
+          n2 = Math.floor(Math.random() * n1) + 4;
+        }
         answer = n1 - n2;
         break;
       case "keer":
-        n1 = Math.floor(Math.random() * 10) + 2;
-        n2 = Math.floor(Math.random() * 10) + 2;
+        n1 = Math.floor(Math.random() * 10) + 4;
+        n2 = Math.floor(Math.random() * 10) + 4;
+
+        if (levelNum === 2) {
+          n1 = Math.floor(Math.random() * rangeskeer) + 2;
+          n2 = Math.floor(Math.random() * rangeskeer) + 2;
+        }
         answer = n1 * n2;
         break;
       case "div":
-        n2 = Math.floor(Math.random() * 9) + 1; // Geen deling door nul
+        n2 = Math.floor(Math.random() * 9) + 1;
         answer = Math.floor(Math.random() * 10);
-        n1 = n2 * answer; // Zorg voor hele getallen
+
+        if (levelNum === 2) {
+          n2 = Math.floor(Math.random() * 49) + 1;
+          answer = Math.floor(Math.random() * 50);
+        }
+        n1 = n2 * answer;
         break;
     }
 

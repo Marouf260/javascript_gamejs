@@ -3,7 +3,8 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #1f7fec; /* De basiskleur */
+  background-color: #1f7fec;
+  /* De basiskleur */
   font-family: cursive;
 
   background-image:
@@ -13,38 +14,28 @@ body {
 
   background-size: 200% 200%;
 }
-.container .logo span:nth-child(1){
+
+.container .logo span:nth-child(1) {
   color: #1f7fec;
   font-size: 30px;
-  text-shadow: 0 0 10px rgb(108, 108, 216) , 0 0 15px rgb(21, 255, 0);
-}
-.container .logo  span:nth-child(2){
-  color: #ff0000;
-  font-size: 30px;
-  text-shadow: 0 0 10px rgb(11, 11, 36) , 0 0 15px rgb(255, 8, 0);
-}.container .logo span:nth-child(3){
-  color: #11ce00;
-  font-size: 30px;
-  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+  text-shadow: 0 0 10px rgb(108, 108, 216), 0 0 15px rgb(21, 255, 0);
 }
 
-.container span:nth-child(1){
-  color: #11ce00;
-  font-size: 20px;
-  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
-}.container span:nth-child(2){
-  color: #0059ce;
-  font-size: 20px;
-  text-shadow: 0 0 10px rgb(0, 174, 255) , 0 0 15px rgb(4, 0, 255);
-}.container span:nth-child(3){
-  color: #ce00ce;
-  font-size: 20px;
-  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
-}.container span:nth-child(4){
-  color: #a6ff00;
-  font-size: 20px;
-  text-shadow: 0 0 10px rgb(72, 255, 0) , 0 0 15px rgb(4, 0, 255);
+
+.container .logo span:nth-child(2) {
+  color: #ff0000;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(11, 11, 36), 0 0 15px rgb(255, 8, 0);
 }
+
+.container .logo span:nth-child(3) {
+  color: #11ce00;
+  font-size: 30px;
+  text-shadow: 0 0 10px rgb(72, 255, 0), 0 0 15px rgb(4, 0, 255);
+}
+
+
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -52,6 +43,8 @@ body {
   padding: 20px 40px;
   backdrop-filter: initial;
   -webkit-backdrop-filter: blur(10px);
+
+ 
 }
 
 .container a {
@@ -60,6 +53,7 @@ body {
   font-size: 21px;
   font-weight: 600;
 }
+
 .nav a {
   text-decoration: none;
   font-size: 20px;
@@ -68,15 +62,15 @@ body {
   padding: 0 10px;
   transition: all 0.3s;
   margin-left: 20px;
-}
 
-.nav a:hover {
-  color: rgb(0, 0, 0);
-  background-color: rgb(0, 153, 255);
-  box-shadow:
-    0 0 25px rgba(255, 0, 0, 0.671),
-    0 0 50px rgb(0, 47, 255),
-    0 0 100px rgb(0, 162, 255);
+  &:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 153, 255);
+    box-shadow:
+      0 0 25px rgba(255, 0, 0, 0.671),
+      0 0 50px rgb(0, 47, 255),
+      0 0 100px rgb(0, 162, 255);
+  }
 }
 
 .game-grid {
@@ -103,6 +97,8 @@ body {
   margin-left: 20px;
   margin-right: 20px;
   padding: 2rem;
+
+  
 }
 
 .game-card::before {
@@ -131,12 +127,7 @@ body {
   background-image: url("../assets/memory.png");
 }
 
-/* .game-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    transform: translateY(-19px) scale(1.05);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-} */
+
 
 .game-card:hover::before {
   /* transform: scale(1.1); */
@@ -257,22 +248,26 @@ body {
     gap: 1.5rem;
   }
 }
+
 .title {
   text-align: center;
   font-size: 25px;
 }
+
 .title span:first-child {
   color: rgb(22, 6, 255);
   text-shadow:
     0 0 25px rgb(5, 0, 70),
     0 0 100px rgb(4, 0, 61);
 }
+
 .title span:last-child {
   color: rgb(255, 0, 200);
   text-shadow:
     0 0 25px rgba(247, 0, 247, 0.973),
     0 0 50px black;
 }
+
 .title .In {
   color: rgb(0, 143, 119);
   text-shadow:
