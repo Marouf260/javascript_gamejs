@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/css/style.css" />
@@ -9,17 +11,28 @@
   <body>
     <header>
       <div class="container">
-        <a href="index.html" class="logo"><span>Kids</span> <span>adventure</span><span> Game</span></span></a>
-        <nav class="nav">
+        <a href="index.html" class="logo"><span>Kids </span> <span>adventure</span><span> Game</span></span></a>
+        <nav class="nav desktop-nav">
           <a href="index.html"><span>H</span><span>o</span><span>m</span><span>e</span></a>
           <a href="/games/rekenen/index.html">Rekenen</a>
           <a href="/games/woorden/index.html">Woorden</a>
           <a href="/games/memory/index.html">Memory</a>
         </nav>
+        <button class="mobile-nav-toggle" aria-label="Menu">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
       </div>
       <div class="title">
-        <h1><span >WELKOM </span><span class="In"> IN </span><span>MIJN GAME</span></h1>
+        <h1><span >WELKOM </span> <span class="In"> IN </span> <span>MIJN-GAME</span></h1>
       </div>
+      <nav class="mobile-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="/games/rekenen/index.html">🔢 Rekenen</a>
+        <a href="/games/woorden/index.html">📝 Woorden</a>
+        <a href="/games/memory/index.html">🧠 Memory</a>
+      </nav>
     </header>
 
     <main class="game-grid">
@@ -54,6 +67,8 @@
                 </div>
             </div>
         </main>
-    <script src="/js/script.js"></script>
+        <footer class="footer">
+      <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden.Diveloperd bij: Marouf Masri</p>
+        </footer>
   </body>
 </html>

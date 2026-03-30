@@ -2,7 +2,19 @@ const urlParams = new URLSearchParams(window.location.search);
 const opType = urlParams.get("op") || "space";
 const levelNum = parseInt(urlParams.get("level")) || 1;
 
-const opEl = this.document.querySelector("#opType");
+const opEl = document.querySelector("#opType");
+
+const levelBoxes = document.querySelectorAll(".levels-container > div");
+
+levelBoxes.forEach((box) => {
+  box.addEventListener("click", function () {
+    // Zoek <a> binnen de geklikte box
+    const link = box.querySelector("a");
+    if (link && link.getAttribute("href")) {
+      window.location.href = link.getAttribute("href");
+    }
+  });
+});
 
 const opSymbols = {
   space: "space",
@@ -71,32 +83,6 @@ switch (opType) {
       "/assets/memory fotos/hardware/hardware10.png",
     ];
     break;
-
-  // let images = [
-  //   "/assets/memory fotos/card1.png",
-  //   "/assets/memory fotos/card2.png",
-  //   "/assets/memory fotos/card3.png",
-  //   "/assets/memory fotos/card4.png",
-  //   "/assets/memory fotos/card5.png",
-  //   "/assets/memory fotos/card6.png",
-  //   "/assets/memory fotos/card7.png",
-  //   "/assets/memory fotos/card8.png",
-  //   "/assets/memory fotos/card9.png",
-  //   "/assets/memory fotos/card10.png",
-  // ];
-  // if (opType === "auto")
-  //     images = [
-  //       "/assets/memory fotos/autos/auto1.png",
-  //       "/assets/memory fotos/autos/auto2.png",
-  //       "/assets/memory fotos/autos/auto3.png",
-  //       "/assets/memory fotos/autos/auto4.png",
-  //       "/assets/memory fotos/autos/auto5.png",
-  //       "/assets/memory fotos/autos/auto6.png",
-  //       "/assets/memory fotos/autos/auto7.png",
-  //       "/assets/memory fotos/autos/auto8.png",
-  //       "/assets/memory fotos/autos/auto9.png",
-  //       "/assets/memory fotos/autos/auto10.png",
-  //     ];
 }
 
 var firstCard = null;
@@ -107,6 +93,7 @@ var moves = 0;
 var seconds = 0;
 var timerRunning = false;
 var timerInterval;
+var gameStartTime = null; // For more accurate timing
 
 // Start the game
 function startGame() {
@@ -134,7 +121,6 @@ function startGame() {
     card.dataset.image = cardImages[i];
     gameBoard.appendChild(card);
   }
-
 }
 
 // Reset variables
@@ -145,10 +131,10 @@ matches = 0;
 moves = 0;
 seconds = 0;
 timerRunning = false;
+gameStartTime = null;
 
 updateStats();
 clearInterval(timerInterval);
-
 
 function flipCard() {
   if (!canFlip) return;
@@ -159,9 +145,7 @@ function flipCard() {
     startTimer();
   }
 
-
   this.classList.add("flipped");
-
 
   if (firstCard == null) {
     firstCard = this;
@@ -206,8 +190,12 @@ function resetCards() {
 
 function startTimer() {
   timerRunning = true;
+  gameStartTime = Date.now();
+  seconds = 0;
+  updateStats();
   timerInterval = setInterval(function () {
-    seconds++;
+    // Calculate time delta based on Date.now()
+    seconds = Math.floor((Date.now() - gameStartTime) / 1000);
     updateStats();
   }, 1000);
 }
@@ -224,19 +212,40 @@ function updateStats() {
 
 function endGame() {
   clearInterval(timerInterval);
-  // document.getElementById("winModal").style.display = "block";
+  timerRunning = false;
+  // Make sure to show the correct elapsed time on win modal
+  if (gameStartTime) {
+    seconds = Math.floor((Date.now() - gameStartTime) / 1000);
+  }
+  updateStats();
   document.getElementById("finalMoves").textContent = moves;
   document.getElementById("finalTime").textContent =
     document.getElementById("time").textContent;
-  document.getElementById("time").textContent;
-
   document.getElementById("winModal").classList.add("show");
 }
+
 function newGame() {
   document.getElementById("winModal").classList.remove("show");
   clearInterval(timerInterval);
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
+  matches = 0;
+  moves = 0;
+  seconds = 0;
+  timerRunning = false;
+  gameStartTime = null;
+
+  // Reset time and moves display using querySelector
+  const timeEl = document.querySelector("#time");
+  if (timeEl) timeEl.textContent = "0:00";
+  const movesEl = document.querySelector("#moves");
+  if (movesEl) movesEl.textContent = "0";
+  const matchesEl = document.querySelector("#matches");
+  if (matchesEl) matchesEl.textContent = "0/10";
 
   startGame();
 }
+
 
 startGame();

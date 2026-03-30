@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+
+/**
+ * Deze body-styling voegt een kleurrijke lineaire gradient achtergrond toe aan de hele pagina,
+ * gebruikt een groot humoristisch lettertype, zorgt dat de achtergrond altijd het hele scherm vult
+ * (ook bij scrollen), en maakt tekst standaard wit. Met de .dark-mode class blijft het donkere
+ * kleurenschema actief, terwijl .light-mode een lichte, goud-naar-witte gradient en zwarte tekst geeft.
+ * De overgang tussen deze modi gebeurt soepel door de transition eigenschap.
+ */
 body {
 
   background: linear-gradient(130deg, #05101f 0%, #011a38 70%, #611313 100%);

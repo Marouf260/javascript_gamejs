@@ -20,6 +20,7 @@ window.onload = () => {
   const feedbackEl = document.querySelector("#feedback");
   const victoryModal = document.querySelector("#victory-modal");
   const finalStats = document.querySelector("#final-stats");
+  const highscoreEl = document.querySelector("#highscore");
 
   const opSymbols = {
     plus: "+",
@@ -27,6 +28,7 @@ window.onload = () => {
     min: "-",
     keer: "×",
     div: "/",
+    tafel: "×",
   };
 
   if (opEl) opEl.innerText = opSymbols[opType];
@@ -77,8 +79,30 @@ window.onload = () => {
         }
         n1 = n2 * answer;
         break;
-    }
 
+      case "tafel":
+
+       if (!window.selectedTafel) {
+    let userInput = prompt("Welke tafel wil je oefenen? (1 t/m 10)");
+    window.selectedTafel = parseInt(userInput) || 1;
+}
+        if (!window.getallenLijst || window.getallenLijst.length === 0) {
+          window.getallenLijst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+          for (let i = window.getallenLijst.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [window.getallenLijst[i], window.getallenLijst[j]] = [
+              window.getallenLijst[j],
+              window.getallenLijst[i],
+            ];
+          }
+        }
+
+        n2 = window.getallenLijst.pop();
+        n1 = window.selectedTafel;
+        answer = n1 * n2;
+        break;
+    }
     if (num1El) num1El.innerText = n1;
     if (num2El) num2El.innerText = n2;
     if (inputEl) {
@@ -120,12 +144,47 @@ window.onload = () => {
       progBar.style.width = `${percent}%`;
     }
   }
-
+  function updateHighscoreDisplay(){
+    const score = parseInt(localStorage.getItem("highscore")) || 0;
+    if (highscoreEl) {
+      highscoreEl.innerText = score;
+    }
+  }
+  updateHighscoreDisplay();
   function finishGame() {
+      const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
+        if (score > prevHighscore) {
+          localStorage.setItem("highscore", score);
+        }
+         updateHighscoreDisplay();
+         
     if (victoryModal) {
       victoryModal.style.display = "flex";
+      if (score >= 50) {
+        if (finalStats)
+          finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
+      
+      } else {
+        victoryModal.innerHTML = `
+        <div class="modal-content">
+            <h2>Helaas je hebt weinig gescoort ${score}  punten in ${maxQuestions} vragen!</h2>            <p id="final-stats">Je hebt alle vragen beantwoord!</p>
+            <div class="modal-actions">
+                <button onclick="location.reload()">Opnieuw Spelen</button>
+                <a href="index.html">Naar Levels</a>
+            </div>
+        </div>
+    </div>`;
+      }
+    } else {
+
       if (finalStats)
         finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
+      document.querySelector(".question-area").innerHTML =
+        `<button onclick="${window.location.reload()}">Play Again</button>`;
+        updateHighscoreDisplay();
+        
+
+
     }
   }
   if (submitBtn) {

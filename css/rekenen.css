@@ -1,12 +1,15 @@
 /* De achtergrond van de hele pagina */
 body {
-  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  background:
+    linear-gradient(135deg, #0b1020 0%, #274472 40%, #543478 80%, #0a0a1a 100%);
   background-attachment: fixed;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 20px;
   color: white;
+  /* Animatie voor gradient verschuiving */
+
 }
 
 .game-header {
@@ -27,43 +30,92 @@ body {
 
 /* De individuele kaarten */
 .levels_container {
-  /* Semi-transparant blauw effect */
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px); /* Maakt de achtergrond wazig (glas effect) */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 25px;
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Luxe glas effect met modern kleurgebruik */
+  background: linear-gradient(117deg, rgba(38, 70, 168, 0.29) 0%, rgba(44, 17, 125, 0.13) 90%);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1.5px solid rgba(52, 201, 235, 0.18);
+  padding: 32px 32px 28px 32px;
+  border-radius: 32px;
+  box-shadow: 0 12px 36px rgba(34, 60, 120, 0.25), 0 1.5px 5px rgba(0, 0, 0, 0.085);
+  transition: all 0.35s ;
+  /* transition:
+    box-shadow 0.35s cubic-bezier(.61, .29, .29, .93),
+    background 0.35s cubic-bezier(.61, .29, .29, .93),
+    border-color 0.35s cubic-bezier(.61, .29, .29, .93),
+    transform 0.26s cubic-bezier(.50, .31, .21, .88); */
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 100px;
+
+  &:hover {
+    background: linear-gradient(117deg, rgba(52, 201, 235, 0.14) 0%, rgba(44, 17, 125, 0.18) 100%);
+    transform: translateY(-14px) scale(1.04);
+    box-shadow: 0 22px 44px rgba(52, 201, 235, 0.13), 0 2px 9px rgba(0, 0, 0, 0.15);
+    border-color: #34c9eb;
+    transition:
+      box-shadow 0.35s cubic-bezier(.61, .29, .29, .93),
+      background 0.35s cubic-bezier(.61, .29, .29, .93),
+      border-color 0.35s cubic-bezier(.61, .29, .29, .93),
+      transform 0.26s cubic-bezier(.50, .31, .21, .88);
+  }
+  &:active{
+    transform: scale(1);
+    box-shadow: 0 22px 44px rgba(0, 163, 200, 0.506), 0 2px 9px rgb(195, 0, 0);
+    background: linear-gradient(117deg, rgba(46, 213, 115, 0.12) 0%, rgba(44, 115, 210, 0.16) 100%);
+
+
+  }
 }
 
-.levels_container:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  border-color: #34c9eb;
-}
+
 
 .level-status {
   font-weight: 800;
   font-size: 20px;
   color: #ffffff;
+  
   margin: 0;
   letter-spacing: 0.5px;
+ 
 }
 
 /* Icoon styling */
 .level-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 5px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.438));
 }
-.robot-3d{
-    position: absolute;
-    top : 0;
-    right: -20%;
+
+.robot-3d {
+  position: absolute;
+  top: 0;
+  right: -20%;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #0b1020;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+  box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.18);
+  font-size: 1.1rem;
+  z-index: 99;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    position: static;
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+}
+
