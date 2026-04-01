@@ -32,7 +32,7 @@
 <body class="game-page">
 
   <header class="game-header">
-    <a href="../../index.html" class="btn-back">⬅ Terug naar Home</a>
+    <a href="../../index.html" class="btn-back" onclick="clickEventListener();">⬅ Terug naar Home</a>
     <h2 style="color: white;">Woorden Games</h2>
     <div class="score-board" style="display: none;">
       <span>0</span>
@@ -44,7 +44,7 @@
     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 2rem; width: 100%; max-width: 1200px;">
     
     <!-- Level 1: Optellen -->
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=dir&level=1" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #0066ff);">🦘</div>
         <div class="info">
@@ -55,7 +55,7 @@
     </section>
 
     <!-- Level 2: Optellen Plus -->
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=ver&level=2" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #00ccff);">🚗</div>
         <div class="info">
@@ -66,7 +66,7 @@
     </section>
 
     <!-- Level 3: Aftrekken -->
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
 
       <a href="game.html?op=won&level=1" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #ff00ff, #800080);">🏠</div>
@@ -76,7 +76,7 @@
         </div>
       </a>
     </section>
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
 
       <!-- Level 4: Keersommen -->
       <a href="game.html?op=fam&level=1" class="level-card">
@@ -87,7 +87,7 @@
         </div>
       </a>
     </section>
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
 
       <!-- Level 5: Delen -->
       <a href="game.html?op=mix&level=1" class="level-card">
@@ -98,7 +98,7 @@
         </div>
       </a>
     </section>
-    <section class="levels_container">
+    <section class="levels_container" onclick="clickEventListener();">
 
       <!-- Level 6: Expert Mix -->
       <a href="game.html?op=mix&level=1" class="level-card">
@@ -114,6 +114,7 @@
   <footer class="footer">
     <p>&copy;2026 All rights reserved by the developer Marouf Masri</p>
   </footer>
+  <script src="/js/script.js"></script>
 </body>
 
 </html>

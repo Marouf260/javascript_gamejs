@@ -8,6 +8,11 @@ window.onload = () => {
   let questionCount = 1;
   const maxQuestions = 10;
 
+  const win =new Audio("/assets/audio/win.wav");
+  const lose = new Audio("/assets/audio/wrong.wav");
+  const lastResultAudio = new Audio("/assets/audio/winnen.wav");
+  const finishAudio = new Audio("/assets/audio/finish_lose.wav");
+
   // Elementen
   const num1El = document.querySelector("#num1");
   const num2El = document.querySelector("#num2");
@@ -110,16 +115,20 @@ window.onload = () => {
       inputEl.focus();
     }
   }
-
   function checkAnswer() {
     const userVal = parseInt(inputEl.value);
     if (isNaN(userVal)) return;
 
     if (userVal === answer) {
       score += 10;
+      win.currentTime = 0;
+        win.play();
+      
       if (scoreEl) scoreEl.innerText = score;
       showFeedback("Goed gedaan!");
     } else {
+      lose.currentTime = 0;
+      lose.play();
       showFeedback(`Helaas, het was ${answer}`);
     }
     questionCount++;
@@ -162,8 +171,10 @@ window.onload = () => {
       victoryModal.style.display = "flex";
       if (score >= 50) {
         if (finalStats)
+          
           finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
-      
+        lastResultAudio.currentTime = 0;
+        lastResultAudio.play();
       } else {
         victoryModal.innerHTML = `
         <div class="modal-content">
@@ -175,6 +186,8 @@ window.onload = () => {
         </div>
     </div>`;
       }
+        finishAudio.currentTime = 0;
+        finishAudio.play();
     } else {
 
       if (finalStats)
@@ -192,9 +205,12 @@ window.onload = () => {
   }
 
   if (inputEl) {
-    inputEl.onkeypress = (e) => {
+    inputEl.addEventListener("keypress", (e) => {
       if (e.key === "Enter") checkAnswer();
-    };
+    });
+    // inputEl.onkeypress = (e) => {
+    //   if (e.key === "Enter") checkAnswer();
+    // };
   }
   generateQuestion();
 };

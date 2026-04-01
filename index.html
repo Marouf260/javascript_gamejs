@@ -1,74 +1,78 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <a href="index.html" class="logo"><span>Kids </span> <span>adventure</span><span> Game</span></span></a>
-        <nav class="nav desktop-nav">
-          <a href="index.html"><span>H</span><span>o</span><span>m</span><span>e</span></a>
-          <a href="/games/rekenen/index.html">Rekenen</a>
-          <a href="/games/woorden/index.html">Woorden</a>
-          <a href="/games/memory/index.html">Memory</a>
-        </nav>
-        <button class="mobile-nav-toggle" aria-label="Menu">
-          <span class="hamburger"></span>
-          <span class="hamburger"></span>
-          <span class="hamburger"></span>
-        </button>
-      </div>
-      <div class="title">
-        <h1><span >WELKOM </span> <span class="In"> IN </span> <span>MIJN-GAME</span></h1>
-      </div>
-      <nav class="mobile-nav">
-        <a href="index.html">🏠 Home</a>
-        <a href="/games/rekenen/index.html">🔢 Rekenen</a>
-        <a href="/games/woorden/index.html">📝 Woorden</a>
-        <a href="/games/memory/index.html">🧠 Memory</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo"><span>Kids </span> <span>adventure</span><span> Game</span></span></a>
+      <nav class="nav desktop-nav">
+        <a href="index.html"><span>H</span><span>o</span><span>m</span><span>e</span></a>
+        <a href="/games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
+        <a href="/games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
+        <a href="/games/memory/index.html" onclick="navClickEventListener();">Memory</a>
       </nav>
-    </header>
+      <button class="mobile-nav-toggle" aria-label="Menu">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </button>
+    </div>
+    <div class="title">
+      <h1><span>WELKOM </span> <span class="In"> IN </span> <span>MIJN-GAME</span></h1>
+    </div>
+    <nav class="mobile-nav">
+      <a href="index.html" onclick="HomeClickEventListener();">🏠 Home</a>
+      <a href="/games/rekenen/index.html" onclick="HomeClickEventListener();">🔢 Rekenen</a>
+      <a href="/games/woorden/index.html" onclick="HomeClickEventListener();">📝 Woorden</a>
+      <a href="/games/memory/index.html" onclick="HomeClickEventListener();">🧠 Memory</a>
+    </nav>
+  </header>
 
-    <main class="game-grid">
-            <!-- Rekenen Game -->
-            <div class="game-card math">
-                <div class="card-content">
-                    <h2>Rekenen</h2>
-                    <div class="card-actions">
-                        <a href="/games/rekenen/index.html" class="play-btn">Speel Nu</a>
-                    </div>
-                </div>
-            </div>
+  <main class="game-grid">
+    <!-- Rekenen Game -->
+    <div class="game-card math">
+      <div class="card-content">
+        <h2>Rekenen</h2>
+        <div class="card-actions">
+          <a href="/games/rekenen/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
+        </div>
+      </div>
+    </div>
 
-            <div class="game-card word">
-                <div class="card-content">
-                    <h2>Woorden Game</h2>
-                    <p>Ontdek nieuwe woorden en verbeter je taal!</p>
-                    <div class="card-actions">
-                        <a href="/games/woorden/index.html" class="play-btn">Speel Nu</a>
-                    </div>
-                </div>
-            </div>
+    <div class="game-card word">
+      <div class="card-content">
+        <h2>Woorden Game</h2>
+        <p>Ontdek nieuwe woorden en verbeter je taal!</p>
+        <div class="card-actions">
+          <a href="/games/woorden/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
+        </div>
+      </div>
+    </div>
 
-            <!-- Memory Game -->
-            <div class="game-card memory">
-                <div class="card-content">
-                    <h2>Memory Game</h2>
-                    <p>Test je geheugen met dit uitdagende spel!</p>
-                    <div class="card-actions">
-                        <a href="/games/memory/index.html" class="play-btn">Speel Nu</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer class="footer">
-      <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden.Diveloperd bij: Marouf Masri</p>
-        </footer>
-  </body>
+    <!-- Memory Game -->
+    <div class="game-card memory">
+      <div class="card-content">
+        <h2>Memory Game</h2>
+        <p>Test je geheugen met dit uitdagende spel!</p>
+        <div class="card-actions">
+          <a href="/games/memory/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden.Diveloperd bij: Marouf Masri</p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+
 </html>

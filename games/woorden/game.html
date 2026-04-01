@@ -1,62 +1,71 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/woorden.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="/css/woorden.css">
-</head>
+  <body class="game-page">
+    <div class="game-container">
+      <header class="game-header">
+        <a href="index.html" class="back-btn" onclick="clickEventListener();"
+          ><span>←</span> <span>Terug naar Levels</span></a
+        >
+        <div class="stats">
+          <div class="stat-item">
+            <span>Score:</span>
+            <span id="score">0</span>
+          </div>
 
-<body class="game-page">
-  <div class="game-container">
-    <header class="game-header">
-
-      <a href="index.html" class="back-btn"><span>←</span> <span>Terug naar Levels</span></a>
-      <div class="stats">
-        <div class="stat-item">
-          <span>Score:</span>
-          <span id="score">0</span>
+          <div class="stat-item">
+            <span>High Score:</span>
+            <span id="high-score">0</span>
+          </div>
+          <div class="stat-item">
+            <span>Vraag:</span>
+            <span id="question-count">1</span>/10
+          </div>
         </div>
-        <div class="stat-item">
-          <span>Vraag:</span>
-          <span id="question-count">1</span>/10
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
         </div>
-      </div>
-      <div class="progress-container">
-        <div id="progress-bar" class="progress-bar"></div>
-      </div>
-    </header>
-    <main>
-      <div class="game-card active">
-        <div class="word-display">
-          <hr>
-          <h3 id="opEl"></h3>
-          <hr>
-          <p class="woord">het woord is:</p>
-          <hr>
-          <h2 id="scrambled-word">______</h2>
-         
-          <p class="hint" id="hint">Laden...</p>
-         
+      </header>
+      <main>
+        <div class="game-card active">
+          <div class="word-display">
+            <hr />
+            <h3 id="opEl"></h3>
+            <hr />
+            <p class="woord">het woord is:</p>
+            <hr />
+            <h2 id="scrambled-word">______</h2>
+
+            <p class="hint" id="hint">Laden...</p>
+          </div>
+          <div class="input-area">
+            <input
+              type="text"
+              id="word-input"
+              placeholder="Type je antwoord..."
+              autocomplete="off"
+            />
+            <button id="check-btn" class="play-btn">Controleer</button>
+          </div>
+
+          <div id="feedback" class="feedback"></div>
+          <div id="victory-modal" class="feedback"></div>
+          <div id="victory-modal" class="final-stats"></div>
         </div>
-        <div class="input-area">
-          <input type="text" id="word-input" placeholder="Type je antwoord..." autocomplete="off" />
-          <button id="check-btn" class="play-btn">Controleer</button>
+
+        <div class="controls">
+          <button id="new-word-btn" class="ander_btn" >Ander woord</button>
         </div>
+      </main>
+    </div>
 
-        <div id="feedback" class="feedback"></div>
-        <div id="victory-modal" class="feedback"></div>
-        <div id="victory-modal" class="final-stats"></div>
-      </div>
-
-      <div class="controls">
-        <button id="new-word-btn" class="ander_btn">Ander woord</button>
-      </div>
-    </main>
-  </div>
-
-  <script src="/js/woorden.js"></script>
-</body>
-
+    <script src="/js/woorden.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
 </html>

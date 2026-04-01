@@ -12,13 +12,17 @@
 <body class="game-page">
     <div class="game-container">
         <header class="game-header">
-            <a href="index.html" class="back-btn">← Terug naar Levels</a>
+            <a href="index.html" class="back-btn" onclick="clickEventListener();">← Terug naar Levels</a>
             <div class="stats">
                 <div class="stat-item">
-                    <span>Score:</span>
+                    <span >Score:</span>
+                    
+                    <span id="score">0</span>
+                </div>
+                <div class="stat-item">
                     <span>De highscore :</span>
                     <span id="highscore">0</span>
-                    <span id="score">0</span>
+                    
                 </div>
                 <div class="stat-item">
                     <span>Vraag:</span>
@@ -36,9 +40,9 @@
                 <span id="operator">+</span>
                 <span id="num2">0</span>
                 <span>=</span>
-                <input type="number" id="answer-input" placeholder="?"  >
+                <input type="number" id="answer-input" placeholder="?"  onclick="clickEventListener();">
             </div>
-            <button id="submit-btn" class="submit-btn">Controleer</button>
+            <button id="submit-btn" class="submit-btn" >Controleer</button>
             <div id="feedback" class="feedback-msg"></div>
         </main>
     </div>
@@ -56,6 +60,7 @@
     </div>
 
     <script src="/js/rekenen.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

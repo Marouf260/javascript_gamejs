@@ -11,23 +11,23 @@
 
 <body>
   <header>
-    <a href="../../index.html" class="btn-back">⬅ Terug naar Home</a>
+    <a href="../../index.html" class="btn-back" onclick="clickEventListener()">⬅ Terug naar Home</a>
   </header>
   <main>
     <h1 class="title">Memory Game</h1>
     <p class="description">klik op de kaartje om te kiezen welke deel wil je spelen</p>
 
     <div class="levels-container">
-      <div class="space">
-        <a href="games.html?op=space&level=1">Play space memory</a>
+      <div class="space" onclick="clickEventListener()">
+        <a href="games.html?op=space&level=1" >Play space memory</a>
       </div>
-      <div class="auto">
+      <div class="auto" onclick="clickEventListener()">
         <a href="games.html?op=auto&level=1">Play auto memory</a>
       </div>
-      <div class="hardware">
+      <div class="hardware" onclick="clickEventListener()">
         <a href="games.html?op=hardware&level=1">Play hardware memory</a>
       </div>
-      <div class="dieren">
+      <div class="dieren" onclick="clickEventListener()">
         <a href="games.html?op=dieren&level=1">Play dieren memory</a>
       </div>
     </div>
@@ -37,6 +37,7 @@
     <p>&copy; 2026 Memory Game . Developed by Marouf Masri. All rights reserved.</p>
   </footer>
   <script src="/js/memmory.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 
 </html>

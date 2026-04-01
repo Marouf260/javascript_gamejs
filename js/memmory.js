@@ -5,9 +5,13 @@ const levelNum = parseInt(urlParams.get("level")) || 1;
 const opEl = document.querySelector("#opType");
 
 const levelBoxes = document.querySelectorAll(".levels-container > div");
+const clickAudio = new Audio("/assets/audio/click.wav");
+const win = new Audio("/assets/audio/win.wav");
 
 levelBoxes.forEach((box) => {
   box.addEventListener("click", function () {
+    clickAudio.currentTime = 0;
+    clickAudio.play();
     // Zoek <a> binnen de geklikte box
     const link = box.querySelector("a");
     if (link && link.getAttribute("href")) {
@@ -111,6 +115,7 @@ function startGame() {
   // Create card elements
   for (var i = 0; i < cardImages.length; i++) {
     let card = document.createElement("div");
+
     card.className = "card";
     card.innerHTML =
       '<div class="card-front"><i class="fas fa-heart"></i></div>' +
@@ -140,7 +145,8 @@ function flipCard() {
   if (!canFlip) return;
   if (this.classList.contains("flipped")) return;
   if (this.classList.contains("matched")) return;
-
+  clickAudio.currentTime = 0;
+  clickAudio.play();
   if (!timerRunning) {
     startTimer();
   }
@@ -165,6 +171,8 @@ function checkMatch() {
     setTimeout(function () {
       firstCard.classList.add("matched");
       secondCard.classList.add("matched");
+      win.currentTime = 0;
+      win.play();
       matches++;
       updateStats();
       resetCards();
@@ -246,6 +254,5 @@ function newGame() {
 
   startGame();
 }
-
 
 startGame();
