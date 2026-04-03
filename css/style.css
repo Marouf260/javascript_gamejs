@@ -4,11 +4,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #f8fafc;
   /* Zeer donkere achtergrondbasis */
-  background:
-    linear-gradient(120deg, #141726 0%, #212f41 60%, #1b032c 100%);
+  background: linear-gradient(120deg, #141726 0%, #212f41 60%, #1b032c 100%);
   background-attachment: fixed;
   position: relative;
 }
@@ -20,18 +19,34 @@ body::before voegt zachte gekleurde accenten toe:
 - Op een donkere ondergrond, diffuus en modern.
 */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   background:
     /* Jongens accenten */
-    radial-gradient(circle at 16% 24%, rgba(32, 115, 213, 0.19) 0%, transparent 54%),
-    radial-gradient(circle at 78% 90%, rgba(34, 197, 210, 0.10) 0%, transparent 60%),
+    radial-gradient(
+      circle at 16% 24%,
+      rgba(32, 115, 213, 0.19) 0%,
+      transparent 54%
+    ),
+    radial-gradient(
+      circle at 78% 90%,
+      rgba(34, 197, 210, 0.1) 0%,
+      transparent 60%
+    ),
     /* Meisjes accenten */
-    radial-gradient(circle at 86% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 66%),
-    radial-gradient(circle at 38% 60%, rgba(139, 92, 246, 0.10) 0%, transparent 75%);
+    radial-gradient(
+        circle at 86% 20%,
+        rgba(236, 72, 153, 0.15) 0%,
+        transparent 66%
+      ),
+    radial-gradient(
+      circle at 38% 60%,
+      rgba(139, 92, 246, 0.1) 0%,
+      transparent 75%
+    );
   mix-blend-mode: lighten;
   /* Veel subtieler, zodat hij ZEKER donker blijft */
 }
@@ -39,72 +54,68 @@ body::before {
 .container .logo span:nth-child(1) {
   color: #1f7fec;
   font-size: 30px;
-  text-shadow: 0 0 10px rgb(108, 108, 216), 0 0 15px rgb(21, 255, 0);
+  text-shadow:
+    0 0 10px rgb(108, 108, 216),
+    0 0 15px rgb(21, 255, 0);
 }
-
-
 
 .container .logo span:nth-child(2) {
   color: #ff0000;
   font-size: 30px;
-  text-shadow: 0 0 10px rgb(11, 11, 36), 0 0 15px rgb(255, 8, 0);
+  text-shadow:
+    0 0 10px rgb(11, 11, 36),
+    0 0 15px rgb(255, 8, 0);
 }
 
 .container .logo span:nth-child(3) {
   color: #11ce00;
   font-size: 30px;
-  text-shadow: 0 0 10px rgb(72, 255, 0), 0 0 15px rgb(4, 0, 255);
-}
-
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  background: rgba(30, 30, 30, 0.97);
-  position: absolute;
-  top: 100px;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  padding: 20px;
-}
-
-.mobile-nav.open {
-  display: flex;
-}
-
-.mobile-nav a {
-  padding: 1rem 0;
-  border-bottom: 1px solid #444;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2em;
-}
-
-.mobile-nav a:last-child {
-  border-bottom: none;
+  text-shadow:
+    0 0 10px rgb(72, 255, 0),
+    0 0 15px rgb(4, 0, 255);
 }
 
 .mobile-nav-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
+  font-size: 28px;
+  color: #fff;
   cursor: pointer;
-  z-index: 100;
 }
+#menu {
+  display: none;
+}
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
 
-.mobile-nav-toggle .hamburger {
-  width: 30px;
-  height: 4px;
-  background: #fff;
-  margin: 3px 0;
-  border-radius: 2px;
+}
+.mobile-nav a {
   display: block;
-  transition: all 0.3s;
+
+  padding: 12px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: background 0.5s;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+
+
+  &:hover {
+  background-color: #47557e;
+  color: #ffffff;
+}
+&:active {
+  background-color: #2f4894;
+  color: #910202;
+}
+}
+#menu:checked ~ .mobile-nav {
+  display: block;
+  
 }
 
 /* Responsive styles */
@@ -114,7 +125,7 @@ body::before {
   }
 
   .mobile-nav-toggle {
-    display: flex;
+    display: block;
   }
 
   .logo {
@@ -128,15 +139,15 @@ body::before {
 
   .mobile-nav {
     display: none;
-  }
-
-  .mobile-nav.open {
-    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
   }
 }
 
 @media (min-width: 769px) {
-
   .mobile-nav,
   .mobile-nav-toggle {
     display: none !important;
@@ -150,8 +161,6 @@ body::before {
   padding: 20px 40px;
   backdrop-filter: initial;
   -webkit-backdrop-filter: blur(10px);
-
-
 }
 
 .container a {
@@ -163,11 +172,16 @@ body::before {
 
 .nav a {
   color: #e7eaff;
-  text-shadow: 0 2px 15px #390d5e55, 0 1px #fff;
+  text-shadow:
+    0 2px 15px #390d5e55,
+    0 1px #fff;
   letter-spacing: 1px;
   padding: 7px 10px;
   border-radius: 15px;
-  transition: background 0.35s, color 0.3s, transform 0.18s;
+  transition:
+    background 0.35s,
+    color 0.3s,
+    transform 0.18s;
   background: rgba(54, 82, 181, 0.09);
   border: 2px solid transparent;
 }
@@ -175,7 +189,9 @@ body::before {
 .nav a:hover {
   color: #6247ea;
   background: linear-gradient(92deg, #789cff 50%, #042847 100%);
-  box-shadow: 0 2px 24px #fff7, 0 3px 6px #5f94f040;
+  box-shadow:
+    0 2px 24px #fff7,
+    0 3px 6px #5f94f040;
   border-color: #8bd2fa;
   transform: translateY(-2px) scale(1.09);
 }
@@ -204,8 +220,6 @@ body::before {
   margin-left: 20px;
   margin-right: 20px;
   padding: 2rem;
-
-
 }
 
 .game-card::before {
@@ -234,13 +248,9 @@ body::before {
   background-image: url("../assets/memory.png");
 }
 
-
-
 .game-card:hover::before {
   /* transform: scale(1.1); */
   transform: translateY(-10px) scale(1.05) translateX(-10px) rotate(5deg);
-  /* transform: ; */
-
   opacity: 1;
 }
 
@@ -368,16 +378,12 @@ body::before {
     0 0 100px rgb(4, 0, 61);
 }
 
-
 .title span:last-child {
   color: rgb(255, 0, 200);
   text-shadow:
     0 0 25px rgba(247, 0, 247, 0.973),
     0 0 50px black;
 }
-
-
-
 
 .title .In {
   color: rgb(0, 143, 119);
@@ -393,5 +399,5 @@ body::before {
   text-align: center;
   padding: 20px 0;
   margin-top: 100px;
-  box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.20);
+  box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.2);
 }

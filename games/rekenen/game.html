@@ -1,66 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rekenen</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/css/rekenen.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/rekenen.css" />
+  </head>
 
-<body class="game-page">
+  <body class="game-page">
     <div class="game-container">
-        <header class="game-header">
-            <a href="index.html" class="back-btn" onclick="clickEventListener();">← Terug naar Levels</a>
-            <div class="stats">
-                <div class="stat-item">
-                    <span >Score:</span>
-                    
-                    <span id="score">0</span>
-                </div>
-                <div class="stat-item">
-                    <span>De highscore :</span>
-                    <span id="highscore">0</span>
-                    
-                </div>
-                <div class="stat-item">
-                    <span>Vraag:</span>
-                    <span id="question-count">1</span>/10
-                </div>
-            </div>
-            <div class="progress-container">
-                <div id="progress-bar" class="progress-bar"></div>
-            </div>
-        </header>
+      <header class="game-header">
+        <a href="index.html" class="back-btn" onclick="clickEventListener()"
+          >← Terug naar Levels</a
+        >
+        <div class="stats">
+          <div class="stat-item">
+            <span>Score:</span>
 
-        <main class="question-area">
-            <div class="equation">
-                <span id="num1">0</span>
-                <span id="operator">+</span>
-                <span id="num2">0</span>
-                <span>=</span>
-                <input type="number" id="answer-input" placeholder="?"  onclick="clickEventListener();">
-            </div>
-            <button id="submit-btn" class="submit-btn" >Controleer</button>
-            <div id="feedback" class="feedback-msg"></div>
-        </main>
+            <span id="score">0</span>
+          </div>
+          <div class="stat-item">
+            <span>De highscore :</span>
+            <span id="highscore">0</span>
+            <span class="remove_highscore"><button id="remove_Highscore">Remove</button></span>
+          </div>
+          <div class="stat-item">
+            <span>Vraag:</span>
+            <span id="question-count">1</span>/10
+          </div>
+        </div>
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </header>
+
+      <main class="question-area">
+        <div class="equation">
+          <span id="num1">0</span>
+          <span id="operator">+</span>
+          <span id="num2">0</span>
+          <span>=</span>
+          <input
+            type="number"
+            id="answer-input"
+            placeholder="?"
+            onclick="clickEventListener()"
+          />
+        </div>
+        <button id="submit-btn" class="submit-btn">Controleer</button>
+        <div id="feedback" class="feedback-msg"></div>
+      </main>
     </div>
 
     <!-- Victory Modal -->
     <div id="victory-modal" class="modal">
-        <div class="modal-content">
-            <h2>Gefeliciteerd! 🎉</h2>
-            <p id="final-stats">Je hebt alle vragen beantwoord!</p>
-            <div class="modal-actions">
-                <button onclick="location.reload()">Opnieuw Spelen</button>
-                <a href="index.html">Naar Levels</a>
-            </div>
+      <div class="modal-content">
+        <h2>Gefeliciteerd! 🎉</h2>
+        <p id="final-stats">Je hebt alle vragen beantwoord!</p>
+        <div class="modal-actions">
+          <button onclick="location.reload()">Opnieuw Spelen</button>
+          <a href="index.html">Naar Levels</a>
         </div>
+      </div>
     </div>
 
     <script src="/js/rekenen.js"></script>
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>

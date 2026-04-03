@@ -13,28 +13,23 @@
 <body>
   <header>
     <div class="container">
+      <input type="checkbox" id="menu">
       <a href="index.html" class="logo"><span>Kids </span> <span>adventure</span><span> Game</span></span></a>
       <nav class="nav desktop-nav">
-        <a href="index.html"><span>H</span><span>o</span><span>m</span><span>e</span></a>
+        <a href="index.html">Home</a>
         <a href="/games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
         <a href="/games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
         <a href="/games/memory/index.html" onclick="navClickEventListener();">Memory</a>
       </nav>
-      <button class="mobile-nav-toggle" aria-label="Menu">
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-      </button>
-    </div>
-    <div class="title">
-      <h1><span>WELKOM </span> <span class="In"> IN </span> <span>MIJN-GAME</span></h1>
-    </div>
-    <nav class="mobile-nav">
-      <a href="index.html" onclick="HomeClickEventListener();">🏠 Home</a>
-      <a href="/games/rekenen/index.html" onclick="HomeClickEventListener();">🔢 Rekenen</a>
-      <a href="/games/woorden/index.html" onclick="HomeClickEventListener();">📝 Woorden</a>
-      <a href="/games/memory/index.html" onclick="HomeClickEventListener();">🧠 Memory</a>
-    </nav>
+      <label for="menu" class="mobile-nav-toggle" aria-label="Menu">&equiv;</label>
+      <div class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="/games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
+        <a href="/games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
+        <a href="/games/memory/index.html" onclick="navClickEventListener();">Memory</a>
+
+      </div>
+     
   </header>
 
   <main class="game-grid">

@@ -7,8 +7,9 @@ window.onload = () => {
   let score = 0;
   let questionCount = 1;
   const maxQuestions = 10;
+  let isProcessing = false;
 
-  const win =new Audio("/assets/audio/win.wav");
+  const win = new Audio("/assets/audio/win.wav");
   const lose = new Audio("/assets/audio/wrong.wav");
   const lastResultAudio = new Audio("/assets/audio/winnen.wav");
   const finishAudio = new Audio("/assets/audio/finish_lose.wav");
@@ -26,7 +27,7 @@ window.onload = () => {
   const victoryModal = document.querySelector("#victory-modal");
   const finalStats = document.querySelector("#final-stats");
   const highscoreEl = document.querySelector("#highscore");
-
+  const remove_Highscore = document.querySelector("#remove_Highscore");
   const opSymbols = {
     plus: "+",
     plus_2: "+",
@@ -86,11 +87,10 @@ window.onload = () => {
         break;
 
       case "tafel":
-
-       if (!window.selectedTafel) {
-    let userInput = prompt("Welke tafel wil je oefenen? (1 t/m 10)");
-    window.selectedTafel = parseInt(userInput) || 1;
-}
+        if (!window.selectedTafel) {
+          let userInput = prompt("Welke tafel wil je oefenen? (1 t/m 10)");
+          window.selectedTafel = parseInt(userInput) || 1;
+        }
         if (!window.getallenLijst || window.getallenLijst.length === 0) {
           window.getallenLijst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -114,16 +114,19 @@ window.onload = () => {
       inputEl.value = "";
       inputEl.focus();
     }
+    isProcessing = false;
   }
   function checkAnswer() {
+    if (isProcessing) return;
     const userVal = parseInt(inputEl.value);
     if (isNaN(userVal)) return;
+
+    isProcessing = true;
 
     if (userVal === answer) {
       score += 10;
       win.currentTime = 0;
-        win.play();
-      
+      win.play();
       if (scoreEl) scoreEl.innerText = score;
       showFeedback("Goed gedaan!");
     } else {
@@ -153,7 +156,7 @@ window.onload = () => {
       progBar.style.width = `${percent}%`;
     }
   }
-  function updateHighscoreDisplay(){
+  function updateHighscoreDisplay() {
     const score = parseInt(localStorage.getItem("highscore")) || 0;
     if (highscoreEl) {
       highscoreEl.innerText = score;
@@ -161,24 +164,23 @@ window.onload = () => {
   }
   updateHighscoreDisplay();
   function finishGame() {
-      const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
-        if (score > prevHighscore) {
-          localStorage.setItem("highscore", score);
-        }
-         updateHighscoreDisplay();
-         
+    const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
+    if (score > prevHighscore) {
+      localStorage.setItem("highscore", score);
+    }
+
     if (victoryModal) {
       victoryModal.style.display = "flex";
       if (score >= 50) {
         if (finalStats)
-          
           finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
         lastResultAudio.currentTime = 0;
         lastResultAudio.play();
       } else {
         victoryModal.innerHTML = `
         <div class="modal-content">
-            <h2>Helaas je hebt weinig gescoort ${score}  punten in ${maxQuestions} vragen!</h2>            <p id="final-stats">Je hebt alle vragen beantwoord!</p>
+            <h2>Helaas je hebt weinig gescoort ${score}  punten in ${maxQuestions} vragen!</h2>  
+                      <p id="final-stats">Je hebt alle vragen beantwoord!</p>
             <div class="modal-actions">
                 <button onclick="location.reload()">Opnieuw Spelen</button>
                 <a href="index.html">Naar Levels</a>
@@ -186,31 +188,37 @@ window.onload = () => {
         </div>
     </div>`;
       }
-        finishAudio.currentTime = 0;
-        finishAudio.play();
+      finishAudio.currentTime = 0;
+      finishAudio.play();
     } else {
-
       if (finalStats)
         finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
       document.querySelector(".question-area").innerHTML =
         `<button onclick="${window.location.reload()}">Play Again</button>`;
-        updateHighscoreDisplay();
-        
-
-
+      updateHighscoreDisplay();
     }
   }
   if (submitBtn) {
-    submitBtn.onclick = checkAnswer;
+    submitBtn.addEventListener("click", checkAnswer);
   }
 
   if (inputEl) {
     inputEl.addEventListener("keypress", (e) => {
       if (e.key === "Enter") checkAnswer();
     });
-    // inputEl.onkeypress = (e) => {
-    //   if (e.key === "Enter") checkAnswer();
-    // };
+  }
+
+  if(remove_Highscore){
+    remove_Highscore.addEventListener("click", () => {
+      if(score != null){
+            localStorage.clear();
+         location.reload();
+
+
+  
+      }
+      
+    })
   }
   generateQuestion();
 };
