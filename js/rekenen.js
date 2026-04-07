@@ -4,6 +4,7 @@ window.onload = () => {
   const levelNum = parseInt(urlParams.get("level")) || 1;
 
   let answer;
+  let lives = 3;
   let score = 0;
   let questionCount = 1;
   const maxQuestions = 10;
@@ -28,6 +29,7 @@ window.onload = () => {
   const finalStats = document.querySelector("#final-stats");
   const highscoreEl = document.querySelector("#highscore");
   const remove_Highscore = document.querySelector("#remove_Highscore");
+
   const opSymbols = {
     plus: "+",
     plus_2: "+",
@@ -130,6 +132,11 @@ window.onload = () => {
       if (scoreEl) scoreEl.innerText = score;
       showFeedback("Goed gedaan!");
     } else {
+      lives--;
+      if (document.querySelector("#lives")) {
+        document.querySelector("#lives").innerText = lives;
+      }
+
       lose.currentTime = 0;
       lose.play();
       showFeedback(`Helaas, het was ${answer}`);
@@ -137,7 +144,7 @@ window.onload = () => {
     questionCount++;
     updateProgress();
 
-    if (questionCount > maxQuestions) {
+    if (questionCount > maxQuestions || lives <= 0) {
       finishGame();
     } else {
       setTimeout(generateQuestion, 1000);
@@ -171,7 +178,13 @@ window.onload = () => {
 
     if (victoryModal) {
       victoryModal.style.display = "flex";
-      if (score >= 50) {
+
+      if (lives <= 0) {
+        finalStats.innerText = `Game Over! Je levens zijn op. Score: ${score}`;
+        finishAudio.currentTime = 0;
+        finishAudio.play();
+      } 
+      else if (score >= 50) {
         if (finalStats)
           finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
         lastResultAudio.currentTime = 0;
@@ -208,17 +221,13 @@ window.onload = () => {
     });
   }
 
-  if(remove_Highscore){
+  if (remove_Highscore) {
     remove_Highscore.addEventListener("click", () => {
-      if(score != null){
-            localStorage.clear();
-         location.reload();
-
-
-  
+      if (score != null) {
+        localStorage.clear();
+        location.reload();
       }
-      
-    })
+    });
   }
   generateQuestion();
 };

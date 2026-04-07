@@ -99,6 +99,13 @@ hr {
     transform: scale(1);
   }
 }
+.remove {
+  background: none;
+  border: 2px solid #ff3131b0;
+  color: #f6fffe;
+  font-size: 18px !important;
+  padding: 5px 10px !important;
+}
 
 .word-display {
   font-size: 28px;
@@ -230,3 +237,29 @@ button,
   }
 }
 
+@media (max-width: 768px) {
+  .game-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+
+  }
+
+  .stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+
+  }
+  .back-btn {
+    font-size: 18px;
+    padding: 8px 20px;
+
+    span:nth-child(1) {
+      font-size: 22px;
+    }}
+    
+  
+}

@@ -4,7 +4,8 @@ body {
     linear-gradient(135deg, #0b1020 0%, #274472 40%, #543478 80%, #0a0a1a 100%);
   background-attachment: fixed;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Fira Mono', 'Press Start 2P', 'Montserrat', 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  /* Google Fonts koppeling voor Fira Mono */
   margin: 0;
   padding: 20px;
   color: white;
@@ -38,7 +39,7 @@ body {
   padding: 32px 32px 28px 32px;
   border-radius: 32px;
   box-shadow: 0 12px 36px rgba(34, 60, 120, 0.25), 0 1.5px 5px rgba(0, 0, 0, 0.085);
-  transition: all 0.35s ;
+  transition: all 0.35s;
   /* transition:
     box-shadow 0.35s cubic-bezier(.61, .29, .29, .93),
     background 0.35s cubic-bezier(.61, .29, .29, .93),
@@ -60,7 +61,8 @@ body {
       border-color 0.35s cubic-bezier(.61, .29, .29, .93),
       transform 0.26s cubic-bezier(.50, .31, .21, .88);
   }
-  &:active{
+
+  &:active {
     transform: scale(1.01);
     box-shadow: 0 22px 44px rgba(0, 163, 200, 0.506), 0 2px 9px rgb(195, 0, 0);
     background: linear-gradient(117deg, rgba(46, 213, 115, 0.12) 0%, rgba(44, 115, 210, 0.16) 100%);
@@ -70,39 +72,50 @@ body {
 }
 
 
-.remove_highscore button{
+.remove_highscore button {
   background: none;
-  border: 2px solid  #0a0c1d;
+  border: 2px solid #0a0c1d;
   color: #ffffffb8;
   border-radius: 20px;
   transition: all 0.3s;
 
-  &:hover{
+  &:hover {
     background: #0d0047;
-    box-shadow: 0 0 10px  #0006b0c0;
+    box-shadow: 0 0 10px #0006b0c0;
     color: #fff;
-    transform:   scale(1.06);
+    transform: scale(1.06);
 
-    
 
-}
-&:active{
+
+  }
+
+  &:active {
     color: #fff;
-    box-shadow: 0 0 10px  #0006b0;
+    box-shadow: 0 0 10px #0006b0;
 
 
-    transform:   scale(0.90);
+    transform: scale(0.90);
 
+  }
 }
+
+.levels-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
 }
+
 .level-status {
   font-weight: 800;
   font-size: 20px;
   color: #ffffff;
-  
+
   margin: 0;
   letter-spacing: 0.5px;
- 
+
 }
 
 /* Icoon styling */
@@ -113,33 +126,20 @@ body {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.438));
 }
 
-.robot-3d {
-  position: absolute;
-  top: 0;
-  right: -20%;
-}
 
-.footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #0b1020;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  margin: 0;
-  box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.18);
-  font-size: 1.1rem;
-  z-index: 99;
-}
 
-@media (max-width: 600px) {
-  .footer {
-    position: static;
-    font-size: 1rem;
-    padding: 14px 0;
+
+
+@media (max-width: 750px) {
+
+  .levels-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
   }
+  
+  
+  
 }
-

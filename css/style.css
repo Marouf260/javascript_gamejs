@@ -4,7 +4,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f8fafc;
   /* Zeer donkere achtergrondbasis */
   background: linear-gradient(120deg, #141726 0%, #212f41 60%, #1b032c 100%);
@@ -361,8 +361,25 @@ body::before {
     font-size: 3rem;
   }
 
-  .game-grid {
+  main .game-grid {
     gap: 1.5rem;
+    
+  }
+  .container {
+   padding: 15px 20px;
+  }
+  .container .logo span {
+    &:first-child {
+      font-size: 24px;
+    }
+
+    &:nth-child(2) {
+      font-size: 24px;
+    }
+    &:nth-child(3) {
+      font-size: 24px;
+    }
+
   }
 }
 
@@ -401,3 +418,4 @@ body::before {
   margin-top: 100px;
   box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.2);
 }
+

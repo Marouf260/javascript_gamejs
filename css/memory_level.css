@@ -219,29 +219,9 @@ body {
   }
 }
 
-.footer{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
 
-  padding: 40px 20px;
-  background-color: #1c1c1ca1;
-  color: #fff;
-  text-align: center;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 -2px 10px #222222;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  margin-top: 0;
-
-  a {
-    color: #ff2600;
-    text-decoration: underline;
-    transition: color 0.2s;
-  }
-
-  a:hover {
-    color: #ff6830;
-  }
+@media (max-width: 768px) {
+  .levels-container {
+    grid-template-columns: 1fr;
+  }  
 }

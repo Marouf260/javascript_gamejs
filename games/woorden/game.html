@@ -10,9 +10,11 @@
   <body class="game-page">
     <div class="game-container">
       <header class="game-header">
-        <a href="index.html" class="back-btn" onclick="clickEventListener()"
-          ><span>←</span> <span>Terug naar Levels</span></a
-        >
+        <a href="index.html" class="back-btn" onclick="clickEventListener()">
+          <span>←</span> 
+          <span>Terug naar Levels</span>
+        </a>
+
         <div class="stats">
           <div class="stat-item">
             <span>Score:</span>
@@ -22,7 +24,14 @@
           <div class="stat-item">
             <span>High Score:</span>
             <span id="high-score">0</span>
+            <button id="remove-highscore" class="remove">Remove</button>
+
           </div>
+
+            <div class="stat-item">
+              <span>Lives:</span>
+              <span id="lives">3</span>
+            </div>
           <div class="stat-item">
             <span>Vraag:</span>
             <span id="question-count">1</span>/10
