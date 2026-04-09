@@ -89,6 +89,8 @@ body {
 
   }
 
+
+
   &:active {
     color: #fff;
     box-shadow: 0 0 10px #0006b0;
@@ -98,7 +100,18 @@ body {
 
   }
 }
+  .timer{
+    color: red !important;
+    font-weight: 700;
+    animation: pulse 1s infinite;
 
+   
+  }
+  @keyframes pulse {
+     0% {  transform: scale(1); }
+     50% {  transform: scale(1.2); }
+     100% {  transform: scale(1); }
+   }
 .levels-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

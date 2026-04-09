@@ -5,14 +5,17 @@ window.onload = () => {
 
   let answer;
   let lives = 3;
+
   let score = 0;
   let questionCount = 1;
   const maxQuestions = 10;
   let isProcessing = false;
+    let timer = 30;
 
   const win = new Audio("/assets/audio/win.wav");
   const lose = new Audio("/assets/audio/wrong.wav");
   const lastResultAudio = new Audio("/assets/audio/winnen.wav");
+  const timerAudio = new Audio("/assets/audio/timer.wav");
   const finishAudio = new Audio("/assets/audio/finish_lose.wav");
 
   // Elementen
@@ -29,7 +32,9 @@ window.onload = () => {
   const finalStats = document.querySelector("#final-stats");
   const highscoreEl = document.querySelector("#highscore");
   const remove_Highscore = document.querySelector("#remove_Highscore");
+  const  timerEl = document.querySelector("#timer");
 
+  // opType symbolen
   const opSymbols = {
     plus: "+",
     plus_2: "+",
@@ -37,10 +42,14 @@ window.onload = () => {
     keer: "×",
     div: "/",
     tafel: "×",
+    mix: "?"
+
   };
 
   if (opEl) opEl.innerText = opSymbols[opType];
 
+
+  // vraag genereren op basis van opType en levelNum
   function generateQuestion() {
     let n1, n2;
     const range = levelNum * 10;
@@ -109,7 +118,46 @@ window.onload = () => {
         n1 = window.selectedTafel;
         answer = n1 * n2;
         break;
+
+        case "mix":
+          if (opType === "mix"){
+
+            const ops = ["plus", "min", "keer", "div"];
+            maxQuestions = 40;
+            let levelNum = 1;
+          
+
+            const randomOp = ops[Math.floor(Math.random() * ops.length)];
+            opEl.innerText = opSymbols[randomOp];
+            switch (randomOp) {
+              case "plus":
+                  n1 = Math.floor(Math.random() * ranges) + 4;
+                  n2 = Math.floor(Math.random() * ranges) + 4;
+                answer = n1 + n2;
+                break;
+              case "min":
+                n1 = Math.floor(Math.random() * range) + 4;
+                n2 = Math.floor(Math.random() * n1) + 4;
+                answer = n1 - n2;
+                break; 
+              case "keer":
+                n1 = Math.floor(Math.random() * 10) + 4;
+                n2 = Math.floor(Math.random() * 10) + 4;
+                answer = n1 * n2;
+                break;
+              case "div":
+                n2 = Math.floor(Math.random() * 9) + 1;
+                answer = Math.floor(Math.random() * 10);
+                n1 = n2 * answer;
+                break;
+            }
+
+          }
+          break;
     }
+ 
+    if (timerEl) timerEl.innerText = timer;
+
     if (num1El) num1El.innerText = n1;
     if (num2El) num2El.innerText = n2;
     if (inputEl) {
@@ -118,6 +166,7 @@ window.onload = () => {
     }
     isProcessing = false;
   }
+
   function checkAnswer() {
     if (isProcessing) return;
     const userVal = parseInt(inputEl.value);
@@ -161,6 +210,7 @@ window.onload = () => {
     if (progBar) {
       const percent = ((questionCount - 1) / maxQuestions) * 100;
       progBar.style.width = `${percent}%`;
+      
     }
   }
   function updateHighscoreDisplay() {
@@ -183,8 +233,7 @@ window.onload = () => {
         finalStats.innerText = `Game Over! Je levens zijn op. Score: ${score}`;
         finishAudio.currentTime = 0;
         finishAudio.play();
-      } 
-      else if (score >= 50) {
+      } else if (score >= 50) {
         if (finalStats)
           finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
         lastResultAudio.currentTime = 0;
@@ -201,13 +250,13 @@ window.onload = () => {
         </div>
     </div>`;
       }
-      finishAudio.currentTime = 0;
-      finishAudio.play();
     } else {
       if (finalStats)
         finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
+      finishAudio.currentTime = 0;
+      finishAudio.play();
       document.querySelector(".question-area").innerHTML =
-        `<button onclick="${window.location.reload()}">Play Again</button>`;
+        `<button onclick="location.reload()">Play Again</button>`;
       updateHighscoreDisplay();
     }
   }
@@ -229,5 +278,39 @@ window.onload = () => {
       }
     });
   }
+    setInterval(() => {
+      timer--;
+      timer = Math.max(timer, 0);
+      timer = Math.min(timer, 30);
+      timer = Math.floor(timer);
+      let extraTimer = timer  * levelNum;
+      if (timerEl) timerEl.innerText = extraTimer;
+      if (timer == 10) {
+        showFeedback("Nog 10 seconden!", "warning");
+        timerEl.classList.add("timer");
+        timerAudio.currentTime = 50;
+        timerAudio.play();
+      }
+      if (timer <= 0) {
+        lives--;
+        if (document.querySelector("#lives")) {
+          document.querySelector("#lives").innerText = lives;
+
+        } else {
+          alert("Tijd is om! Je hebt een leven verloren.");
+         
+        
+          
+        }
+        timerEl.classList.remove("timer");
+         questionCount++;
+          updateProgress();
+          generateQuestion();
+        if (lives <= 0) {
+          finishGame();
+        }
+        timer = 30;
+      }
+    }, 1000);
   generateQuestion();
 };

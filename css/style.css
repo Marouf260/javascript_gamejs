@@ -12,12 +12,7 @@ body {
   position: relative;
 }
 
-/* 
-body::before voegt zachte gekleurde accenten toe:
-- Jongens kleuren (koel blauw/groen)
-- Meisjes kleuren (zacht roze/paars)
-- Op een donkere ondergrond, diffuus en modern.
-*/
+
 body::before {
   content: "";
   position: fixed;
@@ -25,7 +20,6 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    /* Jongens accenten */
     radial-gradient(
       circle at 16% 24%,
       rgba(32, 115, 213, 0.19) 0%,
@@ -209,17 +203,25 @@ body::before {
   height: 400px;
   border-radius: 24px;
   overflow: hidden;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(147, 163, 234, 0.18);
   backdrop-filter: blur(12px);
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(.4,2.5,.41,.97);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-left: 20px;
   margin-right: 20px;
   padding: 2rem;
+}
+.active {
+  color: #ff0000;
+  background: #0030ce;
+  opacity: 0.5;
+  text-shadow:
+    0 0 10px rgb(255, 0, 0),
+    0 0 20px rgb(255, 0, 0);
 }
 
 .game-card::before {
