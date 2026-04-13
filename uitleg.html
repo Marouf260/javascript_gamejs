@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kids Adventure Game – Uitleg: Hoe speel je de spellen?" />
+  <title>Hoe Speel Je? | Kids Adventure Game 🎮</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .uitleg-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .uitleg-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .uitleg-card:hover {
+      transform: translateY(-5px);
+    }
+    .uitleg-card h2 {
+      font-family: 'Orbitron', 'Montserrat', sans-serif;
+      color: #00eaff;
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+    .uitleg-card:nth-child(2) h2 { color: #ff0055; }
+    .uitleg-card:nth-child(3) h2 { color: #00ff88; }
+    
+    .uitleg-card:hover { border-color: #00eaff; }
+    .uitleg-card:nth-child(2):hover { border-color: #ff0055; }
+    .uitleg-card:nth-child(3):hover { border-color: #00ff88; }
+
+    .uitleg-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #f0f4ff;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .uitleg-card ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .uitleg-card li {
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: #8892b0;
+    }
+    .uitleg-card li strong {
+      color: #fff;
+    }
+    .uitleg-card li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <input type="checkbox" id="menu">
+      <a href="index.html" class="logo"><span>Kids </span><span>Adventure</span><span> Game</span></a>
+      <nav class="nav desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="/games/rekenen/index.html">Rekenen</a>
+        <a href="/games/woorden/index.html">Woorden</a>
+        <a href="/games/memory/index.html">Memory</a>
+        <a href="uitleg.html">Uitleg</a>
+      </nav>
+      <label for="menu" class="mobile-nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="/games/rekenen/index.html">Rekenen</a>
+        <a href="/games/woorden/index.html">Woorden</a>
+        <a href="/games/memory/index.html">Memory</a>
+        <a href="uitleg.html">Uitleg</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="uitleg-container">
+    <h1 style="text-align: center; font-family: 'Orbitron', 'Montserrat', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 40px; text-shadow: 0 0 20px rgba(0,234,255,0.5);">Hoe Speel Je? 🎮</h1>
+
+    <div class="uitleg-card">
+      <h2>🧮 Rekenen Game</h2>
+      <p>Test je wiskundige vaardigheden! Oefen je hoofdrekenen onder tijdsdruk.</p>
+      <ul>
+        <li>Kies op de beginpagina welk <strong>niveau</strong> en welk type som (+, -, ×, ÷) je wilt oefenen.</li>
+        <li>Beantwoord de vraag die in beeld verschijnt zo snel mogelijk en vul je antwoord in.</li>
+        <li>Je hebt <strong>3 levens</strong>. Maak je een fout of is de tijd op? Dan kost dit een leven!</li>
+        <li>Verzamel punten voor elk goed antwoord en probeer je eigen <strong>highscore</strong> te verbreken!</li>
+      </ul>
+    </div>
+
+    <div class="uitleg-card">
+      <h2>📖 Woorden Game</h2>
+      <p>Leer sneller typen en woordjes herkennen! Verbeter je spelling en woordenschat.</p>
+      <ul>
+        <li>Kies een <strong>categorie</strong> (bijv. Dieren, Vervoer, Wonen).</li>
+        <li>Er verschijnt een woord in beeld. Jouw doel is om dit woord <strong>exact na te typen</strong>.</li>
+        <li>Kijk goed naar de letters en gebruik geen spaties als dat niet hoeft!</li>
+      </ul>
+    </div>
+
+    <div class="uitleg-card">
+      <h2>🧠 Memory Game</h2>
+      <p>Een echte klassieker voor je brein! Zoek zo snel mogelijk de juiste paren bij elkaar.</p>
+      <ul>
+        <li>Selecteer een <strong>thema</strong> zoals Space, Auto's, Dieren of Hardware.</li>
+        <li>Draai om de beurt <strong>twee kaartjes</strong> om door erop te klikken.</li>
+        <li>Zijn ze hetzelfde? Perfect! Je scoort een match! 🎉</li>
+        <li>Komen de plaatjes niet overeen? Dan draaien de kaarten weer terug. Probeer hun locatie goed te <strong>onthouden</strong>!</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden. Developed by: <strong>Marouf Masri</strong></p>
+  </footer>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

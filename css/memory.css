@@ -5,15 +5,17 @@
 }
 
 body {
-  font-family: "Comic Sans MS", "Arial", sans-serif;
+  font-family: 'Montserrat', 'Arial', sans-serif;
   background: #15105B;
   padding: 20px;
   min-height: 100vh;
 }
+
 .container {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .header {
   text-align: center;
   background: #359FF0;
@@ -22,11 +24,14 @@ body {
   box-shadow: 0 8px 0 #d4a574;
   border: 5px solid white;
 }
+
 h1 {
+  font-family: 'Orbitron', 'Montserrat', cursive;
   color: #ec1c61;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
+
 .stats {
   display: flex;
   justify-content: center;
@@ -42,6 +47,7 @@ h1 {
   box-shadow: 0 5px 0 #285AED;
   border: 4px solid white;
 }
+
 .btn-back {
   display: inline-block;
   margin-bottom: 15px;
@@ -61,20 +67,24 @@ h1 {
       0 0 100px #285AED;
   }
 }
+
 .stat-label {
   font-size: 0.9em;
   margin-bottom: 5px;
 }
+
 .stat-value {
   font-size: 1.8em;
   font-weight: bold;
 }
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin-bottom: 25px;
 }
+
 .card {
   background: transparent;
   aspect-ratio: 1;
@@ -87,6 +97,7 @@ h1 {
 .card:hover {
   transform: scale(1.08);
 }
+
 .card.flipped {
   transform: rotateY(180deg);
 }
@@ -110,6 +121,7 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 .card-front {
   background-color: #0B00DB;
   color: #ff538d;
@@ -117,11 +129,12 @@ h1 {
   box-shadow: 0 6px 0 #1066B1;
   border: 5px solid #98d8c8;
 }
+
 .card-back {
   background: azure;
   transform: rotateY(180deg);
   overflow: hidden;
-  box-shadow: 0 6 0 #1066B1;
+  box-shadow: 0 6px 0 #1066B1;
   border: 5px solid #98d8c8;
 }
 
@@ -130,11 +143,13 @@ h1 {
   height: 100%;
   object-fit: cover;
 }
+
 .controls {
   /* background:#98d8c8 ; */
   /* color: azure; */
   text-align: center;
 }
+
 .btn {
   background: #98d8c8;
   color: #fff;
@@ -147,14 +162,17 @@ h1 {
   box-shadow: 0 6px 0 #7ab8a8;
   transition: all 0.2s;
 }
+
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 9px 0 #7ab8a8;
 }
+
 .btn:active {
   transform: translateY(2px);
   box-shadow: 0 3px 0 #7ab8a8;
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -166,6 +184,7 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 .modal.show {
   display: flex;
 }
@@ -181,14 +200,17 @@ h1 {
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
 }
+
 .modal-content h2 {
   color: #ff6b9d;
   font-size: 2.8em;
@@ -225,5 +247,5 @@ h1 {
   .card-front {
     font-size: 2.5em;
   }
- 
+
 }

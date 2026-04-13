@@ -1,64 +1,64 @@
 <!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>memory</title>
-    <link rel="stylesheet" href="/css/memory.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <a href="../../index.html" class="btn-back">⬅ Terug naar Home</a>
-        <h1>
-          <i class="fas fa-star"></i> Memory Match <i class="fas fa-star"></i>
-        </h1>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-label">Moves</div>
-            <div class="stat-value" id="moves">0</div>
-          </div>
-          <div class="stat">
-            <div class="stat-label">Theme</div>
-            <div class="stat-value" id="opType">space</div>
-          </div>
-          <div class="stat">
-            <div class="stat-label">Time</div>
-            <div class="stat-value" id="time">0:00</div>
-          </div>
 
-          <div class="stat">
-            <div class="stat-label">Matches</div>
-            <div class="stat-value" id="matches">0/10</div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>memory</title>
+  <link rel="stylesheet" href="/css/memory.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="../../index.html" class="btn-back">⬅ Terug naar Home</a>
+      <h1>
+        <i class="fas fa-star"></i> Memory Match <i class="fas fa-star"></i>
+      </h1>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Moves</div>
+          <div class="stat-value" id="moves">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Theme</div>
+          <div class="stat-value" id="opType">space</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Time</div>
+          <div class="stat-value" id="time">0:00</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Matches</div>
+          <div class="stat-value" id="matches">0/10</div>
         </div>
       </div>
-      <div class="game-board" id="gameBoard">
-      </div>
-      <div class="controls">
-        <button class="btn" onclick="newGame()">
-          <i class="fas fa-redo"></i> New Game
-        </button>
-      </div>
     </div>
-    <div class="modal" id="winModal">
-      <div class="modal-content">
-        <h2>
-          <i class="fas fa-trophy"></i> You Win! <i class="fas fa-trophy"></i>
-        </h2>
-        <p>
-          Moves: <span id="finalMoves"></span><br />
-          Time: <span id="finalTime"></span>
-        </p>
-        <button class="btn" onclick="newGame() ,timerAudioEventListener()">Play Again</button>
-      </div>
+    <div class="game-board" id="gameBoard">
     </div>
+    <div class="controls">
+      <button class="btn" onclick="newGame()">
+        <i class="fas fa-redo"></i> New Game
+      </button>
+    </div>
+  </div>
+  <div class="modal" id="winModal">
+    <div class="modal-content">
+      <h2>
+        <i class="fas fa-trophy"></i> You Win! <i class="fas fa-trophy"></i>
+      </h2>
+      <p>
+        Moves: <span id="finalMoves"></span><br />
+        Time: <span id="finalTime"></span>
+      </p>
+      <button class="btn" onclick="newGame() ,timerAudioEventListener()">Play Again</button>
+    </div>
+  </div>
 
-    <script src="/js/memmory.js"></script>
-    <script src="/js/script.js"></script>
-  </body>
+  <script src="/js/memmory.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+
 </html>

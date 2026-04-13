@@ -3,38 +3,59 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+  <meta name="description" content="Kids Adventure Game – Leer rekenen, woorden en geheugen op een leuke manier!" />
+  <title>Kids Adventure Game 🎮</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" />
-  
 </head>
+
 <body>
   <header>
     <div class="container">
       <input type="checkbox" id="menu">
-      <a href="index.html" class="logo"><span>Kids </span> <span>adventure</span><span> Game</span></span></a>
+      <a href="index.html" class="logo"><span>Kids </span><span>Adventure</span><span> Game</span></a>
       <nav class="nav desktop-nav">
         <a href="index.html">Home</a>
         <a href="/games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
         <a href="/games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
         <a href="/games/memory/index.html" onclick="navClickEventListener();">Memory</a>
+        <a href="uitleg.html">Uitleg</a>
       </nav>
-      <label for="menu" class="mobile-nav-toggle" aria-label="Menu">&equiv;</label>
+      <label for="menu" class="mobile-nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
       <div class="mobile-nav">
-        <a href="index.html"  class="active">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="/games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
         <a href="/games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
         <a href="/games/memory/index.html" onclick="navClickEventListener();">Memory</a>
+        <a href="uitleg.html">Uitleg</a>
       </div>
+    </div>
   </header>
+
+  <!-- Hero sectie -->
+  <section class="hero">
+    <h1 class="hero-title">Welkom bij Kids Adventure Game! 🎮</h1>
+    <p class="hero-sub">Leer rekenen, ontdek woorden en train je geheugen — op een super leuke manier!</p>
+    <div class="hero-badges">
+      <span class="badge">🧮 Rekenen</span>
+      <span class="badge">📖 Woorden</span>
+      <span class="badge">🧠 Memory</span>
+    </div>
+  </section>
 
   <main class="game-grid">
     <!-- Rekenen Game -->
     <div class="game-card math">
       <div class="card-content">
-        <h2>Rekenen</h2>
+        <h2>🧮 Rekenen</h2>
+        <p>Oefen optellen, aftrekken, vermenigvuldigen en delen!</p>
         <div class="card-actions">
           <a href="/games/rekenen/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
         </div>
@@ -43,7 +64,7 @@
 
     <div class="game-card word">
       <div class="card-content">
-        <h2>Woorden Game</h2>
+        <h2>📖 Woorden Game</h2>
         <p>Ontdek nieuwe woorden en verbeter je taal!</p>
         <div class="card-actions">
           <a href="/games/woorden/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
@@ -54,7 +75,7 @@
     <!-- Memory Game -->
     <div class="game-card memory">
       <div class="card-content">
-        <h2>Memory Game</h2>
+        <h2>🧠 Memory Game</h2>
         <p>Test je geheugen met dit uitdagende spel!</p>
         <div class="card-actions">
           <a href="/games/memory/index.html" class="play-btn" onclick="HomeClickEventListener();">Speel Nu</a>
@@ -64,7 +85,7 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden.Diveloperd bij: Marouf Masri</p>
+    <p>&copy; 2026 Kids Adventure Game. Alle rechten voorbehouden. Developed by: <strong>Marouf Masri</strong></p>
   </footer>
   <script src="/js/script.js"></script>
 </body>

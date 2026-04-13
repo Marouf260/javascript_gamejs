@@ -6,34 +6,21 @@
 
 
 /**
- * Deze body-styling voegt een kleurrijke lineaire gradient achtergrond toe aan de hele pagina,
- * gebruikt een groot humoristisch lettertype, zorgt dat de achtergrond altijd het hele scherm vult
- * (ook bij scrollen), en maakt tekst standaard wit. Met de .dark-mode class blijft het donkere
- * kleurenschema actief, terwijl .light-mode een lichte, goud-naar-witte gradient en zwarte tekst geeft.
- * De overgang tussen deze modi gebeurt soepel door de transition eigenschap.
+ * Deze body-styling voegt specifieke interacties toe aan de Woorden Game.
  */
 body {
 
   background: linear-gradient(130deg, #05101f 0%, #011a38 70%, #611313 100%);
   color: #fff;
   min-height: 100vh;
-  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Arial', sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   transition: all 0.3s ease-in-out;
-
-  &.dark-mode {
-    background: linear-gradient(130deg, #05101f 0%, #011a38 70%, #611313 100%);
-    color: #fff;
-  }
-
-  &.light-mode {
-    background: linear-gradient(90deg, #ffd700 20%, #f8fafc 80%);
-    color: #000;
-  }
 }
+
 
 .game-header {
   display: flex;
@@ -99,6 +86,7 @@ hr {
     transform: scale(1);
   }
 }
+
 .remove {
   background: none;
   border: 2px solid #ff3131b0;
@@ -253,13 +241,15 @@ button,
     font-weight: 700;
 
   }
+
   .back-btn {
     font-size: 18px;
     padding: 8px 20px;
 
     span:nth-child(1) {
       font-size: 22px;
-    }}
-    
-  
+    }
+  }
+
+
 }

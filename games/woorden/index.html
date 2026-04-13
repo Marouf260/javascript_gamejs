@@ -1,126 +1,130 @@
 <!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Woorden</title>
-    <link rel="stylesheet" href="../../css/rekenen.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-      .level-card {
-        text-decoration: none;
-        color: inherit;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Woorden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/rekenen.css" />
 
-      .level-icon {
-        font-size: 2.5rem;
-        width: 70px;
-        height: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin-bottom: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-    </style>
-  </head>
+  <style>
+    .level-card {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  <body class="game-page">
-    <header class="game-header">
-      <a href="../../index.html" class="btn-back" onclick="clickEventListener()">⬅ Terug naar Home</a>
-      <h2 style="color: white">Woorden Games</h2>
-      <div class="score-board" style="display: none">
-        <span>0</span>
-      </div>
-    </header>
+    .level-icon {
+      font-size: 2.5rem;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
 
-    <main class="levels-container">
+<body class="game-page">
+  <header class="game-header">
+    <a href="../../index.html" class="btn-back" onclick="clickEventListener()">⬅ Terug naar Home</a>
+    <h2 style="color: white">Woorden Games</h2>
+    <div class="score-board" style="display: none">
+      <span>0</span>
+    </div>
+  </header>
 
-      <!-- Level 1: Dieren -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=dir&level=1" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #0066ff)">
-            🦘
-          </div>
-          <div class="info">
-            <p class="level-status">Level 1</p>
-            <h4>Dieren</h4>
-          </div>
-        </a>
-      </section>
+  <main class="levels-container">
 
-      <!-- Level 2: Vervoers -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=ver&level=2" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #00ccff)">
-            🚗
-          </div>
-          <div class="info">
-            <p class="level-status">Level 2</p>
-            <h4>Vervoers</h4>
-          </div>
-        </a>
-      </section>
+    <!-- Level 1: Dieren -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=dir&level=1" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #0066ff)">
+          🦘
+        </div>
+        <div class="info">
+          <p class="level-status">Level 1</p>
+          <h4>Dieren</h4>
+        </div>
+      </a>
+    </section>
 
-      <!-- Level 3: Wonen -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=won&level=1" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #ff00ff, #800080)">
-            🏠
-          </div>
-          <div class="info">
-            <p class="level-status">Level 3</p>
-            <h4>Wonen</h4>
-          </div>
-        </a>
-      </section>
-              
-      <!-- Level 4: Famili -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=fam&level=1" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #ffcc00, #ff6600)">
-            👨‍👩‍👧‍👦
-          </div>
-          <div class="info">
-            <p class="level-status">Level 4</p>
-            <h4>Famili</h4>
-          </div>
-        </a>
-      </section>
+    <!-- Level 2: Vervoers -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=ver&level=2" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #00f2ff, #00ccff)">
+          🚗
+        </div>
+        <div class="info">
+          <p class="level-status">Level 2</p>
+          <h4>Vervoers</h4>
+        </div>
+      </a>
+    </section>
 
-      <!-- Level 5: Overaal -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=mix&level=1" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #00ff88, #009944)">
-            🔥
-          </div>
-          <div class="info">
-            <p class="level-status">level 5</p>
-            <h4>overaal</h4>
-          </div>
-        </a>
-      </section>
-      
-      <!-- Level 6: Expert Mix -->
-      <section class="levels_container" onclick="clickEventListener()">
-        <a href="game.html?op=mix&level=1" class="level-card">
-          <div class="level-icon" style="background: linear-gradient(135deg, #ff4d4d, #990000)">
-            🔥
-          </div>
+    <!-- Level 3: Wonen -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=won&level=1" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #ff00ff, #800080)">
+          🏠
+        </div>
+        <div class="info">
+          <p class="level-status">Level 3</p>
+          <h4>Wonen</h4>
+        </div>
+      </a>
+    </section>
 
-          <div class="info">
-            <p class="level-status">Expert</p>
-            <h4>Expert</h4>
-          </div>
-        </a>
-      </section>
-    </main>
+    <!-- Level 4: Famili -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=fam&level=1" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #ffcc00, #ff6600)">
+          👨‍👩‍👧‍👦
+        </div>
+        <div class="info">
+          <p class="level-status">Level 4</p>
+          <h4>Famili</h4>
+        </div>
+      </a>
+    </section>
 
-   
-    <script src="/js/script.js"></script>
-  </body>
+    <!-- Level 5: Overaal -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=mix&level=1" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #00ff88, #009944)">
+          🔥
+        </div>
+        <div class="info">
+          <p class="level-status">level 5</p>
+          <h4>overaal</h4>
+        </div>
+      </a>
+    </section>
+
+    <!-- Level 6: Expert Mix -->
+    <section class="levels_container" onclick="clickEventListener()">
+      <a href="game.html?op=mix&level=1" class="level-card">
+        <div class="level-icon" style="background: linear-gradient(135deg, #ff4d4d, #990000)">
+          🔥
+        </div>
+
+        <div class="info">
+          <p class="level-status">Expert</p>
+          <h4>Expert</h4>
+        </div>
+      </a>
+    </section>
+  </main>
+
+
+  <script src="/js/script.js"></script>
+</body>
+
 </html>

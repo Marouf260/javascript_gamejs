@@ -5,23 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rekenen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../../css/rekenen.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 
   <style>
     .level-card {
       text-decoration: none;
-      
+
       color: inherit;
     }
 
     .level-icon {
       font-size: 2.5rem;
-      
+
       width: 70px;
       height: 70px;
       display: flex;
@@ -37,8 +38,8 @@
 
 <body class="game-page">
 
-  <header class="game-header" >
-    <a href="../../index.html" class="btn-back"onclick="clickEventListener();">⬅ Terug naar Home</a>
+  <header class="game-header">
+    <a href="../../index.html" class="btn-back" onclick="clickEventListener();">⬅ Terug naar Home</a>
     <h2 style="color: white;">Rekenen Games</h2>
     <div class="score-board" style="display: none;">
       <span>0</span>
@@ -89,9 +90,9 @@
         </div>
       </a>
     </section>
-      
+
     <!-- Level 4: Keersommen -->
-      <section class="levels_container" onclick="clickEventListener();">
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=keer&level=1" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #ffcc00, #ff6600);">×</div>
         <div class="info">
@@ -101,7 +102,7 @@
       </a>
     </section>
 
-     <section class="levels_container" onclick="clickEventListener();">
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=keer&level=2" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #ffcc00, #ff6600);">×</div>
         <div class="info">
@@ -111,7 +112,7 @@
       </a>
     </section>
 
-      <!-- Level 5: Delen -->
+    <!-- Level 5: Delen -->
     <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=div&level=1" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #00ff88, #009944);">÷</div>
@@ -122,8 +123,8 @@
       </a>
     </section>
 
-      <!-- Level 2: Delen -->
-     <section class="levels_container" onclick="clickEventListener();">
+    <!-- Level 2: Delen -->
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=div&level=2" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #00ff88, #009944);">÷</div>
         <div class="info">
@@ -134,7 +135,7 @@
     </section>
 
     <!-- Level 6: Tafels -->
-     <section class="levels_container"  onclick="clickEventListener();">
+    <section class="levels_container" onclick="clickEventListener();">
       <a href="game.html?op=tafel&level=1" class="level-card">
         <div class="level-icon" style="background: linear-gradient(135deg, #ffcc00, #ff6600);">×</div>
         <div class="info">
@@ -144,18 +145,9 @@
       </a>
     </section>
 
-      <section class="levels_container" onclick="clickEventListener();">
-      <a href="game.html?op=mix&level=3" class="level-card">
-        <div class="level-icon" style="background: linear-gradient(135deg, #ff00ff, #800080);">➖</div>
-        <div class="info">
-          <p class="level-status">Beginner Gemiddeld</p>
-          <h4>Mix</h4>
-        </div>
-      </a>
-    </section>
 
   </main>
- 
+
   <script src="/js/script.js"></script>
 </body>
 

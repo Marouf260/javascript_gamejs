@@ -4,7 +4,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f8fafc;
   /* Zeer donkere achtergrondbasis */
   background: linear-gradient(120deg, #141726 0%, #212f41 60%, #1b032c 100%);
@@ -20,32 +20,25 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(
-      circle at 16% 24%,
+    radial-gradient(circle at 16% 24%,
       rgba(32, 115, 213, 0.19) 0%,
-      transparent 54%
-    ),
-    radial-gradient(
-      circle at 78% 90%,
+      transparent 54%),
+    radial-gradient(circle at 78% 90%,
       rgba(34, 197, 210, 0.1) 0%,
-      transparent 60%
-    ),
+      transparent 60%),
     /* Meisjes accenten */
-    radial-gradient(
-        circle at 86% 20%,
-        rgba(236, 72, 153, 0.15) 0%,
-        transparent 66%
-      ),
-    radial-gradient(
-      circle at 38% 60%,
+    radial-gradient(circle at 86% 20%,
+      rgba(236, 72, 153, 0.15) 0%,
+      transparent 66%),
+    radial-gradient(circle at 38% 60%,
       rgba(139, 92, 246, 0.1) 0%,
-      transparent 75%
-    );
+      transparent 75%);
   mix-blend-mode: lighten;
   /* Veel subtieler, zodat hij ZEKER donker blijft */
 }
 
 .container .logo span:nth-child(1) {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #1f7fec;
   font-size: 30px;
   text-shadow:
@@ -54,6 +47,7 @@ body::before {
 }
 
 .container .logo span:nth-child(2) {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #ff0000;
   font-size: 30px;
   text-shadow:
@@ -62,6 +56,7 @@ body::before {
 }
 
 .container .logo span:nth-child(3) {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #11ce00;
   font-size: 30px;
   text-shadow:
@@ -71,13 +66,54 @@ body::before {
 
 .mobile-nav-toggle {
   display: none;
-  font-size: 28px;
-  color: #fff;
   cursor: pointer;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 1001;
 }
+
+.mobile-nav-toggle span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #00eaff;
+  border-radius: 4px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  box-shadow: 0 0 5px #00eaff;
+}
+
+.mobile-nav-toggle span:nth-child(1) { top: 0px; }
+.mobile-nav-toggle span:nth-child(2) { top: 9px; }
+.mobile-nav-toggle span:nth-child(3) { top: 18px; }
+
+/* Hamburger Menu Animatie als checked */
+#menu:checked ~ .container .mobile-nav-toggle span:nth-child(1),
+#menu:checked ~ .mobile-nav-toggle span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+#menu:checked ~ .container .mobile-nav-toggle span:nth-child(2),
+#menu:checked ~ .mobile-nav-toggle span:nth-child(2) {
+  opacity: 0;
+  left: -20px;
+}
+
+#menu:checked ~ .container .mobile-nav-toggle span:nth-child(3),
+#menu:checked ~ .mobile-nav-toggle span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
 #menu {
   display: none;
 }
+
 .mobile-nav {
   display: none;
   position: absolute;
@@ -87,48 +123,52 @@ body::before {
   background: rgba(0, 0, 0, 0.8);
 
 }
+
 .mobile-nav a {
   display: block;
-
-  padding: 12px;
-  color: rgb(255, 255, 255);
+  padding: 15px 20px;
+  color: #8892b0;
   text-decoration: none;
-  transition: background 0.5s;
-  border-radius: 20px;
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
+}
 
+.mobile-nav a:hover,
+.mobile-nav a:active {
+  background-color: rgba(0, 234, 255, 0.15);
+  color: #fff;
+  padding-left: 25px;
+  text-shadow: 0 0 8px #00eaff;
+  border-left: 4px solid #00eaff;
+}
 
-  &:hover {
-  background-color: #47557e;
-  color: #ffffff;
-}
-&:active {
-  background-color: #2f4894;
-  color: #910202;
-}
-}
-#menu:checked ~ .mobile-nav {
+#menu:checked~.mobile-nav {
   display: block;
-  
+
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
 
   .mobile-nav-toggle {
     display: block;
-  }
-
-  .logo {
-    font-size: 1.2em;
-    z-index: 101;
+    color: #00eaff;
   }
 
   .container {
-    position: relative;
+    padding: 10px 20px;
+  }
+
+  .container .logo span:nth-child(1),
+  .container .logo span:nth-child(2),
+  .container .logo span:nth-child(3) {
+    font-size: 1.2rem;
   }
 
   .mobile-nav {
@@ -137,11 +177,16 @@ body::before {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 26, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(0, 234, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1101px) {
+
   .mobile-nav,
   .mobile-nav-toggle {
     display: none !important;
@@ -151,49 +196,59 @@ body::before {
 .container {
   display: flex;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.521);
-  padding: 20px 40px;
-  backdrop-filter: initial;
-  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  background: rgba(10, 10, 26, 0.85);
+  padding: 15px 40px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(0, 234, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 21px;
-  font-weight: 600;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .nav a {
-  color: #e7eaff;
-  text-shadow:
-    0 2px 15px #390d5e55,
-    0 1px #fff;
+  color: #8892b0;
   letter-spacing: 1px;
-  padding: 7px 10px;
-  border-radius: 15px;
-  transition:
-    background 0.35s,
-    color 0.3s,
-    transform 0.18s;
-  background: rgba(54, 82, 181, 0.09);
-  border: 2px solid transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  background: transparent;
+  text-shadow: none;
 }
 
 .nav a:hover {
-  color: #6247ea;
-  background: linear-gradient(92deg, #789cff 50%, #042847 100%);
-  box-shadow:
-    0 2px 24px #fff7,
-    0 3px 6px #5f94f040;
-  border-color: #8bd2fa;
-  transform: translateY(-2px) scale(1.09);
+  color: #fff;
+  background: rgba(0, 234, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.4);
+  border-color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+  transform: translateY(-2px);
 }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   width: 100%;
 }
 
@@ -207,7 +262,7 @@ body::before {
   border: 1px solid rgba(147, 163, 234, 0.18);
   backdrop-filter: blur(12px);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(.4,2.5,.41,.97);
+  transition: all 0.3s cubic-bezier(.4, 2.5, .41, .97);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -215,13 +270,13 @@ body::before {
   margin-right: 20px;
   padding: 2rem;
 }
+
 .active {
-  color: #ff0000;
-  background: #0030ce;
-  opacity: 0.5;
-  text-shadow:
-    0 0 10px rgb(255, 0, 0),
-    0 0 20px rgb(255, 0, 0);
+  color: #00eaff !important;
+  background: rgba(0, 234, 255, 0.1) !important;
+  border-color: rgba(0, 234, 255, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.2);
+  text-shadow: 0 0 8px #00eaff;
 }
 
 .game-card::before {
@@ -365,11 +420,13 @@ body::before {
 
   main .game-grid {
     gap: 1.5rem;
-    
+
   }
+
   .container {
-   padding: 15px 20px;
+    padding: 15px 20px;
   }
+
   .container .logo span {
     &:first-child {
       font-size: 24px;
@@ -378,6 +435,7 @@ body::before {
     &:nth-child(2) {
       font-size: 24px;
     }
+
     &:nth-child(3) {
       font-size: 24px;
     }
@@ -421,3 +479,71 @@ body::before {
   box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.2);
 }
 
+.footer strong {
+  color: #6C63FF;
+}
+
+/* ============ HERO SECTIE ============ */
+.hero {
+  text-align: center;
+  padding: 50px 24px 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  color: #f8fafc;
+  margin: 0 0 14px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 0 30px rgba(108, 99, 255, 0.4);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: #8892b0;
+  max-width: 540px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: rgba(108, 99, 255, 0.15);
+  border: 1px solid rgba(108, 99, 255, 0.35);
+  border-radius: 50px;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.badge:hover {
+  background: rgba(108, 99, 255, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.25);
+}
+
+/* Game card titels met Fredoka One font */
+.game-card h2 {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}

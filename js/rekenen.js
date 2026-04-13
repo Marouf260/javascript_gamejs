@@ -10,7 +10,8 @@ window.onload = () => {
   let questionCount = 1;
   const maxQuestions = 10;
   let isProcessing = false;
-    let timer = 30;
+  let timer = 30;
+  let timerInterval = null;
 
   const win = new Audio("/assets/audio/win.wav");
   const lose = new Audio("/assets/audio/wrong.wav");
@@ -42,7 +43,7 @@ window.onload = () => {
     keer: "×",
     div: "/",
     tafel: "×",
-    mix: "?"
+    
 
   };
 
@@ -118,45 +119,15 @@ window.onload = () => {
         n1 = window.selectedTafel;
         answer = n1 * n2;
         break;
-
-        case "mix":
-          if (opType === "mix"){
-
-            const ops = ["plus", "min", "keer", "div"];
-            maxQuestions = 40;
-            let levelNum = 1;
-          
-
-            const randomOp = ops[Math.floor(Math.random() * ops.length)];
-            opEl.innerText = opSymbols[randomOp];
-            switch (randomOp) {
-              case "plus":
-                  n1 = Math.floor(Math.random() * ranges) + 4;
-                  n2 = Math.floor(Math.random() * ranges) + 4;
-                answer = n1 + n2;
-                break;
-              case "min":
-                n1 = Math.floor(Math.random() * range) + 4;
-                n2 = Math.floor(Math.random() * n1) + 4;
-                answer = n1 - n2;
-                break; 
-              case "keer":
-                n1 = Math.floor(Math.random() * 10) + 4;
-                n2 = Math.floor(Math.random() * 10) + 4;
-                answer = n1 * n2;
-                break;
-              case "div":
-                n2 = Math.floor(Math.random() * 9) + 1;
-                answer = Math.floor(Math.random() * 10);
-                n1 = n2 * answer;
-                break;
-            }
-
-          }
-          break;
+      
     }
  
-    if (timerEl) timerEl.innerText = timer;
+    // Timer resetten bij elke nieuwe vraag
+    timer = 30;
+    if (timerEl) {
+      timerEl.innerText = timer;
+      timerEl.classList.remove("timer");
+    }
 
     if (num1El) num1El.innerText = n1;
     if (num2El) num2El.innerText = n2;
@@ -221,6 +192,11 @@ window.onload = () => {
   }
   updateHighscoreDisplay();
   function finishGame() {
+    // Timer stoppen zodat hij niet verder loopt na het spel
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
     const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
     if (score > prevHighscore) {
       localStorage.setItem("highscore", score);
@@ -228,12 +204,15 @@ window.onload = () => {
 
     if (victoryModal) {
       victoryModal.style.display = "flex";
+      const modalTitle = victoryModal.querySelector("h2");
 
       if (lives <= 0) {
-        finalStats.innerText = `Game Over! Je levens zijn op. Score: ${score}`;
+        if (modalTitle) modalTitle.innerText = "Game Over! 😢";
+        if (finalStats) finalStats.innerText = `Helaas, je levens zijn op. Score: ${score}`;
         finishAudio.currentTime = 0;
         finishAudio.play();
       } else if (score >= 50) {
+        if (modalTitle) modalTitle.innerText = "Gefeliciteerd! 🎉";
         if (finalStats)
           finalStats.innerText = `Je score: ${score} punten in ${maxQuestions} vragen!`;
         lastResultAudio.currentTime = 0;
@@ -278,38 +257,40 @@ window.onload = () => {
       }
     });
   }
-    setInterval(() => {
+  
+    timerInterval = setInterval(() => {
+      if (isProcessing) return;
+
       timer--;
-      timer = Math.max(timer, 0);
-      timer = Math.min(timer, 30);
-      timer = Math.floor(timer);
-      let extraTimer = timer  * levelNum;
-      if (timerEl) timerEl.innerText = extraTimer;
-      if (timer == 10) {
+      if (timer < 0) timer = 0;
+
+      if (timerEl) timerEl.innerText = timer;
+
+      // Speel alleen geluid bij precies (timer === 10), maar speel niet door/vervolg als timer < 10
+      if (timer === 10) {
         showFeedback("Nog 10 seconden!", "warning");
-        timerEl.classList.add("timer");
-        timerAudio.currentTime = 50;
+        if (timerEl) timerEl.classList.add("timer");
+        timerAudio.currentTime = 0;
         timerAudio.play();
       }
+      // Stop het geluid als je op 9 komt (de 10 seconden-waarschuwing duurt niet verder)
+      if (timer === 0) {
+        timerAudio.pause();
+        timerAudio.currentTime = 0;
+      }
+
       if (timer <= 0) {
         lives--;
         if (document.querySelector("#lives")) {
           document.querySelector("#lives").innerText = lives;
-
-        } else {
-          alert("Tijd is om! Je hebt een leven verloren.");
-         
-        
-          
         }
-        timerEl.classList.remove("timer");
-         questionCount++;
-          updateProgress();
-          generateQuestion();
-        if (lives <= 0) {
+        questionCount++;
+        updateProgress();
+        if (questionCount > maxQuestions || lives <= 0) {
           finishGame();
+        } else {
+          generateQuestion(); // reset timer ook via generateQuestion
         }
-        timer = 30;
       }
     }, 1000);
   generateQuestion();

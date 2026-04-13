@@ -4,7 +4,7 @@ body {
     linear-gradient(135deg, #0b1020 0%, #274472 40%, #543478 80%, #0a0a1a 100%);
   background-attachment: fixed;
   min-height: 100vh;
-  font-family: 'Fira Mono', 'Press Start 2P', 'Montserrat', 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
   /* Google Fonts koppeling voor Fira Mono */
   margin: 0;
   padding: 20px;
@@ -100,18 +100,29 @@ body {
 
   }
 }
-  .timer{
-    color: red !important;
-    font-weight: 700;
-    animation: pulse 1s infinite;
 
-   
+.timer {
+  color: red !important;
+  font-weight: 700;
+  animation: pulse 1s infinite;
+
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  @keyframes pulse {
-     0% {  transform: scale(1); }
-     50% {  transform: scale(1.2); }
-     100% {  transform: scale(1); }
-   }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .levels-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -152,7 +163,7 @@ body {
     width: 100%;
     max-width: 400px;
   }
-  
-  
-  
+
+
+
 }

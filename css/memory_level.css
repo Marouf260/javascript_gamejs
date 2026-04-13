@@ -1,3 +1,8 @@
+/* =============================================
+   MEMORY LEVEL KEUZE — Stijlen
+   Gemaakt met een luxe / gaming thema
+   ============================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,223 +10,231 @@
 }
 
 body {
-  font-family: "Comic Sans MS", "Arial", sans-serif;
-  background: #15105b;
-  padding: 20px;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  background: radial-gradient(circle at 50% 0%, #1a1a3a 0%, #0a0a1a 80%);
+  background-attachment: fixed;
+  padding: 30px;
   min-height: 100vh;
+  color: #f0f4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.title{
-    font-size: 50px;
-    text-align: center;
-    color: #003cdf;
-    text-shadow: 1px 1px 2px #01010154, 0 0 100px #ff0000;
+
+/* ============ HEADER & TERUG KNOP ============ */
+header {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
 }
-.description{
-    font-size:25px;
-    margin-top: 25px;
-    text-align: center;
-    color: #1f7fec;
-    font-weight: 700;
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: rgba(0, 234, 255, 0.1);
+  color: #00eaff;
+  text-decoration: none;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 234, 255, 0.25);
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 234, 255, 0.1);
 }
+
+.btn-back:hover {
+  background: rgba(0, 234, 255, 0.2);
+  border-color: #00eaff;
+  transform: translateX(-5px);
+  box-shadow: 0 6px 20px rgba(0, 234, 255, 0.3);
+  color: #fff;
+}
+
+/* ============ TITELS & BESCHRIJVING ============ */
+main {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #00eaff, 0 0 30px rgba(0, 234, 255, 0.5);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #8892b0;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+/* ============ LEVELS GRID ============ */
 .levels-container {
   display: grid;
-  margin-top: 200px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  text-align: center;
-
-  cursor: pointer;
   width: 100%;
 }
-.btn-back {
-  display: inline-block;
-  margin-bottom: 15px;
-  padding: 10px 20px;
-  background-color: #060038;
-  color: white;
-  text-decoration: none;
+
+/* ============ LEVEL KAARTEN (GAME STYLE) ============ */
+.space,
+.auto,
+.hardware,
+.dieren {
+  position: relative;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
-  box-shadow: 0 5px 0 #285aed;
-  border: 4px solid white;
-  transition: all 0.3s ease-in-out;
-
-  &:hover{
-    transform: scale(0.98);
-    box-shadow:
-      0 0 10px #285aed,
-      0 0 100px #285aed;
-  }
-  
-
-  &:active {
-    transform: scale(0.96);
-    box-shadow:
-      0 0 10px #285aed,
-      0 0 100px #285aed,
-      0 0 200px #285aed;
-  }
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.levels-container a {
-  text-decoration: none;
-  color: rgb(98, 0, 255);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 25px;
-  font-weight: 800;
-  background-color: #000000ba;
-  border-radius: 20px;
-  padding: 0 10px;
-  transition: all 0.3s;
-  margin-left: 20px;
-
-
-
+/* Dark overlay for readability */
+.space::before,
+.auto::before,
+.hardware::before,
+.dieren::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 10, 26, 0.3), rgba(10, 10, 26, 0.9));
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .space {
-  padding: 100px 20px;
   background-image: url(/assets/backgrounds/space.jpg);
-  background-size: cover;
-  background-position: center;
-  transition: all 0.5s;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.575);
-  animation: spaceGlow 3s infinite alternate;
-
-  &:hover {
-    transform:   rotate(-5deg) scale(1.05);
-
-    /* transform: scale(1.05); */
-  }
-
-  &:active {
-    transform: scale(1.02);
-    box-shadow:
-      0 0 10px rgb(0, 0, 0),
-      0 0 100 rgb(0, 0, 0);
-  }
+  border-color: rgba(0, 234, 255, 0.3);
 }
-
-@keyframes spaceGlow {
-  0% {
-    box-shadow: 0 0 10px #ffffff54, 0 0 10px #8c7e7e;
-  }
-  50% {
-    box-shadow: 0 0 20px #ffffff54, 0 0 20px #ff0000;
-  }
-  100% {
-    box-shadow: 0 0 10px #ffffff54, 0 0 10px #ff0000;
-  }
-}
-
 
 .auto {
-  padding: 100px 20px;
   background-image: url(/assets/backgrounds/auto.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.3s;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #003cff93;
-  animation: autoGlow 5s infinite alternate;
-
-  &:hover {
-    transform:   rotate(2deg) scale(1.05);
-  }
-
-  &:active {
-    transform: scale(1.02);
-    box-shadow:
-      0 0 10px #003cff,
-      0 0 100px #003cff;
-  }
-
- 
-}
-@keyframes autoGlow {
-  0% {
-    box-shadow: 0 0 10px #003cff93, 0 0 20px #003cff93;
-  }
-  50%{
-    box-shadow: 0 0 20px #00eaff93, 0 0 40px #00eaff93;
-  }
-  100% {
-    box-shadow: 0 0 10px #003cff93, 0 0 20px #003cff93;
-  }
+  border-color: rgba(255, 0, 85, 0.3);
 }
 
 .hardware {
-  padding: 100px 20px;
   background-image: url(/assets/backgrounds/hardware.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.3s;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #ff260093;
-  animation: hardwareGlow 6s infinite alternate;
-
-  &:hover {
-    transform:   rotate(-5deg) scale(1.05);
-  }
-
-  &:active {
-    transform: scale(1.02);
-    box-shadow:
-      0 0 10px #ff0000,
-      0 0 100px #ff2600;
-  }
+  border-color: rgba(255, 170, 0, 0.3);
 }
-@keyframes hardwareGlow {
-  0% {
-    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-  }
-  50%{
-    box-shadow: 0 0 20px #ff9100, 0 0 40px #ffea00;
-  }
-  100% {
-    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-  }
-}
+
 .dieren {
-  padding: 100px 20px;
   background-image: url(/assets/backgrounds/dieren.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  border-color: rgba(0, 255, 136, 0.3);
+}
+
+/* Hover effecten */
+.space:hover,
+.auto:hover,
+.hardware:hover,
+.dieren:hover {
+  transform: translateY(-10px) scale(1.03);
+  z-index: 2;
+}
+
+.space:hover {
+  box-shadow: 0 15px 40px rgba(0, 234, 255, 0.4);
+  border-color: #00eaff;
+}
+
+.auto:hover {
+  box-shadow: 0 15px 40px rgba(255, 0, 85, 0.4);
+  border-color: #ff0055;
+}
+
+.hardware:hover {
+  box-shadow: 0 15px 40px rgba(255, 170, 0, 0.4);
+  border-color: #ffaa00;
+}
+
+.dieren:hover {
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
+  border-color: #00ff88;
+}
+
+.space:hover::before,
+.auto:hover::before,
+.hardware:hover::before,
+.dieren:hover::before {
+  opacity: 0.7;
+}
+
+/* ============ LINKS IN KAARTEN ============ */
+.levels-container a {
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #3cff0093;
-  animation: dierenGlow 7s infinite alternate;
-
-  &:hover {
-    transform:   rotate(2deg) scale(1.05);
-  }
-
-  &:active {
-    transform: scale(1.02);
-    box-shadow:
-      0 0 10px #3cff0093,
-      0 0 100px #3cff0093;
-  }
-}
-@keyframes dierenGlow {
-  0% {
-    box-shadow: 0 0 10px #3cff0093, 0 0 20px #3cff0093;
-  }
-  50%{
-    box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
-  }
-  100% {
-    box-shadow: 0 0 10px #3cff0093, 0 0 20px #3cff0093;
-  }
+  text-transform: uppercase;
 }
 
+.space:hover a {
+  background: #00eaff;
+  color: #000;
+  border-color: #00eaff;
+  text-shadow: none;
+  box-shadow: 0 0 20px #00eaff;
+}
 
+.auto:hover a {
+  background: #ff0055;
+  color: #fff;
+  border-color: #ff0055;
+  text-shadow: none;
+  box-shadow: 0 0 20px #ff0055;
+}
+
+.hardware:hover a {
+  background: #ffaa00;
+  color: #000;
+  border-color: #ffaa00;
+  text-shadow: none;
+  box-shadow: 0 0 20px #ffaa00;
+}
+
+.dieren:hover a {
+  background: #00ff88;
+  color: #000;
+  border-color: #00ff88;
+  text-shadow: none;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
   .levels-container {
     grid-template-columns: 1fr;
-  }  
+    gap: 1.5rem;
+  }
 }

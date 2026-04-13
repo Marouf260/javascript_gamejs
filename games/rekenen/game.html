@@ -1,78 +1,79 @@
 <!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rekenen</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/css/rekenen.css" />
 
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rekenen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/rekenen.css" />
+</head>
 
-  <body class="game-page">
-    <div class="game-container">
-      <header class="game-header">
-        <a href="index.html" class="back-btn" onclick="clickEventListener()">← Terug naar Levels</a>
-        <div class="stats">
-          <div class="stat-item">
-            <span>Score:</span>
+<body class="game-page">
+  <div class="game-container">
+    <header class="game-header">
+      <a href="index.html" class="back-btn" onclick="clickEventListener()">← Terug naar Levels</a>
+      <div class="stats">
+        <div class="stat-item">
+          <span>Score:</span>
 
-            <span id="score">0</span>
-          </div>
-          <div class="stat-item">
-            <span>De highscore :</span>
-            <span id="highscore">0</span>
-            <span class="remove_highscore"><button id="remove_Highscore">Remove</button></span>
-          </div>
-          <div class="stat-item">
-            <span>Timer:</span>
-            <span id="timer" >30</span>
-          </div>
-          <div class="stat-item">
-            <span>Lives:</span>
-            <span id="lives">3</span>
-          </div>
-          <div class="stat-item">
-            <span>Vraag:</span>
-            <span id="question-count">1</span>/10
-          </div>
+          <span id="score">0</span>
         </div>
-        <div class="progress-container">
-          <div id="progress-bar" class="progress-bar"></div>
+        <div class="stat-item">
+          <span>De highscore :</span>
+          <span id="highscore">0</span>
+          <span class="remove_highscore"><button id="remove_Highscore">Remove</button></span>
         </div>
-      </header>
-
-      <main class="question-area">
-        <div class="equation">
-          <span id="num1">0</span>
-          <span id="operator">+</span>
-          <span id="num2">0</span>
-          <span>=</span>
-          <input
-            type="number"
-            id="answer-input"
-            placeholder="?"
-            onclick="clickEventListener()"
-          />
+        <div class="stat-item">
+          <span>Timer:</span>
+          <span id="timer">30</span>
         </div>
-        <button id="submit-btn" class="submit-btn">Controleer</button>
-        <div id="feedback" class="feedback-msg"></div>
-      </main>
-    </div>
-
-    <!-- Victory Modal -->
-    <div id="victory-modal" class="modal">
-      <div class="modal-content">
-        <h2>Gefeliciteerd! 🎉</h2>
-        <p id="final-stats">Je hebt alle vragen beantwoord!</p>
-        <div class="modal-actions">
-          <button onclick="location.reload()">Opnieuw Spelen</button>
-          <a href="index.html">Naar Levels</a>
+        <div class="stat-item">
+          <span>Lives:</span>
+          <span id="lives">3</span>
+        </div>
+        <div class="stat-item">
+          <span>Vraag:</span>
+          <span id="question-count">1</span>/10
         </div>
       </div>
-    </div>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+    </header>
 
-    <script src="/js/rekenen.js"></script>
-    <script src="/js/script.js"></script>
-  </body>
+    <main class="question-area">
+      <div class="equation">
+        <span id="num1">0</span>
+        <span id="operator">+</span>
+        <span id="num2">0</span>
+        <span>=</span>
+        <input type="number" id="answer-input" placeholder="?" onclick="clickEventListener()" />
+      </div>
+      <button id="submit-btn" class="submit-btn">Controleer</button>
+      <div id="feedback" class="feedback-msg"></div>
+    </main>
+  </div>
+
+  <!-- Victory Modal -->
+  <div id="victory-modal" class="modal">
+    <div class="modal-content">
+      <h2>Gefeliciteerd! 🎉</h2>
+      <p id="final-stats">Je hebt alle vragen beantwoord!</p>
+      <div class="modal-actions">
+        <button onclick="location.reload()">Opnieuw Spelen</button>
+        <a href="index.html">Naar Levels</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/rekenen.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+
 </html>
