@@ -1,13 +1,10 @@
+// audio bestanden
 const clickEventAudio = new Audio("/assets/audio/click.wav");
 const HomeClick = new Audio("/assets/audio/click_home.wav");
 const navClickAudio = new Audio("/assets/audio/click_nav.wav");
 const timerAudio = new Audio("/assets/audio/time_back.wav");
 
-/**
- * Kids Adventure Game - Global Scripts
- * Behandelt globale audio-feedback en algemene UI interacties.
- */
-
+// audio functies
 function clickEventListener() {
   clickEventAudio.currentTime = 0;
   clickEventAudio.play();

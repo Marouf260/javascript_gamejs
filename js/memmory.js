@@ -1,18 +1,20 @@
+// variabelen
 const urlParams = new URLSearchParams(window.location.search);
 const opType = urlParams.get("op") || "space";
 const levelNum = parseInt(urlParams.get("level")) || 1;
 
+// elementen
 const opEl = document.querySelector("#opType");
 
 const levelBoxes = document.querySelectorAll(".levels-container > div");
 const clickAudio = new Audio("/assets/audio/click.wav");
 const win = new Audio("/assets/audio/win.wav");
 
+// level selectie
 levelBoxes.forEach((box) => {
   box.addEventListener("click", function () {
     clickAudio.currentTime = 0;
     clickAudio.play();
-    // Zoek <a> binnen de geklikte box
     const link = box.querySelector("a");
     if (link && link.getAttribute("href")) {
       window.location.href = link.getAttribute("href");
@@ -20,6 +22,7 @@ levelBoxes.forEach((box) => {
   });
 });
 
+// categorieën
 const opSymbols = {
   space: "space",
   hardware: "hardware",
@@ -30,7 +33,9 @@ let images = [];
 
 if (opEl) opEl.innerText = opSymbols[opType];
 
+// afbeeldingen per categorie
 switch (opType) {
+  // space categorie
   case "space":
     images = [
       "/assets/memory fotos/card1.png",
@@ -45,6 +50,7 @@ switch (opType) {
       "/assets/memory fotos/card10.png",
     ];
     break;
+  // auto categorie
   case "auto":
     images = [
       "/assets/memory fotos/autos/auto1.png",
@@ -59,6 +65,7 @@ switch (opType) {
       "/assets/memory fotos/autos/auto10.png",
     ];
     break;
+  // dieren categorie
   case "dieren":
     images = [
       "/assets/memory fotos/dieren/dier1.png",
@@ -73,6 +80,7 @@ switch (opType) {
       "/assets/memory fotos/dieren/dier10.png",
     ];
     break;
+  // hardware categorie
   case "hardware":
     images = [
       "/assets/memory fotos/hardware/hardware1.png",
@@ -89,6 +97,7 @@ switch (opType) {
     break;
 }
 
+// variabelen
 var firstCard = null;
 var secondCard = null;
 var canFlip = true;
@@ -141,6 +150,7 @@ gameStartTime = null;
 updateStats();
 clearInterval(timerInterval);
 
+// kaarten omdraaien
 function flipCard() {
   if (!canFlip) return;
   if (this.classList.contains("flipped")) return;
@@ -164,6 +174,7 @@ function flipCard() {
   }
 }
 
+// controleren of kaarten matchen
 function checkMatch() {
   var match = firstCard.dataset.image == secondCard.dataset.image;
 
@@ -190,12 +201,14 @@ function checkMatch() {
   }
 }
 
+// kaarten resetten
 function resetCards() {
   firstCard = null;
   secondCard = null;
   canFlip = true;
 }
 
+// timer starten
 function startTimer() {
   timerRunning = true;
   gameStartTime = Date.now();
@@ -208,6 +221,7 @@ function startTimer() {
   }, 1000);
 }
 
+// stats updaten
 function updateStats() {
   document.getElementById("moves").textContent = moves;
   document.getElementById("matches").textContent = matches + "/10";
@@ -218,10 +232,10 @@ function updateStats() {
   document.getElementById("time").textContent = mins + ":" + secs;
 }
 
+// game eindigen
 function endGame() {
   clearInterval(timerInterval);
   timerRunning = false;
-  // Make sure to show the correct elapsed time on win modal
   if (gameStartTime) {
     seconds = Math.floor((Date.now() - gameStartTime) / 1000);
   }
@@ -232,6 +246,7 @@ function endGame() {
   document.getElementById("winModal").classList.add("show");
 }
 
+// nieuwe game starten
 function newGame() {
   document.getElementById("winModal").classList.remove("show");
   clearInterval(timerInterval);

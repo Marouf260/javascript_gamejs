@@ -1,7 +1,7 @@
 /* De achtergrond van de hele pagina */
 body {
   background:
-    linear-gradient(135deg, #0b1020 0%, #274472 40%, #543478 80%, #0a0a1a 100%);
+    linear-gradient(135deg, #426eff 0%, #a0018b 40%, hsl(268, 89%, 7%) 80%, #0a0a1a 100%);
   background-attachment: fixed;
   min-height: 100vh;
   font-family: 'Montserrat', 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
@@ -28,10 +28,42 @@ body {
   color: #34c9eb;
 }
 
+.btn-back{
+  color: #00ffc8 !important;
+  font-size: 1.05em !important;
+  transition: all 0.3s ease;
 
+  &:hover{
+    text-decoration: underline;
+    text-underline-position: above;
+    text-decoration-color: #0066ff;
+  }
+  &:active{
+    color: #00ffc8;
+    text-decoration: none;
+  }
+
+}
+.levels-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 60px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* .levels-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+} */
 /* De individuele kaarten */
 .levels_container {
-  /* Luxe glas effect met modern kleurgebruik */
   background: linear-gradient(117deg, rgba(38, 70, 168, 0.29) 0%, rgba(44, 17, 125, 0.13) 90%);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
@@ -40,15 +72,11 @@ body {
   border-radius: 32px;
   box-shadow: 0 12px 36px rgba(34, 60, 120, 0.25), 0 1.5px 5px rgba(0, 0, 0, 0.085);
   transition: all 0.35s;
-  /* transition:
-    box-shadow 0.35s cubic-bezier(.61, .29, .29, .93),
-    background 0.35s cubic-bezier(.61, .29, .29, .93),
-    border-color 0.35s cubic-bezier(.61, .29, .29, .93),
-    transform 0.26s cubic-bezier(.50, .31, .21, .88); */
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  gap: 100px;
+  
+  flex-direction: column; 
+     gap: 100px;
 
   &:hover {
     background: linear-gradient(117deg, rgba(52, 201, 235, 0.14) 0%, rgba(44, 17, 125, 0.18) 100%);
@@ -123,14 +151,6 @@ body {
   }
 }
 
-.levels-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  width: 100%;
-  max-width: 1200px;
-}
 
 .level-status {
   font-weight: 800;

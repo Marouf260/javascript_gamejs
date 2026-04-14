@@ -3,13 +3,14 @@ window.onload = () => {
   const opType = urlParams.get("op") || "dir";
   const levelNum = parseInt(urlParams.get("level")) || 1;
 
+  // variabelen
   let answer;
   let lives = 3;
   let score = 0;
   let questionCount = 1;
-
   const maxQuestions = 10;
 
+  // elementen
   const _inputEl = document.querySelector("#word-input");
   const _woordEl = document.querySelector("#scrambled-word");
   const _opEl = document.querySelector("#opEl");
@@ -26,11 +27,11 @@ window.onload = () => {
   const highscoreEl = document.querySelector("#high-score");
   const RemoveBtn = document.querySelector("#remove-highscore");
 
-
+  // audio bestanden
   const winAudio = new Audio("/assets/audio/win.wav");
   const wrongAudio = new Audio("/assets/audio/lose.wav");
   
-
+  // categorieën
   const opSymbols = {
     dir: "Dieren",
     ver: "Vervoer",
@@ -39,7 +40,10 @@ window.onload = () => {
     mix: "Mix",
   };
 
+  // categorie tekst
   if (_opEl) _opEl.innerText = opSymbols[opType];
+  
+  // woord door elkaar halen
   function scrambleWord(word) {
     return word
       .split("")
@@ -47,6 +51,7 @@ window.onload = () => {
       .join("");
   }
 
+  // woorden genereren
   function generatewoord() {
     const words = [
       // DIEREN
@@ -210,7 +215,7 @@ window.onload = () => {
     ];
 
     let filteredWords;
-
+    // woorden filteren op categorie
     if (opType === "mix") {
       filteredWords = words;
     } else {
@@ -232,6 +237,7 @@ window.onload = () => {
     updateProgress();
   }
 
+  // feedback
   function showFeedback(msg, type) {
     if (!_feedbackEl) return;
     _feedbackEl.innerText = msg;
@@ -239,6 +245,7 @@ window.onload = () => {
     setTimeout(() => (_feedbackEl.innerHTML = ""), 1000);
   }
 
+  // voortgang bijwerken
   function updateProgress() {
     if (countEl) countEl.innerText = Math.min(questionCount, maxQuestions);
     if (progBar) {
@@ -246,6 +253,8 @@ window.onload = () => {
       progBar.style.width = `${percent}%`;
     }
   }
+
+  // highscore bijwerken
   function updateHighscoreDisplay() {
     const storedHighscore = localStorage.getItem("highscore");
     const highscore = storedHighscore ? parseInt(storedHighscore) : 0;
@@ -253,6 +262,7 @@ window.onload = () => {
   } 
     updateHighscoreDisplay();
 
+  // victory modal
   function showVictory() {
    const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
         if (score > prevHighscore) {
@@ -272,6 +282,7 @@ window.onload = () => {
     });
   }
 
+  // submit knop
   if (submitBtn) {
     submitBtn.onclick = () => {
       const userGuess = _inputEl.value.toUpperCase().trim();
@@ -328,6 +339,7 @@ window.onload = () => {
     };
   }
 
+  // remove highscore knop
   if (RemoveBtn) {
     RemoveBtn.addEventListener("click", () => {
       localStorage.removeItem("highscore");
@@ -335,6 +347,7 @@ window.onload = () => {
     });
   }
   
+  // new word knop
   if (_newWordBtn) {
     _newWordBtn.onclick = () => {
       questionCount++;
@@ -346,4 +359,5 @@ window.onload = () => {
     };
   }
   generatewoord();
+
 };

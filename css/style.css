@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   width: 100vw;
@@ -6,8 +7,7 @@ body {
   overflow-y: auto;
   font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f8fafc;
-  /* Zeer donkere achtergrondbasis */
-  background: linear-gradient(120deg, #141726 0%, #212f41 60%, #1b032c 100%);
+  background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%);
   background-attachment: fixed;
   position: relative;
 }
@@ -19,49 +19,84 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background:
-    radial-gradient(circle at 16% 24%,
-      rgba(32, 115, 213, 0.19) 0%,
-      transparent 54%),
-    radial-gradient(circle at 78% 90%,
-      rgba(34, 197, 210, 0.1) 0%,
-      transparent 60%),
-    /* Meisjes accenten */
-    radial-gradient(circle at 86% 20%,
-      rgba(236, 72, 153, 0.15) 0%,
-      transparent 66%),
-    radial-gradient(circle at 38% 60%,
-      rgba(139, 92, 246, 0.1) 0%,
-      transparent 75%);
-  mix-blend-mode: lighten;
-  /* Veel subtieler, zodat hij ZEKER donker blijft */
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(0, 234, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(108, 99, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 193, 0.08) 0%, transparent 100%);
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  opacity: 0.8;
 }
+
+/* Dynamische Sterren Background (Pure CSS!) */
+.stars-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    10vw 80vh rgba(255, 255, 255, 0.5), 20vw 20vh rgba(255, 255, 255, 0.4),
+    30vw 50vh rgba(255, 255, 255, 0.3), 40vw 90vh rgba(255, 255, 255, 0.6),
+    50vw 10vh rgba(255, 255, 255, 0.5), 60vw 40vh rgba(255, 255, 255, 0.4),
+    70vw 70vh rgba(255, 255, 255, 0.3), 80vw 30vh rgba(255, 255, 255, 0.6),
+    90vw 60vh rgba(255, 255, 255, 0.5), 15vw 15vh rgba(255, 255, 255, 0.4),
+    85vw 85vh rgba(255, 255, 255, 0.3), 45vw 45vh rgba(255, 255, 255, 0.6),
+    12vw 82vh #fff, 22vw 22vh #fff, 32vw 52vh #fff, 62vw 42vh #fff, 
+    72vw 72vh #fff, 82vw 32vh #fff, 92vw 62vh #fff, 52vw 12vh #fff;
+  filter: drop-shadow(0 0 5px white);
+  animation: float-stars 60s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes float-stars {
+  from { transform: translateY(0);
+   }
+
+  to { transform: translateY(-100vh); }
+}
+
+/* Herhaal voor naadloosheid */
+.stars-fixed::after {
+  content: "";
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  box-shadow: inherit;
+}
+
 
 .container .logo span:nth-child(1) {
   font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #1f7fec;
   font-size: 30px;
-  text-shadow:
-    0 0 10px rgb(108, 108, 216),
-    0 0 15px rgb(21, 255, 0);
+  text-shadow: 0 0 10px #1f7fec, 0 0 20px #1f7fec;
+  animation: logo-glow 2s ease-in-out infinite alternate;
 }
 
 .container .logo span:nth-child(2) {
   font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #ff0000;
   font-size: 30px;
-  text-shadow:
-    0 0 10px rgb(11, 11, 36),
-    0 0 15px rgb(255, 8, 0);
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  animation: logo-glow 2s ease-in-out infinite alternate 0.5s;
 }
 
 .container .logo span:nth-child(3) {
   font-family: 'Orbitron', 'Montserrat', sans-serif;
   color: #11ce00;
   font-size: 30px;
-  text-shadow:
-    0 0 10px rgb(72, 255, 0),
-    0 0 15px rgb(4, 0, 255);
+  text-shadow: 0 0 10px #11ce00, 0 0 20px #11ce00;
+  animation: logo-glow 2s ease-in-out infinite alternate 1s;
+}
+
+@keyframes logo-glow {
+  from { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor; }
+  to { text-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
 }
 
 .mobile-nav-toggle {
@@ -225,17 +260,6 @@ body::before {
   align-items: center;
 }
 
-.nav a {
-  color: #8892b0;
-  letter-spacing: 1px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-  background: transparent;
-  text-shadow: none;
-}
-
 .nav a:hover {
   color: #fff;
   background: rgba(0, 234, 255, 0.15);
@@ -245,12 +269,15 @@ body::before {
   transform: translateY(-2px);
 }
 
+
+/* Game Grid Setup */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   width: 100%;
 }
+
 
 .game-card {
   margin-top: 200px;
@@ -360,15 +387,27 @@ body::before {
 }
 
 .game-card:hover .play-btn {
-  background: #ffd700;
+  background: #00eaff;
+  color: #000;
+  box-shadow: 0 0 20px #00eaff;
   transform: scale(1.05);
 }
 
-.game-card:hover .tutorial-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: white;
-  transform: scale(1.05);
+/* Confetti / Victory Effect */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #f0f;
+  z-index: 10000;
+  pointer-events: none;
 }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
 
 /* Animations */
 @keyframes fadeInDown {
@@ -384,33 +423,35 @@ body::before {
 }
 
 .game-card {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
+  margin-top: 200px;
+  position: relative;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(147, 163, 234, 0.18);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(.4, 2.5, .41, .97); /* Meer vloeiend */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
 }
 
-.game-card:nth-child(1) {
-  animation-delay: 0.2s;
+/* Pure CSS 3D Tilt & Lift */
+.game-card:hover {
+  transform: perspective(1000px) rotateX(8deg) rotateY(-5deg) translateY(-15px) scale(1.05);
+  border-color: #00eaff;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 234, 255, 0.2);
 }
 
-.game-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.game-card:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -532,12 +573,22 @@ body::before {
   font-weight: 700;
   transition: all 0.2s ease;
   cursor: default;
+  animation: floating 3s ease-in-out infinite;
+}
+
+.badge:nth-child(2) { animation-delay: 0.5s; }
+.badge:nth-child(3) { animation-delay: 1s; }
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .badge:hover {
   background: rgba(108, 99, 255, 0.28);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 16px rgba(108, 99, 255, 0.25);
+  border-color: #00eaff;
 }
 
 /* Game card titels met Fredoka One font */

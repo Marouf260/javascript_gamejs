@@ -18,7 +18,7 @@ body {
 
 .header {
   text-align: center;
-  background: #359FF0;
+  background: #043f6b;
   border-radius: 25px;
   margin-bottom: 25px;
   box-shadow: 0 8px 0 #d4a574;
@@ -40,20 +40,24 @@ h1 {
 }
 
 .stat {
-  background-color: #74E1F0;
+  background-color: #f074e6;
   color: white;
   padding: 12px 25px;
   border-radius: 20px;
-  box-shadow: 0 5px 0 #285AED;
+  box-shadow: 0 5px 0 #01144e;
+  margin-bottom: 10px;
   border: 4px solid white;
 }
 
 .btn-back {
   display: inline-block;
   margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: start;
+  margin-left: -650px;
   padding: 10px 20px;
-  background-color: #74E1F0;
-  color: white;
+  background-color: #006f7e;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   border-radius: 20px;
   box-shadow: 0 5px 0 #285AED;
@@ -232,12 +236,18 @@ h1 {
   h1 {
     font-size: 2em;
   }
+  .btn-back{
+     margin-left: -350px;
+  }
 }
 
 @media (max-width: 480px) {
   .game-board {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .btn-back{
+     margin-left: -150px;
   }
 
   h1 {
