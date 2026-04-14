@@ -122,14 +122,14 @@ function startGame() {
     return Math.random() - 0.5;
   });
 
-  
+
   // Create card elements
   for (var i = 0; i < cardImages.length; i++) {
     let card = document.createElement("div");
 
     card.className = "card";
     card.innerHTML =
-      '<div class="card-front"><i class="fas fa-heart"></i></div>' +
+      '<div class="card-front"><i class="fas fa-star"></i></div>' +
       '<div class="card-back"><img src="' +
       cardImages[i] +
       '"></div>';

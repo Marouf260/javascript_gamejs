@@ -80,6 +80,7 @@ body {
      gap: 100px;
 
   &:hover {
+    
     background: linear-gradient(117deg, rgba(56, 189, 248, 0.2) 0%, rgba(139, 92, 246, 0.25) 100%);
     transform: translateY(-14px) scale(1.04);
     box-shadow: 0 22px 44px rgba(56, 189, 248, 0.25), 0 2px 9px rgba(0, 0, 0, 0.3);
@@ -89,6 +90,7 @@ body {
       background 0.35s cubic-bezier(.61, .29, .29, .93),
       border-color 0.35s cubic-bezier(.61, .29, .29, .93),
       transform 0.26s cubic-bezier(.50, .31, .21, .88);
+
   }
 
   &:active {
@@ -110,6 +112,7 @@ body {
 
   &:hover {
     background: #0d0047;
+
     box-shadow: 0 0 10px #0006b0c0;
     color: #fff;
     transform: scale(1.06);
@@ -157,6 +160,7 @@ body {
   font-weight: 800;
   font-size: 20px;
   color: #ffffff;
+  
 
   margin: 0;
   letter-spacing: 0.5px;
@@ -168,6 +172,7 @@ body {
   width: 60px;
   height: 60px;
   margin-bottom: 5px;
+  font-size: 40px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.438));
 }
 

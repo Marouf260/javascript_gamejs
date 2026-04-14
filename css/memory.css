@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Montserrat', 'Arial', sans-serif;
-  background: #15105B;
+  background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%);
   padding: 20px;
   min-height: 100vh;
 }
@@ -17,17 +17,21 @@ body {
 }
 
 .header {
-  text-align: center;
-  background: #043f6b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #281d39;
   border-radius: 25px;
+  margin-top: 20px;
   margin-bottom: 25px;
-  box-shadow: 0 8px 0 #d4a574;
-  border: 5px solid white;
+  padding: 20px;
+  box-shadow: 0 8px 0 #1a0923;
+  border: 4px solid #3e3b5a;
 }
 
 h1 {
   font-family: 'Orbitron', 'Montserrat', cursive;
-  color: #ec1c61;
+  color: #DCC9C2;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
@@ -40,46 +44,45 @@ h1 {
 }
 
 .stat {
-  background-color: #f074e6;
-  color: white;
+  background-color: #261A34;
+  color: #E5D9D3;
   padding: 12px 25px;
   border-radius: 20px;
-  box-shadow: 0 5px 0 #01144e;
+  box-shadow: 0 5px 0 #1A0923;
   margin-bottom: 10px;
-  border: 4px solid white;
+  border: 3px solid #3E3B5A;
 }
 
 .btn-back {
+  align-self: flex-start; /* Zorgt dat het links staat in de gecentreerde flex container */
+  margin-bottom: 15px; /* Ruimte onder de knop */
   display: inline-block;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  text-align: start;
-  margin-left: -650px;
   padding: 10px 20px;
-  background-color: #006f7e;
-  color: rgb(255, 255, 255);
+  background-color: #3E3B5A;
+  color: #D9CABF;
   text-decoration: none;
+  font-weight: bold;
   border-radius: 20px;
-  box-shadow: 0 5px 0 #285AED;
-  border: 4px solid white;
+  box-shadow: 0 5px 0 #1A0923;
+  border: 3px solid #C0A994;
   transition: all 0.3s ease-in-out;
 
   &:active {
-    transform: scale(0.98);
-    box-shadow:
-      0 0 10px #285AED,
-      0 0 100px #285AED;
+    transform: scale(0.98) translateY(2px);
+    box-shadow: 0 2px 0 #1A0923;
   }
 }
 
 .stat-label {
   font-size: 0.9em;
   margin-bottom: 5px;
+  color: #C0A994;
 }
 
 .stat-value {
   font-size: 1.8em;
   font-weight: bold;
+  color: #E5D9D3;
 }
 
 .game-board {
@@ -127,19 +130,19 @@ h1 {
 }
 
 .card-front {
-  background-color: #0B00DB;
-  color: #ff538d;
+  background-color: #1F2A48;
+  color: #FF6EC7;
   font-size: 3.5em;
-  box-shadow: 0 6px 0 #1066B1;
-  border: 5px solid #98d8c8;
+  box-shadow: 0 6px 0 #1A0923;
+  border: 4px solid #C0A994;
 }
 
 .card-back {
-  background: azure;
+  background: #0D0C15;
   transform: rotateY(180deg);
   overflow: hidden;
-  box-shadow: 0 6px 0 #1066B1;
-  border: 5px solid #98d8c8;
+  box-shadow: 0 6px 0 #1A0923;
+  border: 4px solid #C0A994;
 }
 
 .card-back img {
@@ -155,26 +158,26 @@ h1 {
 }
 
 .btn {
-  background: #98d8c8;
-  color: #fff;
-  border: 5px solid #fff;
+  background: #3E3B5A;
+  color: #D9CABF;
+  border: 4px solid #C0A994;
   padding: 15px 40px;
   border-radius: 20px;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 6px 0 #7ab8a8;
+  box-shadow: 0 6px 0 #1A0923;
   transition: all 0.2s;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 9px 0 #7ab8a8;
+  box-shadow: 0 9px 0 #1A0923;
 }
 
 .btn:active {
   transform: translateY(2px);
-  box-shadow: 0 3px 0 #7ab8a8;
+  box-shadow: 0 3px 0 #1A0923;
 }
 
 .modal {
@@ -194,12 +197,12 @@ h1 {
 }
 
 .modal-content {
-  background: #fff;
+  background: #1F1D36;
   padding: 40px;
   border-radius: 30px;
   text-align: center;
-  box-shadow: 0 10px 0 #1066B1;
-  border: 6px solid #ff6b9d;
+  box-shadow: 0 10px 0 #1A0923;
+  border: 5px solid #3E3B5A;
   animation: bounce 0.5s;
 }
 
@@ -216,13 +219,13 @@ h1 {
 }
 
 .modal-content h2 {
-  color: #ff6b9d;
+  color: #c0a994;
   font-size: 2.8em;
   margin: 20px;
 }
 
 .modal-content p {
-  color: #ffa07a;
+  color: #dcc9c2;
   font-size: 1.4em;
   margin-bottom: 30px;
   font-weight: bold;
@@ -236,18 +239,13 @@ h1 {
   h1 {
     font-size: 2em;
   }
-  .btn-back{
-     margin-left: -350px;
-  }
+
 }
 
 @media (max-width: 480px) {
   .game-board {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-  }
-  .btn-back{
-     margin-left: -150px;
   }
 
   h1 {
