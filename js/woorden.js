@@ -1,7 +1,6 @@
 window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const opType = urlParams.get("op") || "dir";
-  const levelNum = parseInt(urlParams.get("level")) || 1;
 
   // variabelen
   let answer;
@@ -84,7 +83,7 @@ window.onload = () => {
       { category: "dir", word: "HAAI", hint: "Grote roofvis in de zee, scherpe tanden"},
       {category: "dir",word: "MUIS",hint: "Klein knaagdier, houdt van kaas"},
       {category: "dir",word: "KRAAI",hint: "Zwarte vogel, vaak te zien bij afval"},
-      {category: "dir",word: "ZEBRA",hint: "Paardachtig animal met zwart-witte strepen"},
+      {category: "dir",word: "ZEBRA",hint: "Paardachtig dier met zwart-witte strepen"},
 
       // FRUIT
       {category: "fruit",word: "APPEL",hint: "Rond fruit, kan rood of groen zijn"},
@@ -142,7 +141,7 @@ window.onload = () => {
       {category: "fam",word: "PEETMOEDER",hint: "Vrouw die getuige is bij je doop"},
       {category: "fam",word: "ACHTERNEEF",hint: "De zoon van je neef of nicht"},
       {category: "fam",word: "ACHTERNICHT",hint: "De dochter van je neef of nicht"},
-      {category: "fam",word: "SCHOOONZOON",hint: "Man van je dochter"},
+      {category: "fam",word: "SCHOONZOON",hint: "Man van je dochter"},
       {category: "fam",word: "SCHOONDOCHTER",hint: "Vrouw van je zoon"},
       {category: "fam",word: "TWEELING",hint: "Twee kinderen geboren uit dezelfde zwangerschap"},
       {category: "fam",word: "PLEEGZUS",hint: "Meisje dat tijdelijk bij je gezin woont"},
@@ -202,7 +201,7 @@ window.onload = () => {
       {category: "won",word: "OPBERGZOLDER",hint: "Bovenste ruimte waar je spullen opslaat"},
       {category: "won",word: "BIJKEUKEN",hint: "Extra kamer voor wasmachine en voorraad"},
       {category: "won",word: "OPENHAARD",hint: "Plaats in huis waar je vuur kunt maken"},
-      {category: "won",word: "LAMPEL",hint: "Voorwerp dat licht geeft in huis"},
+      {category: "won",word: "LAMP",hint: "Voorwerp dat licht geeft in huis"},
       {category: "won",word: "SCHAAKTAFEL",hint: "Speciaal tafeltje voor het schaakspel"},
       {category: "won",word: "DREMPEL",hint: "Verhoging bij de overgang tussen kamers"},
       { category: "won", word: "RADIATOR", hint: "Verwarmingselement in huis" },
@@ -311,7 +310,7 @@ window.onload = () => {
         if (lives <= 0) {
           showVictory();
           _woordEl.innerHTML =
-            "<button onclick='location.reload()'>Game Over! Play Again</button>"; 
+            "<button onclick='location.reload()'>Game Over! Opnieuw Spelen</button>"; 
           [_hintEl, _inputEl, submitBtn, _newWordBtn, woordEl].forEach((el) =>
             el.classList.add("hidden"),
           );
@@ -321,7 +320,7 @@ window.onload = () => {
 
           // alert(`Game over! Je eindscore is ${score} punten. Goed gedaan!`);
           _woordEl.innerHTML =
-            "<button onclick='location.reload()'>Play Again</button>";
+            "<button onclick='location.reload()'>Opnieuw Spelen</button>";
           [_hintEl, _inputEl, submitBtn, _newWordBtn, woordEl].forEach((el) =>
             el.classList.add("hidden"),
           );

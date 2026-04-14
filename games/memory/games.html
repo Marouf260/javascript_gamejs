@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>memory</title>
   <link rel="stylesheet" href="/css/memory.css" />
+    <link rel="icon" type="image/x-icon" href="/icons/icon-72x72.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
@@ -19,20 +20,20 @@
       </h1>
       <div class="stats">
         <div class="stat">
-          <div class="stat-label">Moves</div>
+          <div class="stat-label">Zetten</div>
           <div class="stat-value" id="moves">0</div>
         </div>
         <div class="stat">
-          <div class="stat-label">Theme</div>
+          <div class="stat-label">Thema</div>
           <div class="stat-value" id="opType">space</div>
         </div>
         <div class="stat">
-          <div class="stat-label">Time</div>
+          <div class="stat-label">Tijd</div>
           <div class="stat-value" id="time">0:00</div>
         </div>
 
         <div class="stat">
-          <div class="stat-label">Matches</div>
+          <div class="stat-label">Paren</div>
           <div class="stat-value" id="matches">0/10</div>
         </div>
       </div>
@@ -41,20 +42,20 @@
     </div>
     <div class="controls">
       <button class="btn" onclick="newGame()">
-        <i class="fas fa-redo"></i> New Game
+        <i class="fas fa-redo"></i> Nieuw Spel
       </button>
     </div>
   </div>
   <div class="modal" id="winModal">
     <div class="modal-content">
       <h2>
-        <i class="fas fa-trophy"></i> You Win! <i class="fas fa-trophy"></i>
+        <i class="fas fa-trophy"></i> Gewonnen! <i class="fas fa-trophy"></i>
       </h2>
       <p>
-        Moves: <span id="finalMoves"></span><br />
-        Time: <span id="finalTime"></span>
+        Zetten: <span id="finalMoves"></span><br />
+        Tijd: <span id="finalTime"></span>
       </p>
-      <button class="btn" onclick="newGame() ,timerAudioEventListener()">Play Again</button>
+      <button class="btn" onclick="newGame() ,timerAudioEventListener()">Opnieuw Spelen</button>
     </div>
   </div>
 

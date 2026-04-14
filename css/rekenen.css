@@ -1,7 +1,7 @@
 /* De achtergrond van de hele pagina */
 body {
   background:
-    linear-gradient(135deg, #426eff 0%, #a0018b 40%, hsl(268, 89%, 7%) 80%, #0a0a1a 100%);
+    linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
   background-attachment: fixed;
   min-height: 100vh;
   font-family: 'Montserrat', 'Segoe UI', Roboto, Tahoma, Geneva, Verdana, sans-serif;
@@ -28,18 +28,19 @@ body {
   color: #34c9eb;
 }
 
-.btn-back{
-  color: #00ffc8 !important;
+.btn-back {
+  color: #38bdf8 !important;
   font-size: 1.05em !important;
   transition: all 0.3s ease;
-
-  &:hover{
+  
+  &:hover {
+    color: #fca5a5 !important;
     text-decoration: underline;
     text-underline-position: above;
-    text-decoration-color: #0066ff;
+    text-decoration-color: #fca5a5;
   }
-  &:active{
-    color: #00ffc8;
+  &:active {
+    color: #38bdf8 !important;
     text-decoration: none;
   }
 
@@ -64,13 +65,13 @@ body {
 } */
 /* De individuele kaarten */
 .levels_container {
-  background: linear-gradient(117deg, rgba(38, 70, 168, 0.29) 0%, rgba(44, 17, 125, 0.13) 90%);
+  background: linear-gradient(117deg, rgba(30, 58, 138, 0.3) 0%, rgba(76, 29, 149, 0.2) 90%);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
-  border: 1.5px solid rgba(52, 201, 235, 0.18);
+  border: 1.5px solid rgba(56, 189, 248, 0.25);
   padding: 32px 32px 28px 32px;
   border-radius: 32px;
-  box-shadow: 0 12px 36px rgba(34, 60, 120, 0.25), 0 1.5px 5px rgba(0, 0, 0, 0.085);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 1.5px 5px rgba(255, 255, 255, 0.05);
   transition: all 0.35s;
   cursor: pointer;
   display: flex;
@@ -79,10 +80,10 @@ body {
      gap: 100px;
 
   &:hover {
-    background: linear-gradient(117deg, rgba(52, 201, 235, 0.14) 0%, rgba(44, 17, 125, 0.18) 100%);
+    background: linear-gradient(117deg, rgba(56, 189, 248, 0.2) 0%, rgba(139, 92, 246, 0.25) 100%);
     transform: translateY(-14px) scale(1.04);
-    box-shadow: 0 22px 44px rgba(52, 201, 235, 0.13), 0 2px 9px rgba(0, 0, 0, 0.15);
-    border-color: #34c9eb;
+    box-shadow: 0 22px 44px rgba(56, 189, 248, 0.25), 0 2px 9px rgba(0, 0, 0, 0.3);
+    border-color: #a78bfa;
     transition:
       box-shadow 0.35s cubic-bezier(.61, .29, .29, .93),
       background 0.35s cubic-bezier(.61, .29, .29, .93),
@@ -92,8 +93,8 @@ body {
 
   &:active {
     transform: scale(1.01);
-    box-shadow: 0 22px 44px rgba(0, 163, 200, 0.506), 0 2px 9px rgb(195, 0, 0);
-    background: linear-gradient(117deg, rgba(46, 213, 115, 0.12) 0%, rgba(44, 115, 210, 0.16) 100%);
+    box-shadow: 0 22px 44px rgba(56, 189, 248, 0.4), 0 2px 9px rgba(239, 68, 68, 0.8);
+    background: linear-gradient(117deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.2) 100%);
 
 
   }

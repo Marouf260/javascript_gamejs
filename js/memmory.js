@@ -29,6 +29,7 @@ const opSymbols = {
   auto: "auto",
   dieren: "dieren",
 };
+
 let images = [];
 
 if (opEl) opEl.innerText = opSymbols[opType];
@@ -106,7 +107,7 @@ var moves = 0;
 var seconds = 0;
 var timerRunning = false;
 var timerInterval;
-var gameStartTime = null; // For more accurate timing
+var gameStartTime = null;
 
 // Start the game
 function startGame() {
@@ -121,6 +122,7 @@ function startGame() {
     return Math.random() - 0.5;
   });
 
+  
   // Create card elements
   for (var i = 0; i < cardImages.length; i++) {
     let card = document.createElement("div");

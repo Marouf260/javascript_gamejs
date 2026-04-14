@@ -48,13 +48,12 @@ window.onload = () => {
   };
   if (opEl) opEl.innerText = opSymbols[opType];
 
-
   // vraag genereren op basis van opType en levelNum
   function generateQuestion() {
     let n1, n2;
     const range = levelNum * 10;
     const rangeskeer = levelNum * 50;
-    const ranges = levelNum * 100;
+    const ranges = levelNum * 20;
 
     switch (opType) {
       // plus
@@ -234,7 +233,7 @@ window.onload = () => {
       } else {
         victoryModal.innerHTML = `
         <div class="modal-content">
-            <h2>Helaas je hebt weinig gescoort ${score}  punten in ${maxQuestions} vragen!</h2>  
+            <h2>Helaas, je hebt weinig gescoord: ${score} punten in ${maxQuestions} vragen!</h2>  
                       <p id="final-stats">Je hebt alle vragen beantwoord!</p>
             <div class="modal-actions">
                 <button onclick="location.reload()">Opnieuw Spelen</button>
@@ -249,7 +248,7 @@ window.onload = () => {
       finishAudio.currentTime = 0;
       finishAudio.play();
       document.querySelector(".question-area").innerHTML =
-        `<button onclick="location.reload()">Play Again</button>`;
+        `<button onclick="location.reload()">Opnieuw Spelen</button>`;
       updateHighscoreDisplay();
     }
   }
@@ -301,6 +300,9 @@ window.onload = () => {
         if (document.querySelector("#lives")) {
           document.querySelector("#lives").innerText = lives;
         }
+          lose.currentTime = 0;
+          lose.play();
+          showFeedback(`Tijd is om! Het juiste antwoord was ${answer}`, "error");
         questionCount++;
         updateProgress();
         if (questionCount > maxQuestions || lives <= 0) {
