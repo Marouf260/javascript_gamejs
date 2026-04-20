@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
+<body onload="homeBackgroundAudio()">
   <div class="stars-fixed"></div>
   <header>
     <div class="container">
@@ -26,7 +26,7 @@
         <a href="games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
         <a href="games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
         <a href="games/memory/index.html" onclick="navClickEventListener();">Memory</a>
-        <a href="uitleg.html">Uitleg</a>
+        <a href="uitleg.html" onclick="navClickEventListener();">Uitleg</a>
       </nav>
       <label for="menu" class="mobile-nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -36,7 +36,7 @@
         <a href="games/rekenen/index.html" onclick="navClickEventListener();">Rekenen</a>
         <a href="games/woorden/index.html" onclick="navClickEventListener();">Woorden</a>
         <a href="games/memory/index.html" onclick="navClickEventListener();">Memory</a>
-        <a href="uitleg.html">Uitleg</a>
+        <a href="uitleg.html" onclick="navClickEventListener();">Uitleg</a>
       </div>
     </div>
   </header>
@@ -84,6 +84,8 @@
         </div>
       </div>
     </div>
+
+
   </main>
 
   <footer class="footer">

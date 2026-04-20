@@ -14,6 +14,8 @@ levelBoxes.forEach((box) => {
   box.addEventListener("click", function () {
     clickAudio.currentTime = 0;
     clickAudio.play();
+    clickAudio.volume = 0.3;
+
     const link = box.querySelector("a");
     if (link && link.getAttribute("href")) {
       window.location.href = link.getAttribute("href");
@@ -49,7 +51,7 @@ switch (opType) {
       "../../assets/memory fotos/card9.png",
       "../../assets/memory fotos/card10.png",
     ];
-    document.body.style.backgroundImage = "url('/assets/backgrounds/space_background.jpg')";
+    document.body.style.backgroundImage = "url('../../assets/backgrounds/space_background.jpg')";
     break;
   // auto categorie
   case "auto":
@@ -65,7 +67,7 @@ switch (opType) {
       "../../assets/memory fotos/autos/auto9.png",
       "../../assets/memory fotos/autos/auto10.png",
     ];
-    document.body.style.backgroundImage = "url('/assets/backgrounds/auto_background.jpg')";
+    document.body.style.backgroundImage = "url('../../assets/backgrounds/auto_background.jpg')";
     break;
   // dieren categorie
   case "dieren":
@@ -81,7 +83,7 @@ switch (opType) {
       "../../assets/memory fotos/dieren/dier9.png",
       "../../assets/memory fotos/dieren/dier10.png",
     ];
-    document.body.style.backgroundImage = "url('/assets/backgrounds/dieren_background.jpg')";
+    document.body.style.backgroundImage = "url('../../assets/backgrounds/dieren_background.jpg')";
     break;
   // hardware categorie
   case "hardware":
@@ -97,7 +99,7 @@ switch (opType) {
       "../../assets/memory fotos/hardware/hardware9.png",
       "../../assets/memory fotos/hardware/hardware10.png",
     ];
-    document.body.style.backgroundImage = "url('/assets/backgrounds/hardware_background.jpg')";
+    document.body.style.backgroundImage = "url('../../assets/backgrounds/hardware_background.jpg')";
     break;
 }
 
@@ -165,6 +167,7 @@ function flipCard() {
   if (this.classList.contains("matched")) return;
 
   clickAudio.currentTime = 0;
+  clickAudio.volume = 0.1;
   clickAudio.play();
 
   if (!timerRunning) {
@@ -194,6 +197,7 @@ function checkMatch() {
       secondCard.classList.add("matched");
       win.currentTime = 0;
       win.play();
+      win.volume = 0.1;
       matches++;
       updateStats();
       resetCards();

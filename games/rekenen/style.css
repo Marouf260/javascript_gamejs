@@ -72,7 +72,45 @@ body.game-page::before {
   align-items: center;
   gap: 8px;
 }
+.tafel-kiezen-modal {
+background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+  padding: 60px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9);
+  
+}
+.tafel-kiezen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  
+  text-align: center;
+  margin: auto;
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  place-items: center;
+}
+.tafel-kiezen-modal input{
+  background-color: #030712;
+  color: #ffffff;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 15px;
 
+  &:hover{
+    background-color: #030712;
+  }
+  &:focus{
+    background-color: #020617;
+  }
+
+}
 .back-btn:hover {
   color: #38bdf8;
   transform: translateX(-5px);

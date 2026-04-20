@@ -34,7 +34,7 @@ window.onload = () => {
   const finalStats = document.querySelector("#final-stats");
   const highscoreEl = document.querySelector("#highscore");
   const remove_Highscore = document.querySelector("#remove_Highscore");
-  const  timerEl = document.querySelector("#timer");
+  const timerEl = document.querySelector("#timer");
 
   // opType symbolen
   const opSymbols = {
@@ -103,9 +103,22 @@ window.onload = () => {
       // tafel
       case "tafel":
         if (!window.selectedTafel) {
-          let userInput = prompt("Welke tafel wil je oefenen? (1 t/m 10)");
-          window.selectedTafel = parseInt(userInput) || 1;
+          const tafelKiezer = document.querySelector(".tafel-kiezen");
+          if (tafelKiezer) tafelKiezer.classList.add("show");
+          return; // Stop met genereren tot gekozen is
         }
+          
+        
+          
+      
+
+        // if (!window.selectedTafel) {
+
+        //   let userInput = inputNum.value;
+       
+
+        //   window.selectedTafel = parseInt(userInput) || 1;
+        // }
         if (!window.getallenLijst || window.getallenLijst.length === 0) {
           window.getallenLijst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -122,9 +135,9 @@ window.onload = () => {
         n1 = window.selectedTafel;
         answer = n1 * n2;
         break;
-      
+
     }
- 
+
     // Timer resetten bij elke nieuwe vraag
     timer = 30;
     if (timerEl) {
@@ -175,7 +188,7 @@ window.onload = () => {
       setTimeout(generateQuestion, 1000);
     }
   }
-  
+
   // feedback
   function showFeedback(msg, type) {
     if (!feedbackEl) return;
@@ -183,17 +196,17 @@ window.onload = () => {
     feedbackEl.className = `feedback-msg ${type}`;
     setTimeout(() => (feedbackEl.innerText = ""), 1000);
   }
-  
+
   // voortgang bijwerken
   function updateProgress() {
     if (countEl) countEl.innerText = Math.min(questionCount, maxQuestions);
     if (progBar) {
       const percent = ((questionCount - 1) / maxQuestions) * 100;
       progBar.style.width = `${percent}%`;
-      
+
     }
   }
-  
+
   // highscore bijwerken
   function updateHighscoreDisplay() {
     const score = parseInt(localStorage.getItem("highscore_rekenen")) || 0;
@@ -258,60 +271,80 @@ window.onload = () => {
     submitBtn.addEventListener("click", checkAnswer);
   }
 
+  // Tafel kiezer listener (buiten generateQuestion om leaks te voorkomen)
+  const tafelBtn = document.querySelector("#tafel-btn");
+  const inputNum = document.querySelector(".tafel-kiezen input");
+  if (tafelBtn && inputNum) {
+    tafelBtn.addEventListener("click", () => {
+      let userInput = inputNum.value;
+      if (isNaN(userInput) || userInput < 1 || userInput > 100) {
+        userInput = 1;
+      }
+      window.selectedTafel = parseInt(userInput);
+      document.querySelector(".tafel-kiezen").classList.remove("show");
+      generateQuestion();
+    });
+
+    // Enter toets voor tafel selectie
+    inputNum.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") tafelBtn.click();
+    });
+  }
+
   // enter toets
   if (inputEl) {
     inputEl.addEventListener("keypress", (e) => {
       if (e.key === "Enter") checkAnswer();
     });
   }
-  
+
   // highscore verwijderen
   if (remove_Highscore) {
     remove_Highscore.addEventListener("click", () => {
       if (score != null) {
-        localStorage.clear();
+        localStorage.removeItem("highscore_rekenen");
         location.reload();
       }
     });
   }
-  
+
   // timer
-    timerInterval = setInterval(() => {
-      if (isProcessing) return;
+  timerInterval = setInterval(() => {
+    if (isProcessing) return;
 
-      timer--;
-      if (timer < 0) timer = 0;
+    timer--;
+    if (timer < 0) timer = 0;
 
-      if (timerEl) timerEl.innerText = timer;
+    if (timerEl) timerEl.innerText = timer;
 
-      if (timer === 10) {
-        showFeedback("Nog 10 seconden!", "warning");
-        if (timerEl) timerEl.classList.add("timer");
-        timerAudio.currentTime = 0;
-        timerAudio.play();
+    if (timer === 10) {
+      showFeedback("Nog 10 seconden!", "warning");
+      if (timerEl) timerEl.classList.add("timer");
+      timerAudio.currentTime = 0;
+      timerAudio.play();
+    }
+    if (timer === 0) {
+      timerAudio.pause();
+      timerAudio.currentTime = 0;
+    }
+
+    if (timer <= 0) {
+      lives--;
+      if (document.querySelector("#lives")) {
+        document.querySelector("#lives").innerText = lives;
       }
-      if (timer === 0) {
-        timerAudio.pause();
-        timerAudio.currentTime = 0;
+      lose.currentTime = 0;
+      lose.play();
+      showFeedback(`Tijd is om! Het juiste antwoord was ${answer}`, "error");
+      questionCount++;
+      updateProgress();
+      if (questionCount > maxQuestions || lives <= 0) {
+        finishGame();
+      } else {
+        generateQuestion();
       }
-
-      if (timer <= 0) {
-        lives--;
-        if (document.querySelector("#lives")) {
-          document.querySelector("#lives").innerText = lives;
-        }
-          lose.currentTime = 0;
-          lose.play();
-          showFeedback(`Tijd is om! Het juiste antwoord was ${answer}`, "error");
-        questionCount++;
-        updateProgress();
-        if (questionCount > maxQuestions || lives <= 0) {
-          finishGame();
-        } else {
-          generateQuestion();
-        }
-      }
-    }, 1000);
+    }
+  }, 1000);
 
   generateQuestion();
 };

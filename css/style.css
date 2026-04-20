@@ -532,19 +532,7 @@ body::before {
     0 0 50px black;
 }
 
-.footer {
-  position: static;
-  width: 100%;
-  background-color: #0b1020;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 100px;
-  box-shadow: 0 -2px 12px rgba(11, 16, 32, 0.2);
-}
 
-.footer strong {
-  color: #6C63FF;
-}
 
 /* ============ HERO SECTIE ============ */
 .hero {
@@ -631,4 +619,41 @@ body::before {
   font-weight: 400;
   font-size: 2rem;
   letter-spacing: 0.5px;
+}
+
+.footer {
+  position: static;
+  width: 100%;
+  background-color: #27272760;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 12px rgba(11, 16, 32, 0.2);
+  color: #f8fafc ;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  padding: 20px 0;
+  margin-top: 100px;
+}
+
+.footer strong {
+  color: #6C63FF;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.4);  
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: #00eaff;
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+    transform: scale(1.05);
+
+  }
+
 }
