@@ -14,11 +14,11 @@ window.onload = () => {
   const maxQuestions = 10;
 
   // Audio bestanden
-  const win = new Audio("/assets/audio/win.wav");
-  const lose = new Audio("/assets/audio/wrong.wav");
-  const lastResultAudio = new Audio("/assets/audio/winnen.wav");
-  const timerAudio = new Audio("/assets/audio/timer.wav");
-  const finishAudio = new Audio("/assets/audio/finish_lose.wav");
+  const win = new Audio("../../assets/audio/win.wav");
+  const lose = new Audio("../../assets/audio/wrong.wav");
+  const lastResultAudio = new Audio("../../assets/audio/winnen.wav");
+  const timerAudio = new Audio("../../assets/audio/timer.wav");
+  const finishAudio = new Audio("../../assets/audio/finish_lose.wav");
 
   // Elementen
   const num1El = document.querySelector("#num1");
@@ -196,7 +196,7 @@ window.onload = () => {
   
   // highscore bijwerken
   function updateHighscoreDisplay() {
-    const score = parseInt(localStorage.getItem("highscore")) || 0;
+    const score = parseInt(localStorage.getItem("highscore_rekenen")) || 0;
     if (highscoreEl) {
       highscoreEl.innerText = score;
     }
@@ -210,9 +210,9 @@ window.onload = () => {
       clearInterval(timerInterval);
       timerInterval = null;
     }
-    const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
+    const prevHighscore = parseInt(localStorage.getItem("highscore_rekenen")) || 0;
     if (score > prevHighscore) {
-      localStorage.setItem("highscore", score);
+      localStorage.setItem("highscore_rekenen", score);
     }
 
     if (victoryModal) {

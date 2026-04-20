@@ -27,8 +27,8 @@ window.onload = () => {
   const RemoveBtn = document.querySelector("#remove-highscore");
 
   // audio bestanden
-  const winAudio = new Audio("/assets/audio/win.wav");
-  const wrongAudio = new Audio("/assets/audio/lose.wav");
+  const winAudio = new Audio("../../assets/audio/win.wav");
+  const wrongAudio = new Audio("../../assets/audio/lose.wav");
   
   // categorieën
   const opSymbols = {
@@ -255,17 +255,17 @@ window.onload = () => {
 
   // highscore bijwerken
   function updateHighscoreDisplay() {
-    const storedHighscore = localStorage.getItem("highscore");
-    const highscore = storedHighscore ? parseInt(storedHighscore) : 0;
+    const storedHighscore = localStorage.getItem("highscore_woorden") || 0;
+    const highscore = parseInt(storedHighscore) || 0;
     if (highscoreEl) highscoreEl.innerText = highscore;
   } 
     updateHighscoreDisplay();
 
   // victory modal
   function showVictory() {
-   const prevHighscore = parseInt(localStorage.getItem("highscore")) || 0;
+   const prevHighscore = parseInt(localStorage.getItem("highscore_woorden")) || 0;
         if (score > prevHighscore) {
-          localStorage.setItem("highscore", score);
+          localStorage.setItem("highscore_woorden", score);
         }
     if (victoryModal) {
       victoryModal.style.display = "flex";

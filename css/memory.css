@@ -5,8 +5,12 @@
 }
 
 body {
+  /* background: url(); */
+  background-size: cover;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
   font-family: 'Montserrat', 'Arial', sans-serif;
-  background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%);
+  /* background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%); */
   padding: 20px;
   min-height: 100vh;
 }
@@ -54,8 +58,10 @@ h1 {
 }
 
 .btn-back {
-  align-self: flex-start; /* Zorgt dat het links staat in de gecentreerde flex container */
-  margin-bottom: 15px; /* Ruimte onder de knop */
+  align-self: flex-start;
+  /* Zorgt dat het links staat in de gecentreerde flex container */
+  margin-bottom: 15px;
+  /* Ruimte onder de knop */
   display: inline-block;
   padding: 10px 20px;
   background-color: #3E3B5A;
@@ -87,7 +93,14 @@ h1 {
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  background: #ffffff49;
+  border-radius: 25px;
+  box-shadow: 0 8px 0 #1a0923;
+  border: 3px solid #3E3B5A;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  padding: 20px 50px;
+  grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   margin-bottom: 25px;
 }
@@ -233,7 +246,7 @@ h1 {
 
 @media (max-width: 768px) {
   .game-board {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   h1 {
@@ -244,7 +257,7 @@ h1 {
 
 @media (max-width: 480px) {
   .game-board {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
 
