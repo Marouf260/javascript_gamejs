@@ -11,7 +11,7 @@ body {
   
   margin: 0;
   padding: 20px;
-  animation: gradientShift 16s ease infinite;
+  animation: gradientShift 20s ease infinite;
 
 }
 body::after {
@@ -20,7 +20,7 @@ body::after {
   top: 0; left: 0; right: 0; bottom: 0;
   
   /* Een semi-transparante gradient (met rgba) */
-  background: linear-gradient(-45deg, rgba(238, 118, 82, 0.144), rgba(231, 60, 126, 0.178), rgba(35, 165, 213, 0.096), rgba(35, 213, 171, 0.3));
+  background: linear-gradient(-45deg, rgba(238, 118, 82, 0.266), rgba(231, 60, 126, 0.282), rgba(35, 165, 213, 0.249), rgba(35, 213, 171, 0.224));
   background-size: 400% 400%;
   
   /* De animatie toepassen op de overlay */
@@ -35,6 +35,7 @@ body::after {
 @keyframes gradientShift {
   0% {
     background-position: 0% 100%;
+    
 
 
   }
@@ -47,12 +48,12 @@ body::after {
     background-position: 0% 100%;
   }
 }
-@keyframes stars {
+/* @keyframes stars {
 0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
   34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
   67% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 40%; }
   100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
-}
+} */
 
 .game-header {
   margin-bottom: 30px;

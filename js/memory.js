@@ -144,6 +144,7 @@ function startGame() {
     card.dataset.image = cardImages[i];
     gameBoard.appendChild(card);
   }
+  updateStats();
 }
 
 // Reset variables
@@ -240,16 +241,28 @@ function updateStats() {
   const movesEl = document.getElementById("moves");
   const matchesEl = document.getElementById("matches");
   const timeEl = document.getElementById("time");
+  const bestTimeEl = document.getElementById("bestTime");
 
   if (movesEl) movesEl.textContent = moves;
   if (matchesEl) matchesEl.textContent = `${matches}/10`;
 
   if (timeEl) {
-    const mins = Math.floor(seconds / 60);
-    let secs = seconds % 60;
-    if (secs < 10) secs = "0" + secs;
-    timeEl.textContent = `${mins}:${secs}`;
+    timeEl.textContent = formatTime(seconds);
   }
+
+  // Highscore tonen
+  if (bestTimeEl) {
+    const bestTime = localStorage.getItem(`memory_best_${opType}`);
+    bestTimeEl.textContent = bestTime ? formatTime(parseInt(bestTime)) : "--:--";
+  }
+}
+
+// Hulpmiddel om tijd te formatteren
+function formatTime(totalSeconds) {
+  const mins = Math.floor(totalSeconds / 60);
+  let secs = totalSeconds % 60;
+  if (secs < 10) secs = "0" + secs;
+  return `${mins}:${secs}`;
 }
 
 // game eindigen
@@ -261,12 +274,29 @@ function endGame() {
   }
   updateStats();
 
+  // Highscore logica
+  const bestTimeKey = `memory_best_${opType}`;
+  const savedBest = localStorage.getItem(bestTimeKey);
+  let isNewRecord = false;
+
+  if (!savedBest || seconds < parseInt(savedBest)) {
+    localStorage.setItem(bestTimeKey, seconds);
+    isNewRecord = true;
+  }
+
   const finalMovesEl = document.getElementById("finalMoves");
   const finalTimeEl = document.getElementById("finalTime");
+  const finalBestEl = document.getElementById("finalBest");
   const winModalEl = document.getElementById("winModal");
 
   if (finalMovesEl) finalMovesEl.textContent = moves;
-  if (finalTimeEl) finalTimeEl.textContent = document.getElementById("time")?.textContent || "0:00";
+  if (finalTimeEl) finalTimeEl.textContent = formatTime(seconds);
+  
+  if (finalBestEl) {
+    const bestToShow = isNewRecord ? seconds : parseInt(savedBest);
+    finalBestEl.textContent = formatTime(bestToShow) + (isNewRecord ? " (Nieuw Record! 🏆)" : "");
+  }
+  
   if (winModalEl) winModalEl.classList.add("show");
 }
 

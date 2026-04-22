@@ -33,6 +33,11 @@
         </div>
 
         <div class="stat">
+          <div class="stat-label">Beste</div>
+          <div class="stat-value" id="bestTime">--:--</div>
+        </div>
+
+        <div class="stat">
           <div class="stat-label">Paren</div>
           <div class="stat-value" id="matches">0/10</div>
         </div>
@@ -53,14 +58,15 @@
       </h2>
       <p>
         Zetten: <span id="finalMoves"></span><br />
-        Tijd: <span id="finalTime"></span>
+        Tijd: <span id="finalTime"></span><br />
+        Beste Tijd: <span id="finalBest"></span>
       </p>
       <button class="btn" onclick="newGame() ,timerAudioEventListener()">Opnieuw Spelen</button>
     </div>
   </div>
 
-  <script src="../../js/memory.js"></script>
   <script src="../../js/script.js"></script>
+  <script src="../../js/memory.js"></script>
 </body>
 
 </html>

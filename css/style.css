@@ -6,7 +6,10 @@ body {
   overflow-y: auto;
   font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #f8fafc;
-  background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%);
+  /* background: radial-gradient(circle at center, #1b032c 0%, #0a0a1a 100%); */
+  /* background: #323541; */
+  background: linear-gradient(-45deg,#000, rgb(160, 68, 40), rgb(160, 31, 80), rgb(17, 97, 126), rgb(12, 108, 86) , #000);
+
   background-attachment: fixed;
   position: relative;
 }
@@ -45,7 +48,7 @@ body::before {
     12vw 82vh #fff, 22vw 22vh #fff, 32vw 52vh #fff, 62vw 42vh #fff,
     72vw 72vh #fff, 82vw 32vh #fff, 92vw 62vh #fff, 52vw 12vh #fff;
   filter: drop-shadow(0 0 5px white);
-  animation: float-stars 60s linear infinite;
+  animation: float-stars 15s linear infinite;
   z-index: 0;
   pointer-events: none;
 }
@@ -53,10 +56,21 @@ body::before {
 @keyframes float-stars {
   from {
     transform: translateY(0);
+    height: 0%;
   }
 
   to {
     transform: translateY(-100vh);
+    box-shadow:  10vw 80vh rgba(255, 0, 0, 0.5), 20vw 20vh rgba(255, 0, 0, 0.4),
+    30vw 50vh rgba(255, 162, 0, 0.6), 40vw 90vh rgba(255, 0, 0, 0.6),
+    50vw 10vh rgba(255, 162, 0, 0.6), 60vw 40vh rgba(255, 0, 0, 0.4),
+    70vw 70vh rgba(255, 162, 0, 0.6), 80vw 30vh rgba(255, 162, 0, 0.6),
+    90vw 60vh rgba(255, 162, 0, 0.6), 15vw 15vh rgba(255, 162, 0, 0.6),
+    85vw 85vh rgba(255, 162, 0, 0.6), 45vw 45vh rgba(255, 162, 0, 0.6),
+    12vw 82vh rgba(255, 162, 0, 0.6), 22vw 22vh rgba(255, 162, 0, 0.6), 32vw 52vh rgba(255, 162, 0, 0.6), 62vw 42vh rgba(255, 162, 0, 0.6),
+    72vw 72vh rgba(255, 162, 0, 0.6), 82vw 32vh rgba(255, 162, 0, 0.6), 92vw 62vh rgba(255, 162, 0, 0.6), 52vw 12vh rgba(255, 162, 0, 0.6);
+  filter: drop-shadow(0 0 5px rgb(255, 17, 17)); 
+    height: 20%;
   }
 }
 
@@ -630,7 +644,7 @@ body::before {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 12px rgba(11, 16, 32, 0.2);
-  color: #f8fafc ;
+  color: #f8fafc;
   text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
@@ -645,7 +659,7 @@ body::before {
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(108, 99, 255, 0.4);  
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.4);
   transition: all 0.2s ease;
   cursor: pointer;
 
@@ -656,4 +670,49 @@ body::before {
 
   }
 
+}
+
+/* mobile first */
+@media (max-width: 600px) {
+  .game-card {
+    margin-top: 100px;
+    height: 300px;
+    padding: 1rem;
+  }
+
+  .game-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .game-card p {
+    font-size: 0.9rem;
+  }
+
+  .play-btn,
+  .tutorial-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+  }
+
+  .footer {
+    font-size: 1rem;
+    padding: 15px 0;
+  }
+
+  .footer strong {
+    font-size: 0.9rem;
+  }
 }

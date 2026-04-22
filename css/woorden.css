@@ -182,6 +182,17 @@ hr {
   margin: 20px auto;
 }
 
+.hint-btn {
+  background: linear-gradient(90deg, #11ce00 20%, #0a8a00 100%) !important;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.hint-btn:hover {
+  background: linear-gradient(90deg, #15ff00 0%, #11ce00 100%) !important;
+  box-shadow: 0 0 15px rgba(17, 206, 0, 0.4) !important;
+}
+
 .scrambled {
   position: relative;
   background: linear-gradient(90deg,

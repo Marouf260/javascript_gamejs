@@ -7,6 +7,7 @@ window.onload = () => {
   let lives = 3;
   let score = 0;
   let questionCount = 1;
+  let isProcessing = false;
   const maxQuestions = 10;
 
   // elementen
@@ -14,6 +15,7 @@ window.onload = () => {
   const _woordEl = document.querySelector("#scrambled-word");
   const _opEl = document.querySelector("#opEl");
   const _hintEl = document.querySelector("#hint");
+  const _hintBtn = document.querySelector("#hint-btn");
   const _scoreEl = document.querySelector("#score");
   const _feedbackEl = document.querySelector("#feedback");
   const submitBtn = document.querySelector("#check-btn");
@@ -238,7 +240,12 @@ window.onload = () => {
 
     words.pop();
 
+    // Hint verbergen bij nieuw woord
+    if (_hintEl) _hintEl.classList.add("hidden");
+    if (_hintBtn) _hintBtn.classList.remove("hidden");
+
     updateProgress();
+    isProcessing = false;
   }
 
   // feedback
@@ -289,7 +296,12 @@ window.onload = () => {
   // submit knop
   if (submitBtn) {
     submitBtn.onclick = () => {
+      if (isProcessing) return;
+      
       const userGuess = _inputEl.value.toUpperCase().trim();
+      if (!userGuess) return;
+
+      isProcessing = true;
 
       if (userGuess === answer) {
         score += 10;
@@ -351,9 +363,19 @@ window.onload = () => {
     });
   }
 
+  // hint knop
+  if (_hintBtn) {
+    _hintBtn.onclick = () => {
+      if (_hintEl) _hintEl.classList.remove("hidden");
+      if (_hintBtn) _hintBtn.classList.add("hidden");
+    };
+  }
+
   // new word knop
   if (_newWordBtn) {
     _newWordBtn.onclick = () => {
+      if (isProcessing) return;
+      isProcessing = true;
       questionCount++;
       if (questionCount <= maxQuestions) {
         generatewoord();
@@ -362,6 +384,7 @@ window.onload = () => {
       }
     };
   }
-  generatewoord();
+
+generatewoord();
 
 };
